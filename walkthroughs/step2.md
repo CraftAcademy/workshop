@@ -54,7 +54,7 @@ end
 Our first goal is to make the first step in the first scenario to pass. That is a challenge in itself, trust me!
 
 First, remove the `pending... in
-```
+```ruby
 Given(/^I am on the home page$/) do
 
 end
@@ -69,7 +69,7 @@ Anyway, we want to tell this specific step definition to go to the homepage of t
 
 So we simply tell Cucumber to `visit '/'` or `visit root_path`
 
-```
+```ruby
 Given(/^I am on the home page$/) do
   visit '/'
 end
@@ -81,7 +81,7 @@ Now, the errors you see are different then before and that is a good sign. It me
 
 Your terminal output should look something like this:
 
-```
+```ruby
 cucumber
 Feature: As a course administrator,
   In order to be able to issue certificates,
