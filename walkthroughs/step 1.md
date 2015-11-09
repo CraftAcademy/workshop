@@ -40,9 +40,9 @@ The output you will see should look something like this:
 0m0.000s
 ```
 
-Alright, we have installed and initiated the fist testing framework. Big step.
+Alright, we have installed and initiated the first testing framework. Big step.
 
-Now let's write out rifst of many tests.
+Now let's write out first of many tests.
 
 In the newly created `features` folder, please create a `course_create.feature` by returning to your terminal window and  typing in:
 ```
@@ -64,13 +64,13 @@ Now we will add two basic scenarios to this Feature.
 ````
 Scenario: List courses
   Given I am on the home page
-  And I am logged in as an administrator
+  And I am logged in as a administrator
   And I click "All courses" link
   Then I should see "You have not created any courses"
 
 Scenario: Create a course
   Given I am on the home page
-  And I am logged in as an administrator
+  And I am logged in as a administrator
   And I click "All courses" link
   And I click 'Create course" link
   And I fill in "Title" with "Basic programming"
@@ -154,7 +154,7 @@ Then(/^I should be on the Course index page$/) do
 end
 ```
 
-This is perfectly normal, and means that we need to start doing some serious programming in order to actually implements the tests and eventually make them pass.
+This is perfectly normal, and means that we need to start doing some serious programming in order to actually implement the tests and eventually make them pass.
 
 
 
