@@ -46,7 +46,7 @@ Now let's write out first of many tests.
 
 In the newly created `features` folder, please create a `course_create.feature` by returning to your terminal window and  typing in:
 ```
-touch features/course_create.feature`
+touch features/course_create.feature
 ```
 
 Open that file and add the following code:
