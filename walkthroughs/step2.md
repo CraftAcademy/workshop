@@ -170,6 +170,10 @@ end
 
 Let's run `cucumber` again. New errors (again, that in itself is a step forward!)
 
+```
+Unable to load URL: file:/// because of error loading file:///: Unknown error (Capybara::Webkit::InvalidResponseError)
+```
+
 
 
 
