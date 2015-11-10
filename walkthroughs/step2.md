@@ -146,7 +146,7 @@ The first thing we want to add to this file is where we want to look for sources
 source "https://rubygems.org"
 ```
 
-the nex thing we need to do is to add information about which gems we want to use.
+The next thing we need to do is to add information about which gems we want to use.
 We are already using `cucumber` and now we want to start using `capybara`, right? So we add the following to our `Gemfile`:
 
 ```ruby
