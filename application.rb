@@ -1,6 +1,8 @@
 require 'sinatra/base'
 
 class WorkshopApp < Sinatra::Base
+  set :admin_logged_in, false
+
   get '/' do
     'Hello WorkshopApp!'
   end
