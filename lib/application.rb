@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/contrib/all'
 
 class WorkshopApp < Sinatra::Base
+  register Sinatra::Contrib
   set :admin_logged_in, false
 
   get '/' do
-    'Hello WorkshopApp!'
+    erb :index
   end
 
   # start the server if ruby file executed directly
