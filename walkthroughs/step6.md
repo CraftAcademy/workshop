@@ -85,7 +85,8 @@ Finished in 0.00023 seconds (files took 0.5029 seconds to load)
 
 We are not quite done yet. Sorry.
 
-I want you to open the `pec/spec_helper.rb` file. Youll se a lot of lines. Most of them are not needed so I would like you to delete all lines that begin with the `#`sign. These are comments and we don't need them.
+I want you to open the `spec/spec_helper.rb` file. You'll se a lot of lines. Most of them are not needed so I would like you to delete all lines that begin with the `#`sign.
+These are comments and we don't need them - for now, they are just a distraction. .
 
 When you are done you should see something like this:
 
@@ -104,7 +105,7 @@ end
 
 Not so bad, ey?
 
-Alright, we need to add some of the libraries/gems we want to use to `spec_helper`. Modify your file to include:
+Alright, we need to add some of the libraries/gems we want to use in our `spec_helper`. Modify your file to include:
 
 ```ruby
 require File.join(File.dirname(__FILE__), '..', 'lib/application.rb')
@@ -130,7 +131,7 @@ Finished in 0.00032 seconds (files took 0.72891 seconds to load)
 0 examples, 0 failures
 ```
 
-Okay, this means that you have successfully added set up RSpec as a testing framework and
+Okay, this means that you have successfully added and set up RSpec as a testing framework. The next step will be to start writing some tests for our `Course` class.
 
 
 
