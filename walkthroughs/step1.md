@@ -9,10 +9,19 @@ that you will use when we start to actually build the app.
 First we need to install a testing tool. We will be using a number of tools in this project but at this point we will introduce you to `Cucumber`.
 It is not installed on your system so we need to do that as a first step.
 
-In your terminal (once you have cd'ed into the project folder), type in:
+Open your terminal and let's setup the project folder:
 
 ```
-gem install cucumber
+mkdir workshop
+cd workshop
+echo "source 'https://rubygems.org'" > Gemfile
+echo "gem 'cucumber'" >> Gemfile
+```
+
+Now run the following command..
+
+```
+bundle install
 ```
 
 ..and watch the system install it together with some other libraries it depends on in order to be able to run,
@@ -63,7 +72,7 @@ This is added mainly for your and your fellow project members reference and tell
 
 Now we will add two basic scenarios to this Feature.
 
-````
+```
 Scenario: List courses
   Given I am on the home page
   And I am logged in as an administrator
@@ -74,7 +83,7 @@ Scenario: Create a course
   Given I am on the home page
   And I am logged in as an administrator
   And I click "All courses" link
-  And I click 'Create course" link
+  And I click "Create course" link
   And I fill in "Title" with "Basic programming"
   And I fill in "Description" with "Your first step into the world of programming"
   And I click "Create"
