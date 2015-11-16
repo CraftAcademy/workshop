@@ -29,7 +29,27 @@ gem 'dm-rspec'
 ```
 to that group. The 'dm-rspec' gem extends RSpec with a set of matchers for DataMapper objects that will make our testing much easier.
 
-Also, I would like you to move all gems that we use for testing purposes to the `:development, :test group.
+Also, I would like you to move all gems that we use for testing purposes to the `:development, :test` group.
+
+Your `Gemfile` should look something like this:
+
+```ruby
+source 'https://rubygems.org'
+
+gem 'cucumber'
+  gem 'sinatra'
+  gem 'padrino'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'pg'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'dm-rspec'
+end
+```
 
 Don't forget to do `bundle install` once you have made all tha changes.
 
