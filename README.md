@@ -25,14 +25,14 @@ participants name on the certificate
 ```
 As a course administrator,
 In order to be able to issue certificates to participants,
-I want to be able import a list of participants with they final grades
+I want to be able import a list of participants with their final grades
 
 ```
 
 ```
 As a course administrator,
 In order to be able to issue certificates to participants,
-I want to be able filter participant by their final grades
+I want to be able filter participants by their final grades
 and generate certificates by predefined conditions.
 
 ```

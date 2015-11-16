@@ -3,16 +3,27 @@ Let's start with writing some high level acceptance tests.
 We don't have an application yet. And we don't need one at this stage. ;-)
 What we want to do at this stage is to get the user stories we have defined and take a look at them from a users perspective
 and what an actual implementation of features would look like. I short, we want to take each user story and break it down to
-scenarios that each represents a use case in tha application. Sounds confusing? It is, but look at it as a form of a blue print
+scenarios that each represents a use case in the application. Sounds confusing? It is, but look at it as a form of a blue print
 that you will use when we start to actually build the app.
 
-First we need to install a testing tool. We will be using several different tools in this project but at this point we will intrduce you to Cucumber.
+First we need to install a testing tool. We will be using a number of tools in this project but at this point we will introduce you to `Cucumber`.
 It is not installed on your system so we need to do that as a first step.
 
-In your terminal (once you have cd'ed into the project folder), type in:
+Open your terminal and let's setup the project folder:
+
 ```
-gem install cucumber
+mkdir workshop
+cd workshop
+echo "source 'https://rubygems.org'" > Gemfile
+echo "gem 'cucumber'" >> Gemfile
 ```
+
+Now run the following command..
+
+```
+bundle install
+```
+
 ..and watch the system install it together with some other libraries it depends on in order to be able to run,
 
 Once that is complete I'd like you to initiate Cucumber by simply typing in:
@@ -22,10 +33,10 @@ Once that is complete I'd like you to initiate Cucumber by simply typing in:
  That will create some files and folders for you:
 
 ```
-  create   features
-  create   features/step_definitions
-  create   features/support
-  create   features/support/env.rb
+create   features
+create   features/step_definitions
+create   features/support
+create   features/support/env.rb
 ```
 
 Okay, now, in your terminal, you type in:
@@ -61,18 +72,18 @@ This is added mainly for your and your fellow project members reference and tell
 
 Now we will add two basic scenarios to this Feature.
 
-````
+```
 Scenario: List courses
   Given I am on the home page
-  And I am logged in as a administrator
+  And I am logged in as an administrator
   And I click "All courses" link
   Then I should see "You have not created any courses"
 
 Scenario: Create a course
   Given I am on the home page
-  And I am logged in as a administrator
+  And I am logged in as an administrator
   And I click "All courses" link
-  And I click 'Create course" link
+  And I click "Create course" link
   And I fill in "Title" with "Basic programming"
   And I fill in "Description" with "Your first step into the world of programming"
   And I click "Create"
@@ -107,7 +118,7 @@ Feature: As a course administrator,
     Then a new course should be created                                              # features/course_create.feature:19
     And I should be on the Course index page                                         # features/course_create.feature:20
     And I should see "Basic programming"                                             # features/course_create.feature:21
-
+h
 2 scenarios (2 undefined)
 14 steps (14 undefined)
 0m0.237s
@@ -155,8 +166,3 @@ end
 ```
 
 This is perfectly normal, and means that we need to start doing some serious programming in order to actually implement the tests and eventually make them pass.
-
-
-
-
-
