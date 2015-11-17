@@ -6,7 +6,7 @@ gem 'cucumber'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'pg'
-
+  #gem 'sinatra-flash', require: 'sinatra/flash'
   gem 'pry'
 
   group :development, :test do

@@ -14,6 +14,8 @@ module NavigationHelpers
         '/'
       when /the Course index page/
         '/courses/index'
+      when /Registration page/
+        '/users/register'
 
         # Add more mappings here.
         # Here is an example that pulls values out of the Regexp:

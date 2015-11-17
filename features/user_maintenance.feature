@@ -10,6 +10,7 @@ Scenario: Create an account
   And I fill in "Email" with "thomas@random.com"
   And I fill in "Password" with "my_password"
   And I fill in "Password confirmation" with "my_password"
+  And I click "Create" link
   Then a new "User" should be created
   And I should see "Your account has been created, Thomas"
 

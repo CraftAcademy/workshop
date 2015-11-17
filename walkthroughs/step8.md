@@ -50,7 +50,7 @@ Scenario: Create an account
 
 Scenario: Log in to the application
 
-Scenario: Log out from tha application
+Scenario: Log out from the application
 ```
 
 Lets add some steps to the `Create an account` scenario:
@@ -88,6 +88,135 @@ Lets add that link to the `layout.erb` (it is located in the `lib/views` folder)
 ```
 
 After every addition, keep on running `cucumber` and see if you get a new error message.
+
+Open up the `features/support/paths.rb` file and add the route to `/users/ registration`:
+
+```ruby
+# features/support/paths.rb
+
+when /Registration page/
+  '/users/register'
+```
+And also add that route to you main controller, the `application.rb
+
+```ruby
+# lib/application.rb
+
+get '/users/register' do
+  erb :'users/register'
+end
+```
+
+The next step is to create a folder named `users` as a subfolder to `lib/views` and create a `register.erb`file in that folder.
+
+Place the following `form_for` code in that file:
+
+```ruby
+# views/users/register.erb
+<% form_for :user, '/users/create', id: 'create' do |f|  %>
+  <%#= f.error_messages %>
+  <%= f.text_field_block :name, caption: 'Name' %>
+  <%= f.text_field_block :email, caption: 'Email' %>
+  <%= f.password_field_block :password, caption: 'Password'  %>
+  <%= f.password_field_block :password_confirmation, caption: 'Password confirmation'  %>
+  <%= f.submit 'Register' %>
+<% end %>
+```
+
+Okay, now when you run `cucumber` again (as you do after every addition in order to keep track of the changing error messages), you should see a familiar error:
+
+```
+    And I click "Register" link                              # features/step_definitions/application_steps.rb:7
+      uninitialized constant User (NameError)
+```
+
+Remember what we did last time we saw a similar error? We created a `Course` class. Now, we need to create a `User` class.
+
+In your `lib` folder, add a file named `user.rb` and add this simple class definition:
+
+```ruby
+class User
+
+end
+```
+
+Also, don't forget to require that file in your `application.rb`
+
+```ruby
+# lib/application.rb
+require 'user'
+...
+```
+
+As we did before, let's quit Cucumber for a moment and focus on writing specs for our `User` class.
+
+In the `spec` folder, create a file named `user_spec.rb`and add the following specs:
+
+```ruby
+# spec/user_spec.rb
+
+describe User do
+  it { is_expected.to have_property :id }
+  it { is_expected.to have_property :name }
+  it { is_expected.to have_property :email }
+  it { is_expected.to have_property :password_digest }
+end
+```
+
+Run Rspec and see the tests fail.
+
+Now open the `lib/user.rb` file and define tha properties:
+
+```ruby
+# lib/user.rb
+
+class User
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :name, String
+  property :email, String
+  property :password_digest, Text
+end
+```
+
+Now when you run `rspec` your tests should go all green. But when you return to `cucumber` you should see:
+
+```
+ Then a new "User" should be created                      # features/step_definitions/application_steps.rb:15
+
+      expected: 1
+           got: 0
+```
+
+That is, of course, becouse we haw no method that actually creates the User in our controller yet. Let's create that:
+
+```ruby
+
+# lib/application.rb
+
+  post 'users/create' do
+    User.create(name: params[:user][:name], email: params[:user][:email], password_digest: params[:user][:password] )
+    redirect '/'
+  end
+```
+
+And that creates a User for us.
+
+But we also want to give the user fome sort of feedback that the account has been created, right? (That is the last step in the scenario we are working on)
+
+In order to do that we need to enable flashes...
+
+
+
+
+
+
+
+
+
+
+
 
 
 
