@@ -257,7 +257,7 @@ Pretty neat, right?
 So if you run `cucumber` again, all the steps in our first two scenarios should pass. Congratulations. You just finished your first feature!
 
 
-
+[Step 8](step8.md)
 
 
 

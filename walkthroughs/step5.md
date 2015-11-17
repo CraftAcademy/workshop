@@ -108,6 +108,5 @@ Now, try to run your tests again. Whats it looks like?
 
 As a last step this part I would like you to add two step def
 
-
-
+[Step 6](step6.md)
 

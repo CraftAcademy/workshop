@@ -33,3 +33,4 @@ The first step (in both scenarios) is passing! That is a really good sign!
 14 steps (5 skipped, 7 undefined, 2 passed)
 0m0.045s
 ```
+[Step 3](step3.md)

@@ -166,3 +166,5 @@ end
 ```
 
 This is perfectly normal, and means that we need to start doing some serious programming in order to actually implement the tests and eventually make them pass.
+
+[Step 2](step2.md)

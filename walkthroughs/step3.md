@@ -45,6 +45,7 @@ First we are calling on the `log_in_admin` method and on the next line we are se
 
 Run `cucumber` again. That step should go green for you. We have not actually created a feature that allows for logging in and out, but for the time being, we have fooled tha application to thing that an administrator is actually logged in. We will get back to this sooner then later and code an actual solution.
 
+[Step 4](step4.md)
 
 
 
