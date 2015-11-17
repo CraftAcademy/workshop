@@ -14,6 +14,18 @@ Scenario: Create an account
   Then a new "User" should be created
   And I should see "Your account has been created, Thomas"
 
+Scenario: Fail to create an account
+  Given I am on the home page
+  And I click "Register" link
+  Then I should be on Registration page
+  And I fill in "Name" with "Thomas"
+  And I fill in "Email" with "thomas@random.com"
+  And I fill in "Password" with "my_password"
+  And I fill in "Password confirmation" with "wrong_password"
+  And I click "Create" link
+  Then I should be on Registration page
+  And I should see "Could not register you... Check your input."
+
 Scenario: Log in to the application
 
 Scenario: Log out from tha application
