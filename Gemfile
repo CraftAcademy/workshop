@@ -14,4 +14,5 @@ gem 'cucumber'
     gem 'capybara'
     gem 'capybara-webkit'
     gem 'dm-rspec'
+    gem 'database_cleaner'
   end

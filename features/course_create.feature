@@ -13,9 +13,9 @@ Scenario: Create a course
   And I am logged in as an administrator
   And I click "All courses" link
   And I click "Create course" link
-  And I fill in "Course Name" with "Basic programming"
+  And I fill in "Course Title" with "Basic programming"
   And I fill in "Course description" with "Your first step into the world of programming"
-  And I click "Create course" link
+  And I click "Create" link
   Then a new "Course" should be created
   And I should be on the Course index page
   And I should see "Basic programming"

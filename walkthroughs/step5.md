@@ -64,6 +64,8 @@ In the `index.erb` let's ass a link to create a new course:
 
 ```ruby
 # /courses/index.erb
+<h1>You have not created any courses</h1>
+
 <%= link_to 'Create course', '/courses/create' %>
 ```
 
@@ -74,9 +76,9 @@ And in the `create.erb` let's add a form to create a course:
 
 <% form_for :course, '/course/create', id: 'create' do |f|  %>
   <%= f.error_messages %>
-  <%= f.text_field_block :name, caption: 'Course Name' %>
+  <%= f.text_field_block :title, caption: 'Course Title' %>
   <%= f.text_field_block :description, caption: 'Course description' %>
-  <%= f.submit 'Create course' %>
+  <%= f.submit 'Create' %>
 <% end %>
 ```
 
