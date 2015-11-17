@@ -20,36 +20,36 @@ The next step is to add some specs for the password encryption. In our `user_spe
 # spec/user_spec.rb
 
 describe 'password encryption' do
-    it 'encrypts password' do
-      user = User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test')
-      expect(user.password_digest).to_not eq 'test'
-      expect(user.password_digest.class).to eq BCrypt::Password
-    end
-
-    it 'raises error it password_confirmation does not match' do
-      create_user = lambda { User.create(email: 'test@test.com', password: 'test', password_confirmation: 'wrong-test') }
-      expect(create_user).to raise_error DataMapper::SaveFailureError
-    end
+  it 'encrypts password' do
+    user = User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test')
+    expect(user.password_digest).to_not eql 'test'
+    expect(user.password_digest.class).to eq BCrypt::Password
   end
+
+  it 'raises error it password_confirmation does not match' do
+    create_user = lambda { User.create(email: 'test@test.com', password: 'test', password_confirmation: 'wrong-test') }
+    expect(create_user).to raise_error DataMapper::SaveFailureError
+  end
+end
 ```
 
-In the first of the two specs we are a) creating a user with some credentials, b) asserting that the saved password (`password_digest`) is NOT the onew we passed in while creating the user and
+In the first of the two specs we are a) creating a user with some credentials, b) asserting that the saved password (`password_digest`) is NOT the one we passed in while creating the user and
 c) that the saved password is of a `BCrypt::Password` class. We can not test for a specific encryption since BCrypt returns a different hash every time it is called on a word.
 When this spec passes we can be sure that the right password have been saved in our database.
 
 The second test is testing what happens if we try to create a user but pass in the wrong password confirmation. Password confirmation is mainly used to ensure that the user remembers what password he provides during registration and that he has not made a spelling mistake while typing it in.
-First we save a command in a variable and then, on tha next line, we assert that when that command is executed it throws an error. If that passes, we can be sure that
+First we save a command in a variable and then, on the next line, we assert that when that command is executed it throws an error. If that passes, we can be sure that
 password confirmation works and the user will not be created if password and password_confirmation does not match.
 
 Save your spec file and run RSpec to see these tests fail.
 
-n the first spec we get an failure about attribute `password` not being accessible on User. Let's fix that. Open your `user.rb` and add:
+On the first spec we get an failure about attribute `password` not being accessible on User. Let's fix that. Open your `user.rb` and add:
 
 ```ruby
 # lib/user.rb
 
 class User
-  attr_writer :password, :password_confirmation
+  attr_accessor :password, :password_confirmation
   ...
 end
 ```
@@ -151,7 +151,7 @@ Scenario: Fail to create an account
 ```
 Run `cucumber` and watch it pass. The scenario we just added is called the sad path and is used to test not only what happens when everything is okay but also what happens when stuff go wrong.
 
-Alright, now we have the users password saftly encrypted and saved in our database. The next step is to add a method to authenticate the user when he tries to log in to the application.
+Alright, now we have the users password safely encrypted and saved in our database. The next step is to add a method to authenticate the user when he tries to log in to the application.
 
 
 [Step 10](step10.md)
