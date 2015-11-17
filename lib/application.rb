@@ -1,14 +1,16 @@
 require 'sinatra/base'
 require 'padrino-helpers'
 require 'data_mapper'
-require 'course'
-require 'user'
+require './lib/course'
+require './lib/user'
 require 'pry'
 
 class WorkshopApp < Sinatra::Base
   register Padrino::Helpers
   set :protect_from_csrf, true
   set :admin_logged_in, false
+  enable :sessions
+  set :session_secret, '11223344556677'
 
   env = ENV['RACK_ENV'] || 'development'
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/workshop_#{env}")
@@ -40,6 +42,7 @@ class WorkshopApp < Sinatra::Base
 
   post '/users/create' do
     User.create(name: params[:user][:name], email: params[:user][:email], password_digest: params[:user][:password] )
+    session[:flash] = "Your account has been created, #{params[:user][:name]}"
     redirect '/'
   end
 

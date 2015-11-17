@@ -20,7 +20,7 @@ Okay. We are to write some tests or specs as we are used to call them. See the s
 To do that we will be using RSpec and a set of matchers for DataMapper. In your `spec` folder, create a file named `course_spec.rb`. Add the following code to that file:
 
 ```ruby
-require 'course'
+require './lib/course'
 
 describe Course do
 

@@ -32,13 +32,15 @@ end
  This means that the only thing that will be shown when we open tha application in the browser is the text "Hello WorkshopApp!" and nothing else. We want to change that of course...
 
 
-In our `lib` folder, we need to create a `views` folder. In that folder, we want to create a `layout.erb` file. For now, the only code we want to place in that file is:
+In our `lib` folder, we need to create a `views` folder. In that folder, we want to create a `layouts` folder and then inside of the folder a `application.erb` file. For now, the only code we want to place in that file is:
 
 ```ruby
+# lib/views/layouts/application.erb
+
 <%= yield %>
 ```
 
-We will cover the `layout.erb` in more detail further down the road.
+We will cover the `application.erb` in more detail further down the road.
 
 Another file we need to create a `index.erb` in that folder. Add the following code to that file:
 
