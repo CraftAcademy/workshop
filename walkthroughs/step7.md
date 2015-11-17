@@ -246,7 +246,7 @@ So, in order to do that we are gonna use some ruby in the `course/index.erb` vie
 
 Let's have a look what this code does.
 
-1. `<% unless @courses %>` does a check if the `@courses` variable actually contains anything.
+1. `<% if @courses %>` does a check if the `@courses` variable actually contains anything.
 2. If it does, the application iterates over the array (with `@courses.each do..` , creates a block and stores the current object in a local variable called `course`
 3. The html between the `do` and the `end` keywords are executed as m any times as there are courses in the array (in our case, for now, only once)
 4. The value of the attributes `course.title` and `course.description` are rendered on the view.

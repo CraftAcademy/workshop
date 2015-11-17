@@ -87,5 +87,7 @@ Lets add that link to the `layout.erb` (it is located in the `lib/views` folder)
 <%= yield %>
 ```
 
+After every addition, keep on running `cucumber` and see if you get a new error message.
+
 
 
