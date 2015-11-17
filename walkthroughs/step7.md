@@ -229,7 +229,7 @@ If it is empty, we want to display a message telling the user: "You have not cre
 
 So, in order to do that we are gonna use some ruby in the `course/index.erb` view to condition what is being shown to the user:
 
-```ruby
+```HTML+ERB
 # courses/index.erb
 
 <% if @courses.any? %>
