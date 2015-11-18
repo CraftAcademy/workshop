@@ -87,6 +87,12 @@ class WorkshopApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/users/logout' do
+    session[:user_id] = nil
+    session[:flash] = 'Successfully logged out'
+    redirect '/'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

@@ -4,7 +4,7 @@ Add the following scenario:
 # features/user_maintenance.feature
 
 Scenario: Log in to the application
-  Given I an a registered user
+  Given I am a registered user
   Given I am on the home page
   And I click "Log in" link
   Then I should be on Log in page
@@ -22,7 +22,7 @@ Add the following step definition, reusing some previous steps:
 # features/step_definitions/application_steps.rb
 
 ...
-Given(/^I an a registered user$/) do
+Given(/^I am a registered user$/) do
   steps %Q{
   Given I am on the home page
   And I click "Register" link

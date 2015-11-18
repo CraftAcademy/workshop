@@ -1,5 +1,6 @@
 <% if @user %>
   <%= @user.email %>
+  <%= link_to 'Log out', '/users/logout' %>
 <% else %>
   <%= link_to 'Register', '/users/register' %>
   <%= link_to 'Log in', '/users/login' %>
