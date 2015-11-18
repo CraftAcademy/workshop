@@ -54,6 +54,14 @@ class WorkshopApp < Sinatra::Base
     end
   end
 
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post 'users/session' do
+
+  end
+
 
     # start the server if ruby file executed directly
     run! if app_file == $0

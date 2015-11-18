@@ -27,7 +27,16 @@ Scenario: Fail to create an account
   And I should see "Could not register you... Check your input."
 
 Scenario: Log in to the application
+  Given I am on the home page
+  And I click "Log in" link
+  Then I should be on Log in page
+  And I fill in "Email" with "thomas@random.com"
+  And I fill in "Password" with "my_password"
+  And I click "Submit" link
+  Then I should be on the home page
+  And I should see "Successfully logged in Thomas"
+  And I should not see "Ragister"
 
-Scenario: Log out from tha application
+Scenario: Log out from the application
 
 
