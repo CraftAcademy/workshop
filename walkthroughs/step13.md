@@ -20,7 +20,7 @@ Add the following scenario to your feature file:
 Scenario: Add a delivery date to course
   Given the course "Basic programming" is created
   And I am on the Course index page
-  And I click on "Add Delivery date" for "Basic programming" "Course"
+  And I click on "Add Delivery date" for the "Basic programming" Course
   And I select "2015-12-01" from "Start date"
   And I click "Submit" link
   Then I should be on the Course index page
@@ -46,7 +46,7 @@ Given(/^the course "([^"]*)" is created$/) do |name|
         }
 end
 
-And(/^I click on "([^"]*)" for "([^"]*)" "([^"]*)"$/) do |element, name, model|
+And(/^I click on "([^"]*)" for the "([^"]*)" ([^"]*)$/) do |element, name, model|
   object = Object.const_get(model).find(name: name).first
   within("div#course-#{object.id}") do
     click_link element
