@@ -206,8 +206,8 @@ Update your `application.erb` by adding the Log in link:
 ```ruby
 # lib/views/layouts/application.erb`
 
-<% if @user %>
-  <%= @user.email %>
+<% if current_userr %>
+  <%= current_user.email %>
 <% else %>
   <%= link_to 'Register', '/users/register' %>
   <%= link_to 'Log in', '/users/login' %>
