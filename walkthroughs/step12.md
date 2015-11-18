@@ -34,6 +34,17 @@ And we need to get rid of the, now obsolete, `admin_logged_in` method.
 set :admin_logged_in, false
 ```
 
+Also, in the `features/support/env.rb`, it is safe to remove the
+
+```ruby
+# features/support/env.rb
+
+# delete:
+def log_in_admin
+  WorkshopApp.admin_logged_in = true
+end
+``
+
 Make sure that you have not broken anything by running all your tests again, both `cucumber` and `rspec`.
 
 If all your test are passing (and they should be), we should be able to move on and make sure that the administrator and the administrator only should be able to create new Courses.
