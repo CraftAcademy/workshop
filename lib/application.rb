@@ -18,6 +18,28 @@ class WorkshopApp < Sinatra::Base
   DataMapper.finalize
   DataMapper.auto_upgrade!
 
+  before do
+    @user = User.get(session[:user_id]) unless is_user?
+  end
+
+  register do
+    def auth (type)
+      condition do
+        redirect '/login' unless send("is_#{type}?")
+      end
+    end
+  end
+
+  helpers do
+    def is_user?
+      @user != nil
+    end
+
+    def current_user
+      @user
+    end
+  end
+
   get '/' do
     erb :index
   end
@@ -58,11 +80,14 @@ class WorkshopApp < Sinatra::Base
     erb :'users/login'
   end
 
-  post 'users/session' do
-
+  post '/users/session' do
+    @user = User.authenticate(params[:email], params[:password])
+    session[:user_id] = @user.id
+    session[:flash] = "Successfully logged in  #{@user.name}"
+    redirect '/'
   end
 
 
-    # start the server if ruby file executed directly
-    run! if app_file == $0
-  end
+  # start the server if ruby file executed directly
+  run! if app_file == $0
+end

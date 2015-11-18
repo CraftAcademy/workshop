@@ -1,5 +1,9 @@
-<%= link_to 'Register', '/users/register' %>
-<%= link_to 'Log in', '/users/login' %>
+<% if @user %>
+  <%= @user.email %>
+<% else %>
+  <%= link_to 'Register', '/users/register' %>
+  <%= link_to 'Log in', '/users/login' %>
+<% end %>
 <% if session[:flash] %>
   <%= session[:flash] %>
   <% session[:flash].clear %>
