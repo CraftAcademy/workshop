@@ -8,7 +8,6 @@ require 'pry'
 class WorkshopApp < Sinatra::Base
   register Padrino::Helpers
   set :protect_from_csrf, true
-  set :admin_logged_in, false
   enable :sessions
   set :session_secret, '11223344556677'
 

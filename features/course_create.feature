@@ -4,13 +4,13 @@ Feature: As a course administrator,
 
 Scenario: List courses
   Given I am on the home page
-  And I am logged in as an administrator
+  Given I am a registered and logged in user
   And I click "All courses" link
   Then I should see "You have not created any courses"
 
 Scenario: Create a course
   Given I am on the home page
-  And I am logged in as an administrator
+  Given I am a registered and logged in user
   And I click "All courses" link
   And I click "Create course" link
   And I fill in "Course Title" with "Basic programming"

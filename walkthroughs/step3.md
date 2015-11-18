@@ -19,7 +19,7 @@ I'm inclined to do exactly that.
 In your `application.rb`, we can create a setting called `admin_logged_in` and set it to `false`:
 
 ```ruby
-#application.rb
+# lib/application.rb
 
 set :admin_logged_in, false
 ```
@@ -35,6 +35,8 @@ end
 Finally, in the `step_definitions` folder, let's create a new file that we call `application_steps.rb` and add the following step definition:
 
 ```ruby
+# features/step_definitions/application_steps.rb
+
 And(/^I am logged in as a administrator$/) do
   log_in_admin
   expect(WorkshopApp.admin_logged_in).to eq true
