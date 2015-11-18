@@ -16,15 +16,31 @@ first listing and then creating a course (that is the main purpose of this test,
 So how about just telling the application to assume that an administrator is logged in and return to actually creating those mechanism at a later stage in our development?
 I'm inclined to do exactly that.
 
-In your `application.rb`, we can create a setting called `admin_logged_in` and set it to `false`:
+Within the `application.rb` file we created earlier on, let's add the following line which creates a setting called `admin_logged_in` and sets it to `false`
 
 ```ruby
-# application.rb
-
 set :admin_logged_in, false
 ```
 
-In the `support/env.rb` we can add a method to change that setting to `true`.
+Your `application.rb` file should now look something like this:
+```ruby
+# application.rb
+
+require 'sinatra/base'
+
+class WorkshopApp < Sinatra::Base
+  set :admin_logged_in, false
+
+  get '/' do
+    'Hello WorkshopApp!'
+  end
+
+  # start the server if ruby file executed directly
+   run! if app_file == $0
+end
+```
+
+In the `features/support/env.rb` file we can add a method to change that setting to `true`.
 
 ```ruby
 def log_in_admin
@@ -35,7 +51,7 @@ end
 Finally, in the `step_definitions` folder, let's create a new file that we call `application_steps.rb` and add the following step definition:
 
 ```ruby
-And(/^I am logged in as a administrator$/) do
+And(/^I am logged in as an administrator$/) do
   log_in_admin
   expect(WorkshopApp.admin_logged_in).to eq true
 end
