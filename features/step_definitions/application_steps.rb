@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 And(/^I click "([^"]*)" link$/) do |element|
   click_link_or_button element
 end
@@ -49,8 +51,5 @@ end
 
 And(/^I click on "([^"]*)" for the "([^"]*)" ([^"]*)$/) do |element, name, model|
   object = Object.const_get(model).find(name: name).first
-  within "div#course-#{object.id}" do
-    click_link_or_button element
-  end
+  find("#course-#{object.id}").click_link(element)
 end
-
