@@ -61,5 +61,7 @@ Update your `application.erb` by adding the Log in link:
 ...
 ```
 
+[Step 12](step12.md)
+
 
 

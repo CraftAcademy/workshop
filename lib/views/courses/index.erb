@@ -1,9 +1,11 @@
 <% if @courses.any? %>
   <% @courses.each do |course| %>
-    <h3><%= course.title  %></h3>
-    <p><%= course.description  %></p>
+    <h3><%= course.title %></h3>
+    <p><%= course.description %></p>
   <% end %>
 <% else %>
   <h1>You have not created any courses</h1>
 <% end %>
-<%= link_to 'Create course', '/courses/create' %>
+<% if current_user %>
+  <%= link_to 'Create course', '/courses/create' %>
+<% end %>
