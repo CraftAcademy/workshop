@@ -22,6 +22,7 @@ And(/^I am logged in as a administrator$/) do
   log_in_admin
   expect(WorkshopApp.admin_logged_in).to eq true
 end
+```
 
 
 And we need to get rid of the, now obsolete, `admin_logged_in` method.
