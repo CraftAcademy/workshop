@@ -1,12 +1,120 @@
-<% if current_user %>
-  <%= current_user.email %>
-  <%= link_to 'Log out', '/users/logout' %>
-<% else %>
-  <%= link_to 'Register', '/users/register' %>
-  <%= link_to 'Log in', '/users/login' %>
-<% end %>
-<% if session[:flash] %>
-  <%= session[:flash] %>
-  <% session[:flash].clear %>
-<% end %>
-<%= yield %>
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Manager</title>
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/foundation-icons.css"/>
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <script src="/js/vendor/modernizr.js"></script>
+
+</head>
+<body>
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Certificate Manager</a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if current_user %>
+        <li><p>Logged in as <%= current_user.email %><p></li>
+        <li><%= link_to 'Log out', '/users/logout' %></li>
+      <% else %>
+        <li><%= link_to 'Register', '/users/register' %></li>
+        <li><%= link_to 'Log in', '/users/login' %></li>
+      <% end %>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+
+    </ul>
+  </section>
+</nav>
+
+
+<div class="row">
+  <div class="medium-12 large-12 columns">
+    <% unless session[:flash].blank? %>
+
+      <div id="flash-container" data-alert class="alert-box info">
+        <%= session[:flash] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+      <% session[:flash].clear %>
+    <% end %>
+
+    <%= yield %>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="slogan"></div>
+      <p class="description">
+        Developed with Ruby using the Sinatra framework. Styled using Foundation 5.0. Tested with Cucumber, RSpec and
+        Capybara. All OpenSourced and/or Free - just the way we like it!
+      </p>
+
+      <p class="copywrite">Made with <i class="fi-heart" style="color: red; font-size: 18px;"></i>
+        at <%= link_to 'Makers Sweden', 'http://www.makersacademy.se' %></p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/foundation.min.js"></script>
+<script>
+  function fixFooter() {
+    footer=$(".footer");
+    height=footer.height();
+    paddingTop=parseInt(footer.css('padding-top'),10);//zero if is undefined
+    paddingBottom=parseInt(footer.css('padding-bottom'),10);//zero if is undefined
+    totalHeight=(height+paddingTop+paddingBottom);
+    footerPosition=footer.position();
+    windowHeight=$(window).height();
+    height=(windowHeight - footerPosition.top)-totalHeight;
+    if ( height > 0 ) {
+      footer.css({
+        'margin-top': (height) + 'px'
+      });
+    }
+  }
+
+  $(document).ready(function () {
+    fixFooter();//at page load
+    var flash = $('#flash-container');
+    if (flash.length > 0) {
+      window.setTimeout(function () {
+        flash.fadeTo(500, 0).slideUp(500, function () {
+          $(this).remove();
+        });
+      }, 5000);
+    }
+  });
+
+  $(window).resize(function() {
+    fixFooter();//at page resize
+  });
+</script>
+<script>
+  $(document).foundation();
+</script>
+</body>
+</html>
