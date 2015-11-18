@@ -5,12 +5,14 @@ The next thing we need to do is to make the `And I click "All courses" link` ste
 In our `application_steps.rb` let's add:
 
 ```ruby
+# features/step_definitions/application_steps.rb
+
 And(/^I click "([^"]*)" link$/) do |element|
   click_link_or_button element
 end
 ```
 
-`click_link_or_button` is a Capybara command that looks for either a HTML link or a button and clicks it. Pretty handy, right?
+`click_link_or_button` is a Capybara command that looks for either a HTML link or a button tag and clicks it. Pretty handy, right?
 
 If you run cucumber again you'll get an error message that Capybara simply can't find that element. That is perfectly normal, we haven't created that yet.
 
@@ -26,8 +28,8 @@ In order to get some views rendered by the application we, of course
 Right now, the app is not showing any views. If you have a look in your `application.rb` you can see the following block of code:
 
 ```ruby
- get '/' do
-   'Hello WorkshopApp!'
+get '/' do
+  'Hello WorkshopApp!'
 end
 ```
 
@@ -44,7 +46,7 @@ $ touch views/layouts/application.erb
 
 For now, the only code we want to place in that file is:
 
-```ruby
+```HTML+ERB
 # lib/views/layouts/application.erb
 
 <%= yield %>
@@ -60,7 +62,7 @@ $ touch views/index.erb
 
 Add the following code to that file:
 
-```ruby
+```HTML+ERB
 <h1>Workshop App</h1>
 <a href="/courses">All courses</a>
 ```
@@ -68,12 +70,14 @@ Add the following code to that file:
 Now we have a template for the index view. We also need to tell the application to use that template when that page is requested by the browser. In order to do that we need to modify our `application.rb` once again:
 
 ```ruby
+# lib/application.rb
+
 get '/' do
   erb :index
 end
 ```
 
-So we removed that static text that was being shown on the webpage and replaced that with the template we just created. And that template actually contain a link to list "All Courses".
+What we did now was to remove the static text that was being showed on the web page and replace that with the template we just created. That template actually contain a link to list "All Courses".
 
 So what happens if we run cucumber again?
 

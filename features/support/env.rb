@@ -21,6 +21,3 @@ World do
   WorkshopAppWorld.new
 end
 
-def log_in_admin
-  WorkshopApp.admin_logged_in = true
-end

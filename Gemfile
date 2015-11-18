@@ -7,6 +7,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'pry'
+gem 'pry-byebug'
 gem 'bcrypt'
 
 group :development, :test do
@@ -15,4 +16,5 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'dm-rspec'
   gem 'database_cleaner'
+  gem 'launchy'
 end

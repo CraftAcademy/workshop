@@ -3,12 +3,12 @@ require 'padrino-helpers'
 require 'data_mapper'
 require './lib/course'
 require './lib/user'
+require './lib/delivery'
 require 'pry'
 
 class WorkshopApp < Sinatra::Base
   register Padrino::Helpers
   set :protect_from_csrf, true
-  set :admin_logged_in, false
   enable :sessions
   set :session_secret, '11223344556677'
 
@@ -17,6 +17,29 @@ class WorkshopApp < Sinatra::Base
   DataMapper::Model.raise_on_save_failure = true
   DataMapper.finalize
   DataMapper.auto_upgrade!
+
+  before do
+    @user = User.get(session[:user_id]) unless is_user?
+  end
+
+  register do
+    def auth(type)
+      condition do
+        restrict_access = Proc.new { session[:flash] = 'You are not authorized to access this page'; redirect '/' }
+        restrict_access.call unless send("is_#{type}?")
+      end
+    end
+  end
+
+  helpers do
+    def is_user?
+      @user != nil
+    end
+
+    def current_user
+      @user
+    end
+  end
 
   get '/' do
     erb :index
@@ -27,12 +50,23 @@ class WorkshopApp < Sinatra::Base
     erb :'courses/index'
   end
 
-  get '/courses/create' do
+  get '/courses/create', auth: :user do
     erb :'courses/create'
   end
 
   post '/courses/create' do
     Course.create(title: params[:course][:title], description: params[:course][:description])
+    redirect 'courses/index'
+  end
+
+  get '/courses/:id/add_date', auth: :user do
+    @course = Course.get(params[:id])
+    erb :'courses/add_date'
+  end
+
+  post '/courses/new_date', auth: :user do
+    course = Course.get(params[:course_id])
+    course.deliveries.create(start_date: params[:start_date])
     redirect 'courses/index'
   end
 
@@ -58,11 +92,20 @@ class WorkshopApp < Sinatra::Base
     erb :'users/login'
   end
 
-  post 'users/session' do
+  post '/users/session' do
+    @user = User.authenticate(params[:email], params[:password])
+    session[:user_id] = @user.id
+    session[:flash] = "Successfully logged in  #{@user.name}"
+    redirect '/'
+  end
 
+  get '/users/logout' do
+    session[:user_id] = nil
+    session[:flash] = 'Successfully logged out'
+    redirect '/'
   end
 
 
-    # start the server if ruby file executed directly
-    run! if app_file == $0
-  end
+  # start the server if ruby file executed directly
+  run! if app_file == $0
+end

@@ -73,6 +73,8 @@ This is added mainly for your and your fellow project members reference and tell
 Now we will add two basic scenarios to this Feature.
 
 ```
+# features/course_create.feature
+
 Scenario: List courses
   Given I am on the home page
   And I am logged in as an administrator

@@ -27,6 +27,7 @@ Scenario: Fail to create an account
   And I should see "Could not register you... Check your input."
 
 Scenario: Log in to the application
+  Given I am a registered user
   Given I am on the home page
   And I click "Log in" link
   Then I should be on Log in page
@@ -35,8 +36,12 @@ Scenario: Log in to the application
   And I click "Submit" link
   Then I should be on the home page
   And I should see "Successfully logged in Thomas"
-  And I should not see "Ragister"
+  And I should not see "Register"
 
 Scenario: Log out from the application
+  Given I am a registered and logged in user
+  And I click "Log out" link
+  Then I should be on the home page
+  And I should see "Successfully logged out"
 
 

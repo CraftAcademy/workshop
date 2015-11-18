@@ -1,6 +1,7 @@
 ##### Adding a Course
 [Should we give some background on database theory and persistence. Probably yes]
-The time has come for us to start adding a Course class. As mentioned before we will be using DataMapper as the ORM and the Course class that we created a while back needs to inherit some functionality
+
+The time has come for us to start adding a `Course` class. As mentioned before we will be using DataMapper as the ORM and the `Course class that we created a while back needs to inherit some functionality
 from that gem.
 
 First thing we want to do is to make that class a DataMapper resource.
@@ -8,6 +9,8 @@ First thing we want to do is to make that class a DataMapper resource.
 Modify your `lib/course.rb` to include the `DataMapper::Resource`:
 
 ```ruby
+## spec/spec_helper.rb
+
 class Course
   include DataMapper::Resource
 
@@ -15,11 +18,13 @@ class Course
 end
 ```
 
-Okay. We are to write some tests or specs as we are used to call them. See the specs as a kind of blue print for your class - basically describing the desired look and behaviour of yor class/object.
+Okay. We are to write some tests (or specs as we are used to call them). See the specs as a kind of blueprint for your class - basically describing the desired look and behaviour of your class/object.
 
 To do that we will be using RSpec and a set of matchers for DataMapper. In your `spec` folder, create a file named `course_spec.rb`. Add the following code to that file:
 
 ```ruby
+# lib/course_spec.rb
+
 require './lib/course'
 
 describe Course do
@@ -27,12 +32,13 @@ describe Course do
 end
 ```
 
-Run RSpec by typing in `rspec`in your terminal window and hit enter. You'll see a lot of errors.
+Run RSpec by typing in `rspec` in your terminal window and hit enter. You'll see a lot of errors.
 
 You need to set up DataMapper in your `application.rb` for the application to know how to use it and where to store the information (access the database). Add the following code to your `application.rb`file:
 
 ```ruby
 # lib/application.rb
+
  env = ENV['RACK_ENV'] || 'development'
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/workshop_#{env}")
   DataMapper::Model.raise_on_save_failure = true
@@ -53,7 +59,7 @@ We are adding one database for you to use when you develop the application, and 
 
 If all is set up properly, and you run `rspec` again, you should see the following errors in your terminal output:
 
-```
+```shell
 Course
   should have property id
   should have property title (FAILED - 1)
@@ -80,7 +86,7 @@ rspec ./spec/course_spec.rb:5 # Course should have property title
 rspec ./spec/course_spec.rb:6 # Course should have property description
 ```
 
-As usual, there is an intimidating amount of text (not so much as it usually is when RSpec encounters error, but still a lot). The important takeaway from this is that one test passed and two tests failed.
+The terminal output that RSpec returns contains  an intimidating amount of text (not so much as it usually is when RSpec encounters error, but still a lot). The important takeaway from this is that one test passed and two tests failed.
 
 We ware expecting the Course class to have 3 attributes, id, title, and description. But in our class, so far, we only defined the id. As you remember we set that datatype to a `Serial` meaning that it will be automatically incremented by the database each time we create a new course.
 
