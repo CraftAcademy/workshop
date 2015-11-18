@@ -15,4 +15,5 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'dm-rspec'
   gem 'database_cleaner'
+  gem 'launchy'
 end

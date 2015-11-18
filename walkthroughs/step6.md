@@ -108,6 +108,8 @@ Not so bad, ey?
 Alright, we need to add some of the libraries/gems we want to use in our `spec_helper`. Modify your file to include:
 
 ```ruby
+ENV['RACK_ENV'] = 'test'
+
 require File.join(File.dirname(__FILE__), '..', 'lib/application.rb')
 require 'capybara'
 require 'capybara/rspec'

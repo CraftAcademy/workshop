@@ -58,6 +58,11 @@ class WorkshopApp < Sinatra::Base
     redirect 'courses/index'
   end
 
+  get '/courses/:id/add_date', auth: :user do
+    @course = Course.get(params[:id])
+    erb :'courses/add_date'
+  end
+
   get '/users/register' do
     erb :'users/register'
   end
