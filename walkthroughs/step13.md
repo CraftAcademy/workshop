@@ -133,7 +133,108 @@ describe Delivery do
 end
 ```
 
+Now, create a file named `delivery.rb` in the `lib` folder:
+
+```ruby
+# lib/delivery.rb
+
+class Delivery
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :start_date, Date
+end
+```
+
+Make sure to require it in the controller:
+
+```ruby
+# lib/application.rb
+
+require './lib/delivery'
+```
+
+What we want to do now is to add a relationship between `Course` and `Delivery`. The type of relationship we want to add is a one to many relationship.
+
+Lets write some specs for it first. Add the following specs to the `course_spec.rb` and `delivery_spec.rb`:
+
+```ruby
+# spec/course_spec.rb
+
+it { is_expected.to have_many :deliveries }
+```
+
+```ruby
+# spec/delivery_spec.rb
+
+it { is_expected.to belong_to :course }
+```
+
+First, run your specs to see them fail and then add the assosiations to your models:
+
+```ruby
+# lib/course.rb
+
+has n :deliveries
+```
+
+```ruby
+# lib/delivery.rb
+
+belongs_to :course
+```
+
+If we run our features now we get an error while saving the instance of `Delivery`we try to create. In order to make that work we need to update our form on `add_date.erb` and update the method we use to create the Delivery.
+
+First we need to add a hidden field with the id ocf the course we are working with:
+
+```HTML+ERB
+# lib/views/courses/add_date.erb
+
+<% form_tag('/courses/new_date', method: 'post') do %>
+  <%= hidden_field_tag :course_id, value: @course.id %>
+
+  ...
+<% end %>
+```
+
+Now, lets shift our attention to the controller and the post request. Update it to:
+```ruby
+# lib/application.rb
+
+post '/courses/new_date', auth: :user do
+  course = Course.get(params[:course_id])
+  course.deliveries.create(start_date: params[:start_date])
+  redirect 'courses/index'
+end
+```
+
+That should do it. Now we need to display those dates on the `courses/index.erb`. Update it with the following code:
+
+```ruby
+# lib/views/index.erb
+
+<% if @courses.any? %>
+  <% @courses.each do |course| %>
+    <div id="course-<%= course.id %>">
+      <h3><%= course.title %></h3>
+      <p><%= course.description %></p>
+      <% if course.deliveries %>
+        <p>Delivery dates:
+          <% course.deliveries.each do |date| %>
+           <%= date.start_date %>
+          <% end %>
+        </p>
+      <% end %>
+      <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" %>
+    </div>
+  <% end %>
+<% else %>
+...
+```
+
+If you run your features now, all scenarios should go green. As a sanity check, do run all your specs as well. Just to make sure.
 
 
 
-[Step 13](step13.md)
+[Step 14](step14.md)

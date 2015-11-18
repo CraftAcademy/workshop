@@ -3,6 +3,13 @@
     <div id="course-<%= course.id %>">
       <h3><%= course.title %></h3>
       <p><%= course.description %></p>
+      <% if course.deliveries %>
+        <p>Delivery dates:
+          <% course.deliveries.each do |date| %>
+           <%= date.start_date %>
+          <% end %>
+        </p>
+      <% end %>
       <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" %>
     </div>
   <% end %>
