@@ -48,9 +48,7 @@ end
 
 And(/^I click on "([^"]*)" for the "([^"]*)" ([^"]*)$/) do |element, name, model|
   object = Object.const_get(model).find(name: name).first
-  within("div#course-#{object.id}") do
-    click_link element
-  end
+  find("#course-#{object.id}").click_link(element)
 end
 
 ```
@@ -86,6 +84,55 @@ We need to create that route in our controller:
 
 ```ruby
 # lib/application.rb
+
+get '/courses/:id/add_date', auth: :user do
+  @course = Course.get(params[:id])
+  erb :'courses/add_date'
+end
+```
+
+And create a view for that route:
+
+```HTML+ERB
+# lib/views/courses/add_date.erb
+
+<% form_tag('/courses/new_date', method: 'post') do %>
+  <%= label_tag :start_date, caption: 'Start' %>
+  <%= date_field_tag :start_date, id: 'start_date' %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+```
+
+We also need to define how the post request should be handled:
+
+```ruby
+# lib/application.rb
+
+post '/courses/new_date', auth: :user do
+  Delivery.create(start_date: params[:start_date])
+  redirect 'courses/index'
+end
+
+```
+
+When we run `cucumber` now, we get an uninitialized constant error. We need to create the `Delivery`
+
+```shell
+And I click "Submit" link                        # features/step_definitions/application_steps.rb:3
+      uninitialized constant WorkshopApp::Delivery (NameError)
+```
+
+As usual we start with writing some specs. Create a `delivery_spec.rb` file in the `spec` folder. Add these specs:
+
+```ruby
+# spec/delivery_spec.rb
+
+describe Delivery do
+  it { is_expected.to have_property :id }
+  it { is_expected.to have_property :start_date }
+end
+```
+
 
 
 

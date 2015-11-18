@@ -33,7 +33,6 @@ Scenario: Add a delivery date to course
   Given the course "Basic programming" is created
   And I am on the Course index page
   And I click on "Add Delivery date" for the "Basic programming" Course
-  Then show me the page
   And I fill in "Start" with "2015-12-01"
   And I click "Submit" link
   Then I should be on the Course index page
