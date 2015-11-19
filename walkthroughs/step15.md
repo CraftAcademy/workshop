@@ -128,7 +128,7 @@ mkdir features/fixtures
 touch features/fixtures/students.csv
 ```
 
-Now run your tests again and you'll see that you have moved forward a bit but also that you can not move any further without defining a new `tudent` class. Time for some RSpec and unit testing.
+Now run your tests again and you'll see that you have moved forward a bit but also that you can not move any further without defining a new `Student` class. Time for some RSpec and unit testing.
 
 We start by creaating a `student_spec.rb` file in the `spec` folder and add a few expectations:
 
@@ -210,10 +210,17 @@ end
 
 ```
 
-Now, let's go back to our controller` update your `post` request route with this code:
+Now, let's go back to our controller. You have to require and include the module (look closely at the code below) and update your `post` request route with this code:
 
 ```ruby
 # lib/application.rb
+
+...
+require './lib/csv_parse'
+
+class WorkshopApp < Sinatra::Base
+  include CSVParse
+...
 
 ...
 post '/courses/deliveries/file_upload' do
@@ -237,7 +244,7 @@ Kalle Karlsson;kalle@kalle.se
 
 Now, if you run the scenario, all the steps should pass.
 
-
+Next, we will be creating the actual certificates. Exciting?
 
 
 [Step 16](step16.md)
