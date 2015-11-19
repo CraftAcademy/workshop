@@ -226,7 +226,7 @@ That should do it. Now we need to display those dates on the `courses/index.erb`
           <% end %>
         </p>
       <% end %>
-      <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" %>
+      <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" if current_user %>
     </div>
   <% end %>
 <% else %>
