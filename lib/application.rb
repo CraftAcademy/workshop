@@ -4,9 +4,12 @@ require 'data_mapper'
 require './lib/course'
 require './lib/user'
 require './lib/delivery'
+require './lib/student'
 require 'pry'
+require './lib/csv_parse'
 
 class WorkshopApp < Sinatra::Base
+  include CSVParse
   register Padrino::Helpers
   set :protect_from_csrf, true
   enable :sessions
@@ -68,6 +71,17 @@ class WorkshopApp < Sinatra::Base
     course = Course.get(params[:course_id])
     course.deliveries.create(start_date: params[:start_date])
     redirect 'courses/index'
+  end
+
+  get '/courses/delivery/show/:id', auth: :user do
+    @delivery = Delivery.find(date: params[:id]).first
+    erb :'courses/deliveries/show'
+  end
+
+  post '/courses/deliveries/file_upload' do
+    @delivery = Delivery.get(params[:id])
+    CSVParse.import(params[:file][:tempfile], Student, @delivery)
+    redirect "/courses/delivery/show/#{@delivery.id}"
   end
 
   get '/users/register' do

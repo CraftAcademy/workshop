@@ -12,6 +12,10 @@ Then(/^a new "([^"]*)" should be created$/) do |model|
   expect(Object.const_get(model).count).to eq 1
 end
 
+Then(/^([^"]*) instances of "([^"]*)" should be created$/) do |count, model|
+  expect(Object.const_get(model).count).to eq count.to_i
+end
+
 Given(/^I am a registered user$/) do
   steps %q{
   Given I am on the home page
@@ -64,4 +68,8 @@ And(/^I click on "([^"]*)" for the "([^"]*)" ([^"]*)$/) do |element, name, model
   find("#course-#{object.id}").click_link(element)
 end
 
+
+When(/^I select the "([^"]*)" file$/) do |file_name|
+  attach_file('file', File.absolute_path("./features/fixtures/#{file_name}"))
+end
 

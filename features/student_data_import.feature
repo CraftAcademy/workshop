@@ -8,3 +8,6 @@ Scenario: Data file upload
   And I am on the Course index page
   And I click on "2015-12-01" for the "Basic programming" Course
   Then I should be on 2015-12-01 show page
+  When I select the "students.csv" file
+  And I click "Submit" link
+  Then 3 instances of "Student" should be created

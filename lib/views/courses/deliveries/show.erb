@@ -1,0 +1,5 @@
+<% form_tag '/courses/deliveries/file_upload', method: :post, multipart: true do %>
+  <%= hidden_field_tag :id, value: @delivery.id %>
+  <%= file_field_tag :file %>
+  <%= submit_tag 'Submit' %>
+<% end %>
