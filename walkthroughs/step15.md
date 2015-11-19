@@ -1,7 +1,7 @@
 
 #### Adding Students
 
-Students will be added as a separate class and added by uploading a datafile in csv format (comma separated). Each student can be assigned to multiple Deliveries and thus be issued several Cartificates.
+Students will be added as a separate class by uploading a datafile. Each student can be assigned to multiple Deliveries and thus be issued several Cartificates.
 
 A user story:
 
