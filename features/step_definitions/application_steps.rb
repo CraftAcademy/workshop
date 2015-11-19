@@ -63,6 +63,15 @@ Given(/^the delivery for the course "([^"]*)" is set to "([^"]*)"$/) do |name, d
         }
 end
 
+And(/^the data file for "([^"]*)" is imported$/) do |date|
+  steps %Q{
+  And I am on the Course index page
+  And I click on "#{date}" for the "Basic programming" Course
+  When I select the "students.csv" file
+  And I click "Submit" link
+        }
+end
+
 And(/^I click on "([^"]*)" for the "([^"]*)" ([^"]*)$/) do |element, name, model|
   object = Object.const_get(model).find(name: name).first
   find("#course-#{object.id}").click_link(element)
@@ -73,3 +82,6 @@ When(/^I select the "([^"]*)" file$/) do |file_name|
   attach_file('file', File.absolute_path("./features/fixtures/#{file_name}"))
 end
 
+Then(/^"([^"]*)" certificates should be generated$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
