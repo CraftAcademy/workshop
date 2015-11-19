@@ -3,3 +3,10 @@
   <%= file_field_tag :file %>
   <%= submit_tag 'Submit' %>
 <% end %>
+
+<% if @delivery.students %>
+  Students:
+  <% @delivery.students.each do |student| %>
+    <%= student.full_name %>
+  <% end %>
+<% end %>

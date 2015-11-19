@@ -11,3 +11,8 @@ Scenario: Data file upload
   When I select the "students.csv" file
   And I click "Submit" link
   Then 3 instances of "Student" should be created
+  Then I should be on 2015-12-01 show page
+  And I should see "Students:"
+  And I should see "Thomas Ochman"
+  And I should see "Anders Andersson"
+  And I should see "Kalle Karlsson"

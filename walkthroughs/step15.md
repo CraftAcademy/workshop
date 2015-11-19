@@ -244,6 +244,56 @@ Kalle Karlsson;kalle@kalle.se
 
 Now, if you run the scenario, all the steps should pass.
 
+Add another few steps to your scenario:
+
+```ruby
+# features/student_data_import.feature
+
+Scenario: Data file upload
+  Given the delivery for the course "Basic" is set to "2015-12-01"
+  And I am on the Course index page
+  And I click on "2015-12-01" for the "Basic programming" Course
+  Then I should be on 2015-12-01 show page
+  When I select the "students.csv" file
+  And I click "Submit" link
+  Then 5 instances of "Student" should be created
+
+```
+
+We need to add an relationship between `Delivery` and `Student` for the `Delivery` to know what Students it is associated with. It needs to do that so we can display that inormation on the page after we've uploaded and parsed the data file.
+
+We star by adding a spec for that relation:
+
+```ruby
+# spec/delivery_spec
+
+it { is_expected.to have_many_and_belong_to :students }
+```
+
+And we add that relation to our `Delivery` class:
+
+```ruby
+# lib/delivery.rb
+
+...
+has n, :students, through: Resource
+```
+
+Finally, add the following code to the `show.erb` template:
+
+```HTML+ERB
+# lib/views/courses/deliveries/show.erb
+
+<% if @delivery.students %>
+  Students:
+  <% @delivery.students.each do |student| %>
+    <%= student.full_name %>
+  <% end %>
+<% end %>
+```
+
+Run all your specs and features. You should see a lot of green on your screen. That is always a good sign.
+
 Next, we will be creating the actual certificates. Exciting?
 
 
