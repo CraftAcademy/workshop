@@ -20,6 +20,9 @@ module NavigationHelpers
         '/users/login'
       when /Create course page/
         '/courses/create'
+      when /^(.*) show page$/i
+        d = Delivery.find(date: $1).first
+        "/courses/delivery/show/#{d.id}"
 
         # Add more mappings here.
         # Here is an example that pulls values out of the Regexp:

@@ -13,7 +13,7 @@ class WorkshopApp < Sinatra::Base
   set :session_secret, '11223344556677'
 
   env = ENV['RACK_ENV'] || 'development'
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/workshop_#{env}")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/workshop_#{env}")
   DataMapper::Model.raise_on_save_failure = true
   DataMapper.finalize
   DataMapper.auto_upgrade!

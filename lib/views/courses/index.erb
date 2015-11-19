@@ -6,7 +6,7 @@
       <% if course.deliveries %>
         <p>Delivery dates:
           <% course.deliveries.each do |date| %>
-           <%= date.start_date %>
+           <%= link_to date.start_date, "/courses/delivery/show/#{date.id}" %>
           <% end %>
         </p>
       <% end %>
