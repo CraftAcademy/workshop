@@ -4,7 +4,7 @@ Moving on to actually generating some certificates.
 
 We start with a feature test. Create a new file in your `features` folder, named `certificate_generation.feature` and add the following scenario:
 
-``ruby
+```ruby
 # features/certificate_generation.feature
 
 Feature: As a course administrator,
