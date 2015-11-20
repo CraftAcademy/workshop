@@ -3,11 +3,11 @@
 The time has come for us to add a database and to start defining our objects. At this point our application will start to grow more complex.
 
 We will:
-1. Introduce a new testing framework to test our objects - RSpec
-2. Introduce a database - PostgreSQL
-3. Introduce a Object Relation Mapping library - DataMapper
+1. Introduce a new testing framework to test our objects - `RSpec`
+2. Introduce a database - `PostgreSQL`
+3. Introduce a Object Relation Mapping library - `DataMapper`
 
-Add the following gems to your `Gemlile`
+Add the following gems to your `Gemfile`
 
 ```ruby
 # Gemfile
@@ -17,7 +17,7 @@ gem 'dm-postgres-adapter'
 gem 'pg'
 ```
 
-Also, we need to tart grouping our gems in that Gemfile. Please create the following group:
+Also, we need to tart grouping our gems in that `Gemfile`. Please create the following group:
 
 ```ruby
 # Gemfile
@@ -27,13 +27,14 @@ group :development, :test do
 end
 ```
 
-and add:
+and add the following to that group:
 ```ruby
 # Gemfile
 
 gem 'dm-rspec'
 ```
-to that group. The 'dm-rspec' gem extends RSpec with a set of matchers for DataMapper objects that will make our testing much easier.
+
+The `dm-rspec` gem extends `RSpec` with a set of matchers for DataMapper objects that will make our testing much easier.
 
 Also, I would like you to move all gems that we use for testing purposes to the `:development, :test` group.
 
@@ -64,19 +65,19 @@ Don't forget to do `bundle install` once you have made all the changes.
 In terminal run the following command:
 
 ```shell
-rspec --init
+$ rspec --init
 ```
 
 You should see the following output:
 
 ```shell
-  create   .rspec
-  create   spec/spec_helper.rb
+create   .rspec
+create   spec/spec_helper.rb
 ```
 
 Now, open `.rspec` file (it is located in your main project folder but it is a hidden file, so your text editor might not show it) and modify it so that the first line is set to:
 
-```shell
+```
 --format documentation
 ```
 
@@ -135,23 +136,28 @@ require 'dm-rspec'
 # spec/spec_helper.rb
 
 ...
-  config.include Capybara::DSL
-  config.include DataMapper::Matchers
+
+config.include Capybara::DSL
+config.include DataMapper::Matchers
+
 ...
 ```
 
 Now, run `rspec` again and you should receive no errors.
 
-```
+```shell
 No examples found.
 
 Finished in 0.00032 seconds (files took 0.72891 seconds to load)
 0 examples, 0 failures
 ```
 
-Okay, this means that you have successfully added and set up RSpec as a testing framework. The next step will be to start writing some tests for our `Course` class.
+Okay, this means that you have successfully added and set up `RSpec` as a testing framework. The next step will be to start writing some tests for our `Course` class.
+
+#### More on databases
+
+A database is an organized collection of related data, typically stored on disk, and accessible by possibly many concurrent users. Databases are often separated into application areas. For example, one database may contain Product information data; another may contain sales data; another may contain accounting data; and so on.
+
+More on [databases](https://en.wikipedia.org/wiki/Database) and [Relational Databases](https://en.wikipedia.org/wiki/Relational_database)
 
 [Step 7](step7.md)
-
-
-

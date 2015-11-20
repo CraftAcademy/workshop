@@ -88,8 +88,8 @@ Scenario: Create a course
   And I click "Create course" link
   And I fill in "Course Title" with "Basic programming"
   And I fill in "Course description" with "Your first step into the world of programming"
-  And I click "Create"
-  Then a new course should be created
+  And I click "Create" link
+  Then a new "Course" should be created
   And I should be on the Course index page
   And I should see "Basic programming"
 ```
@@ -116,8 +116,8 @@ Feature: As a course administrator,
     And I click 'Create course" link                                                 # features/course_create.feature:15
     And I fill in "Title" with "Basic programming"                                   # features/course_create.feature:16
     And I fill in "Description" with "Your first step into the world of programming" # features/course_create.feature:17
-    And I click "Create"                                                             # features/course_create.feature:18
-    Then a new course should be created                                              # features/course_create.feature:19
+    And I click "Create" link                                                        # features/course_create.feature:18
+    Then a new "Course" should be created                                            # features/course_create.feature:19
     And I should be on the Course index page                                         # features/course_create.feature:20
     And I should see "Basic programming"                                             # features/course_create.feature:21
 h

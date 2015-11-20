@@ -1,15 +1,14 @@
 ##### Adding a Course
-[Should we give some background on database theory and persistence. Probably yes]
 
-The time has come for us to start adding a `Course` class. As mentioned before we will be using DataMapper as the ORM and the `Course class that we created a while back needs to inherit some functionality
+The time has come for us to start adding a `Course` class. As mentioned before we will be using `DataMapper` as the ORM and the `Course` class that we created a while back needs to inherit some functionality
 from that gem.
 
-First thing we want to do is to make that class a DataMapper resource.
+First thing we want to do is to make that class a `DataMapper` resource.
 
 Modify your `lib/course.rb` to include the `DataMapper::Resource`:
 
 ```ruby
-## spec/spec_helper.rb
+# lib/course.rb
 
 class Course
   include DataMapper::Resource
@@ -18,39 +17,58 @@ class Course
 end
 ```
 
-Okay. We are to write some tests (or specs as we are used to call them). See the specs as a kind of blueprint for your class - basically describing the desired look and behaviour of your class/object.
+Okay. We have to write some tests (or specs as we usually call them). See the specs as a kind of blueprint for your class - basically describing the desired look and behaviour of your class/object.
 
-To do that we will be using RSpec and a set of matchers for DataMapper. In your `spec` folder, create a file named `course_spec.rb`. Add the following code to that file:
+To do that we will be using `RSpec` and a set of matchers for `DataMapper`. In your `spec` folder, create a file named `course_spec.rb`. Add the following code to that file:
 
 ```ruby
-# lib/course_spec.rb
+# spec/course_spec.rb
 
 require './lib/course'
 
 describe Course do
-
+  it { is_expected.to have_property :id }
+  it { is_expected.to have_property :title }
+  it { is_expected.to have_property :description }
 end
 ```
 
-Run RSpec by typing in `rspec` in your terminal window and hit enter. You'll see a lot of errors.
+Move over to your terminal and type the following to run the specs:
 
-You need to set up DataMapper in your `application.rb` for the application to know how to use it and where to store the information (access the database). Add the following code to your `application.rb`file:
+```shell
+$ rspec
+```
+
+You'll see a lot of errors.
+
+You need to set up `DataMapper` in your `application.rb` for the application to know how to use it and where to store the information (access the database). Add the following code to your `application.rb` file:
 
 ```ruby
 # lib/application.rb
+require 'data_mapper'
 
- env = ENV['RACK_ENV'] || 'development'
+...
+
+class WorkshopApp < Sinatra::Base
+  ...
+
+  env = ENV['RACK_ENV'] || 'development'
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/workshop_#{env}")
   DataMapper::Model.raise_on_save_failure = true
   DataMapper.finalize
   DataMapper.auto_upgrade!
 
+  ...
+end
+
 ```
 
-[Here we need to install and set up postgres]
+Before we continue we need to install `PostgreSQL` on our system.
+[I will get instructions for both Mac OSX and Ubuntu]
 
-In your terminal, run the following command to create your databases:
-```
+Once the install is complete, move back to your terminal then run the following command to create your databases:
+
+```shell
 psql -c 'create database workshop_development;' -U postgres
 psql -c 'create database workshop_test;' -U postgres
 ```
@@ -86,13 +104,14 @@ rspec ./spec/course_spec.rb:5 # Course should have property title
 rspec ./spec/course_spec.rb:6 # Course should have property description
 ```
 
-The terminal output that RSpec returns contains  an intimidating amount of text (not so much as it usually is when RSpec encounters error, but still a lot). The important takeaway from this is that one test passed and two tests failed.
+The terminal output that `RSpec` returns contains an intimidating amount of text (not so much as it usually is when `RSpec` encounters error, but still a lot). The important takeaway from this is that one test passed and two tests failed.
 
 We ware expecting the Course class to have 3 attributes, id, title, and description. But in our class, so far, we only defined the id. As you remember we set that datatype to a `Serial` meaning that it will be automatically incremented by the database each time we create a new course.
 
-All tables needs an `id`- that is called a `primary key` and is used to identify the record when we are trying to retrieve it.
+All tables needs an `id` - that is called a `primary key` and is used to identify the record when we are trying to retrieve it.
 
 So we need to add `title` and `description` to the course class. Lets do it by adding those properties like this:
+
 ```ruby
 # lib/course.rb
 
@@ -105,7 +124,7 @@ class Course
 end
 ```
 
-And run our specs again. We should go all green - our specs are passing. We now have a Course class that can be given a Title and a Description. That is a good start.
+And run our specs again. We should go all green - our specs are passing. We now have a `Course` class that can be given a `Title` and a `Description`. That is a good start.
 
 Lets shift our attention to `application.rb` for a moment.
 
@@ -121,9 +140,9 @@ It should look something like this:
   end
 ```
 
-What we need to know is that each time a form is submitted in a browser, the field values are sent of to the server in a set of key and value pairs (a Hash) called `params`.
+What we need to know is that each time a form is submitted in a browser, the field values are sent off to the server in a set of key and value pairs (a `Hash`) called `params`.
 
-In this case the post request will send of somthing like this:
+In this case the post request will send of something like this:
 ```ruby
 {"authenticity_token"=>"9c5220b56ab8a74e03f5ac331206ba163bb82f7cda3e1782bd8e18526caab213",
  "course"=>{"title"=>"Basic programming", "description"=>"Your first step into the world of programming"}}
@@ -154,30 +173,32 @@ At this point Cucumber does not know where to go and look for the Course index p
 # features/support/paths.rb
 ...
 
-  when /the Course index page/
-    '/courses/index'
+when /the Course index page/
+  '/courses/index'
 ...
 ```
 
 And run `cucumber`again. What?!? Another error? Will this ever end? The answer to that is basically *NO*. In test driven development you will keep on getting errors all the time. That is the nature of testing first - writing code later.
- What you want to make sure is that you keep on progressing in your development by small steps that manifests themselfs by your testing framework changing the error message.
- Every time you run your test and the message changes means that you have taken a small step forward. Ater a while, those small steps amount to a fully working feature.
 
- Anyway, the error we are seeing now should be something like this:
+What you want to make sure is that you keep on progressing in your development by small steps that manifests themselves by your testing framework changing the error message.
 
+Every time you run your test and the message changes means that you have taken a small step forward. After a while, those small steps amount to a fully working feature.
+
+Anyway, the error we are seeing now should be something like this:
+
+```shell
+Then a new "Course" should be created      # features/step_definitions/application_steps.rb:15
+
+    expected: 1
+         got: 2
+
+    (compared using ==)
+     (RSpec::Expectations::ExpectationNotMetError)
+    ./features/step_definitions/application_steps.rb:16:in `/^a new "([^"]*)" should be created$/'
+    features/course_create.feature:19:in `Then a new "Course" should be created'
 ```
-hen a new "Course" should be created      # features/step_definitions/application_steps.rb:15
 
-      expected: 1
-           got: 2
-
-      (compared using ==)
-       (RSpec::Expectations::ExpectationNotMetError)
-      ./features/step_definitions/application_steps.rb:16:in `/^a new "([^"]*)" should be created$/'
-      features/course_create.feature:19:in `Then a new "Course" should be created'
-```
-
-Okay, so this means that Cucumber was expecting one Course in the database but found two. That is because this is the second time we run this test. The course that we created the first time around is still there. So the assertion in our step definition, will not work any more:
+Okay, so this means that `cucumber` was expecting one Course in the database but found two. That is because this is the second time we run this test. The course that we created the first time around is still there. So the assertion in our step definition, will not work any more:
 
 ```ruby
 Then(/^a new "([^"]*)" should be created$/) do |model|
@@ -187,9 +208,9 @@ end
 
 This means that there should only be one instance of Course saved. (One could argue that the assertion should be rewritten, but for the sake of making my point I would like to stick with this one for now).
 
-What we need to do is to make sure that every time we run our test we are providing the testing framework with a clean database. For that we are going to use a gem called DatabaseCleaner.
+What we need to do is to make sure that every time we run our test we are providing the testing framework with a clean database. For that we are going to use a gem called `DatabaseCleaner`.
 
-As usual (you should know this procedure by now) we add that gem to our Gemfile's development and test group:
+As usual (you should know this procedure by now) we add that gem to our Gemfile's `development` and `test` group:
 
 ```ruby
 # Gemfile
@@ -230,8 +251,8 @@ We do that in our `applications.rb` and the `get '/courses/index'` route. Open u
   end
 ```
 
-So `@courses` is an array containing information about all the courses in our database (hence `Course.all`). In our `courses/index.erb` we need to tell the application to show those coiurses unless the `@courses` array is empty.
-If it is empty, we want to display a message telling the user: "You have not created any courses" (we had that in our first scenario, right?).
+So `@courses` is an array containing information about all the courses in our database (hence `Course.all`). In our `courses/index.erb` we need to tell the application to show those courses unless the `@courses` array is empty.
+If it is empty, we want to display a message telling the user: `You have not created any courses` (we had that in our first scenario, right?).
 
 So, in order to do that we are gonna use some ruby in the `course/index.erb` view to condition what is being shown to the user:
 
@@ -264,12 +285,3 @@ So if you run `cucumber` again, all the steps in our first two scenarios should 
 
 
 [Step 8](step8.md)
-
-
-
-
-
-
-
-
-
