@@ -6,11 +6,11 @@
       <% if course.deliveries %>
         <p>Delivery dates:
           <% course.deliveries.each do |date| %>
-           <%= date.start_date %>
+           <%= link_to date.start_date, "/courses/delivery/show/#{date.id}" %>
           <% end %>
         </p>
       <% end %>
-      <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" %>
+      <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" if current_user%>
     </div>
   <% end %>
 <% else %>

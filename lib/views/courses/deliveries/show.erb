@@ -1,0 +1,13 @@
+<% form_tag '/courses/deliveries/file_upload', method: :post, multipart: true do %>
+  <%= hidden_field_tag :id, value: @delivery.id %>
+  <%= file_field_tag :file %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<% if @delivery.students %>
+  Students:
+  <% @delivery.students.each do |student| %>
+    <%= student.full_name %>
+  <% end %>
+  <%= link_to 'Generate certificates', '/courses/generate', method: :post  %>
+<% end %>
