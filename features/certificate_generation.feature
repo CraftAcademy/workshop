@@ -9,4 +9,4 @@ Scenario: Generate a certificate
   And the data file for "2015-12-01" is imported
   And I am on 2015-12-01 show page
   And I click "Generate certificates" link
-  Then "3" certificates should be generated
+  Then 3 certificates should be generated

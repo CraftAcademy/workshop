@@ -9,4 +9,5 @@
   <% @delivery.students.each do |student| %>
     <%= student.full_name %>
   <% end %>
+  <%= link_to 'Generate certificates', '/courses/generate', method: :post  %>
 <% end %>

@@ -82,6 +82,7 @@ When(/^I select the "([^"]*)" file$/) do |file_name|
   attach_file('file', File.absolute_path("./features/fixtures/#{file_name}"))
 end
 
-Then(/^"([^"]*)" certificates should be generated$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^([^"]*) certificates should be generated$/) do |count|
+  pdf_count = Dir['pdf/**/*.pdf'].length
+  expect(pdf_count).to eq count.to_i
 end
