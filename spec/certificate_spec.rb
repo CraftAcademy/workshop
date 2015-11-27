@@ -47,7 +47,7 @@ describe Certificate do
       end
 
       it 'returns #bitly_lookup' do
-        expect(@certificate.bitly_lookup).to eq 'http://localhost:9292/verify/pdf/test/thomas_ochman_2015-01-01.pdf'
+        expect(@certificate.bitly_lookup).to eq "http://localhost:9292/verify/#{@certificate.identifier}"
       end
 
       it 'returns #stats' do

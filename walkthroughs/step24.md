@@ -166,7 +166,7 @@ First we need the `Certificate` to respond to a new method that will give us the
 # in the main describe block:
 
 it 'returns #bitly_lookup' do
-  expect(@certificate.bitly_lookup).to eq 'http://localhost:9292/verify/pdf/test/thomas_ochman_2015-01-01.pdf'
+  expect(@certificate.bitly_lookup).to eq "http://localhost:9292/verify/#{@certificate.identifier}"
 end
 
 it 'returns #stats' do
