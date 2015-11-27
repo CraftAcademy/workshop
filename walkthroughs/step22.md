@@ -10,34 +10,34 @@ Add the following specs to your `certificate_spec.rb`
 
 describe 'Creating a Certificate' do
 ...
-    describe 'S3' do
-      before { CertificateGenerator.generate(@certificate) }
+  describe 'S3' do
+    before { CertificateGenerator.generate(@certificate) }
 
-      it 'can be fetched by #image_url' do
-        expect(@certificate.image_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.jpg'
-      end
-
-      it 'can be fetched by #certificate_url' do
-        expect(@certificate.certificate_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.pdf'
-      end
+    it 'can be fetched by #image_url' do
+      expect(@certificate.image_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.jpg'
     end
+
+    it 'can be fetched by #certificate_url' do
+      expect(@certificate.certificate_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.pdf'
+    end
+  end
 end
 
 ```
 
-Add the following methods to your `certificate.rb`
+We know that the links to AWS are build in a specific way and we can use that to dynamically create our own urls. Add the following methods to your `certificate.rb`
 
 ```ruby
 # lib/certificate.rb
 
 ...
- def image_url
-    "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.image_key}"
-  end
+def image_url
+  "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.image_key}"
+end
 
-  def certificate_url
-    "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.certificate_key}"
-  end
+def certificate_url
+  "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.certificate_key}"
+end
 
 ...
 ```

@@ -73,10 +73,15 @@ module CertificateGenerator
 ...
 ```
 
-A rew remote has been added to your git repository. Check it using this command:
+A new remote has been added to your git repository. Check it using this command:
 
 ```ruby
 $ git remote -v
+
+heroku	git@heroku.com:my-certz.git (fetch)
+heroku	git@heroku.com:my-certz.git (push)
+origin	git@github.com:<Your GitHub username>/workshop-app.git (fetch)
+origin	git@github.com:<Your GitHub username>/workshop-app.git (push)
 ```
 
 Make sure that your latest changes are committed (and preferably pushed up to GitHub):
