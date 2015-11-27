@@ -1,11 +1,8 @@
 require './lib/certificate_generator'
 require 'aws-sdk'
-require 'dotenv'
 require 'bitly'
 
 class Certificate
-  Dotenv.load!
-
   include DataMapper::Resource
   include CertificateGenerator
 
@@ -57,7 +54,7 @@ class Certificate
 
   def bitly_lookup
     server = ENV['SERVER_URL'] || 'http://localhost:9292/verify/'
-    "#{server}#{self.certificate_key}"
+    "#{server}#{self.identifier}"
   end
 
 end

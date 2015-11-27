@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'padrino-helpers'
 require 'data_mapper'
-require 'dotenv'
+
 require 'aws-sdk'
 require './lib/course'
 require './lib/user'
@@ -12,20 +12,41 @@ require './lib/csv_parse'
 require './lib/certificate'
 require './lib/certificate_generator'
 
+if ENV['RACK_ENV'] != 'production'
+require 'dotenv'
+end
+
 class WorkshopApp < Sinatra::Base
-  Dotenv.load
+  if ENV['RACK_ENV'] != 'production'
+    Dotenv.load
+  end
   include CSVParse
   include CertificateGenerator
 
   register Padrino::Helpers
+
+  configure :development do
+    Sinatra::Application.reset!
+    use Rack::Reloader
+  end
+
+  ::Logger.class_eval { alias :write :'<<' }
+  access_log = ::File.join(::File.dirname(::File.expand_path(__FILE__)),'..','log','access.log')
+  access_logger = ::Logger.new(access_log)
+  error_logger = ::File.new(::File.join(::File.dirname(::File.expand_path(__FILE__)),'..','log','error.log'),'a+')
+  error_logger.sync = true
+
+  configure do
+    use ::Rack::CommonLogger, access_logger
+  end
+
+  before {
+    env['rack.errors'] =  error_logger
+  }
+
   set :protect_from_csrf, true
   enable :sessions
   set :session_secret, '11223344556677'
-  set :aws, {bucket: ENV['S3_BUCKET'],
-             access_key: ENV['AWS_ACCESS_KEY_ID'],
-             secret: ENV['AWS_SECRET_ACCESS_KEY'],
-             region: ENV['AWS_REGION']
-          }
 
   env = ENV['RACK_ENV'] || 'development'
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/workshop_#{env}")

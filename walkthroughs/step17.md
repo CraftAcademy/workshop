@@ -64,7 +64,6 @@ Run all your specs now. If you want to actually have a look at one of the certif
 
 ...
 it 'adds an identifier after create' do
-  binding.pry
   expect(@certificate.identifier.size).to eq 64
 end
 ...

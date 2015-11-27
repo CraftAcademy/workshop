@@ -1,11 +1,16 @@
 require 'prawn'
 require 'rmagick'
 require 'aws-sdk'
-require 'dotenv'
 require 'bitly'
 
+if ENV['RACK_ENV'] != 'production'
+  require 'dotenv'
+end
+
 module CertificateGenerator
-  Dotenv.load!
+  if ENV['RACK_ENV'] != 'production'
+    Dotenv.load
+  end
   Bitly.use_api_version_3
   CURRENT_ENV = ENV['RACK_ENV'] || 'development'
   PATH = "pdf/#{CURRENT_ENV}/"

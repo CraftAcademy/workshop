@@ -19,6 +19,7 @@ So if we don't need to write any code but still implement a feature and solve a 
 That is exactly what we're going to do with this particular feature.
 
 My idea is that we can use the link shortening service [bit.ly](https://bitly.com) that, apart from shortening url's, also provides simple analytics.
+
 We are going to use a ruby wrapper around the BitLy API - found at [github.com/philnash/bitly](https://github.com/philnash/bitly).
 
 This way, we will not have write our own tracking module AND we get to display a shorter validation link on the certificate.
@@ -60,11 +61,15 @@ Add the following code to your `certificate_generator.rb`:
 require 'prawn'
 require 'rmagick'
 require 'aws-sdk'
-require 'dotenv'
+if ENV['RACK_ENV'] != 'production'
+  require 'dotenv'
+end
 require 'bitly'
 
 module CertificateGenerator
-  Dotenv.load!
+  if ENV['RACK_ENV'] != 'production'
+    Dotenv.load
+  end
   Bitly.use_api_version_3
   CURRENT_ENV = ENV['RACK_ENV'] || 'development'
   PATH = "pdf/#{CURRENT_ENV}/"
@@ -190,7 +195,7 @@ end
 
 def bitly_lookup
   server = ENV['SERVER_URL'] || 'http://localhost:9292/verify/'
-  "https://#{ENV['SERVER_URL']}#{self.certificate_key}"
+  "#{server}#{self.identifier}"
 end
 ...
 ```
@@ -216,6 +221,9 @@ At this point we have access to an `Certificate` instance method `#stats` that w
 </div>
 ```
 
+With this changes we are getting the click count on the valid certificate show page (`valid.erb`). We have successfully set up a link shortening service, displayed the link on the generated certificate and
+we are accessing the analytics functionality of Bit.ly. Not bad for an hours work, right?
 
-[Step 24](step24.md)
+
+[Step 25](step25.md)
 

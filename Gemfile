@@ -12,10 +12,10 @@ gem 'bcrypt'
 gem 'prawn'
 gem 'rmagick'
 gem 'aws-sdk'
-gem 'dotenv'
 gem 'bitly'
 
 group :development, :test do
+  gem 'dotenv'
   gem 'cucumber'
   gem 'rspec'
   gem 'capybara'

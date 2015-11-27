@@ -37,6 +37,42 @@ https://my-certz.herokuapp.com/ | https://git.heroku.com/my-certz.git
 Git remote heroku added
 ```
 
+The `dotenv` gem can couse some problems for us when we deploy to Heroku. We need to make some small changes to the way we require that gem and only load it if we are in `development` and `test`environment.
+
+
+```ruby
+# lib/application.rb
+
+...
+if ENV['RACK_ENV'] != 'production'
+require 'dotenv'
+end
+
+class WorkshopApp < Sinatra::Base
+  if ENV['RACK_ENV'] != 'production'
+    Dotenv.load
+  end
+...
+
+```
+
+And also to the `CertificateGenerator` module:
+
+```ruby
+# lib/certificate_generator.rb
+
+...
+if ENV['RACK_ENV'] != 'production'
+  require 'dotenv'
+end
+
+module CertificateGenerator
+  if ENV['RACK_ENV'] != 'production'
+    Dotenv.load
+  end
+...
+```
+
 A rew remote has been added to your git repository. Check it using this command:
 
 ```ruby
