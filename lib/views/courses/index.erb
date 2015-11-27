@@ -1,0 +1,21 @@
+<% if @courses.any? %>
+  <% @courses.each do |course| %>
+    <div id="course-<%= course.id %>">
+      <h3><%= course.title %></h3>
+      <p><%= course.description %></p>
+      <% if course.deliveries %>
+        <p>Delivery dates:
+          <% course.deliveries.each do |date| %>
+           <%= link_to date.start_date, "/courses/delivery/show/#{date.id}" %>
+          <% end %>
+        </p>
+      <% end %>
+      <%= link_to 'Add Delivery date', "/courses/#{course.id}/add_date" if current_user%>
+    </div>
+  <% end %>
+<% else %>
+  <h1>You have not created any courses</h1>
+<% end %>
+<% if current_user %>
+  <%= link_to 'Create course', '/courses/create' %>
+<% end %>

@@ -1,0 +1,12 @@
+<h3 style="color: #368a55">Valid course certificate for</h3>
+
+<h2><%= link_to @certificate.student.full_name, @certificate.certificate_url %></h2>
+<p><%= link_to @certificate.delivery.course.title, "/courses/delivery/show/#{@certificate.delivery.id}" %></p>
+<p>Course date: <%= @certificate.delivery.start_date %></p>
+<div>
+  Viewed <%= @certificate.stats %> <%= @certificate.stats == 1 ? 'time' : 'times' %>
+</div>
+
+<div>
+  <img src="<%= @certificate.image_url %>"/>
+</div>

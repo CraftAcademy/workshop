@@ -1,0 +1,9 @@
+<% form_tag('/users/session', method: 'post') do %>
+  <%= label_tag :email, caption: 'Email' %>
+  <%= text_field_tag :email, id: 'email' %>
+
+  <%= label_tag :password, caption: 'Password' %>
+  <%= password_field_tag :password, id: 'password' %>
+
+  <%= submit_tag 'Submit' %>
+<% end %>

@@ -1,0 +1,26 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'tilt', '~> 1.4', '>= 1.4.1'
+gem 'padrino', '~> 0.13.0'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pg'
+gem 'pry'
+gem 'pry-byebug'
+gem 'bcrypt'
+gem 'prawn'
+gem 'rmagick'
+gem 'aws-sdk'
+gem 'dotenv'
+gem 'bitly'
+
+group :development, :test do
+  gem 'cucumber'
+  gem 'rspec'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'dm-rspec'
+  gem 'database_cleaner'
+  gem 'launchy'
+end

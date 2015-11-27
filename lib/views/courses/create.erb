@@ -1,0 +1,5 @@
+<% form_for :course, '/courses/create', id: 'create' do |f|  %>
+  <%= f.text_field_block :title, caption: 'Course Title' %>
+  <%= f.text_field_block :description, caption: 'Course description' %>
+  <%= f.submit 'Create' %>
+<% end %>

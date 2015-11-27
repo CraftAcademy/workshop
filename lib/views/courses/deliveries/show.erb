@@ -1,0 +1,28 @@
+<h2><%= @delivery.course.title %></h2>
+<p>Course date: <%= @delivery.start_date %></p>
+
+<% if @delivery.students.any? %>
+  <div> Students:
+    <ul>
+      <% @delivery.students.each do |student| %>
+        <li id="student-<%= student.id %>>"><%= [student.full_name, ''].join(' ') %>
+          <% unless student.certificates.all(delivery_id: @delivery.id).empty? %>
+            <%= link_to 'view certificate', student.certificates.first(delivery_id: @delivery.id).certificate_url, target: '_blank' %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <% if current_user && @delivery.certificates.all(delivery_id: @delivery.id).empty? %>
+      <div>
+        <%= link_to 'Generate certificates', "/courses/generate/#{@delivery.id}", class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+<% elsif current_user %>
+  <% form_tag '/courses/deliveries/file_upload', method: :post, multipart: true do %>
+    <%= hidden_field_tag :id, value: @delivery.id %>
+    <%= file_field_tag :file %>
+    <%= submit_tag 'Submit', class: 'button' %>
+  <% end %>
+<% end %>
+

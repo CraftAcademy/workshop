@@ -1,0 +1,6 @@
+<% form_tag('/courses/new_date', method: 'post') do %>
+  <%= hidden_field_tag :course_id, value: @course.id %>
+  <%= label_tag :start_date, caption: 'Start' %>
+  <%= date_field_tag :start_date, id: 'start_date' %>
+  <%= submit_tag 'Submit' %>
+<% end %>
