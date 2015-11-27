@@ -49,15 +49,15 @@ class Certificate
     Bitly.use_api_version_3
     bitly = Bitly.new(ENV['BITLY_USERNAME'], ENV['BITLY_API_KEY'])
     begin
-      bitly.lookup(bitly_lookup).global_clicks
+      bitly.lookup(self.bitly_lookup).global_clicks
     rescue
       0
     end
   end
 
   def bitly_lookup
-    server = ENV['SERVER_URL']
-    "https://#{server}#{self.certificate_key}"
+    server = ENV['SERVER_URL'] || 'http://localhost:9292/verify/'
+    "#{server}#{self.certificate_key}"
   end
 
 end

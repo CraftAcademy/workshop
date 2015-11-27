@@ -35,14 +35,6 @@ describe Certificate do
       expect(@certificate.delivery.start_date.to_s).to eq '2015-01-01'
     end
 
-    it 'returns #bitly_lookup' do
-      expect(@certificate.bitly_lookup).to eq 'https://http://localhost:9292/verify/pdf/test/thomas_ochman_2015-01-01.pdf'
-    end
-
-    it 'returns #stats' do
-      expect(@certificate.stats).to eq 0
-    end
-
     describe 'S3' do
       before { CertificateGenerator.generate(@certificate) }
 
@@ -53,6 +45,15 @@ describe Certificate do
       it 'can be fetched by #certificate_url' do
         expect(@certificate.certificate_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.pdf'
       end
+
+      it 'returns #bitly_lookup' do
+        expect(@certificate.bitly_lookup).to eq 'http://localhost:9292/verify/pdf/test/thomas_ochman_2015-01-01.pdf'
+      end
+
+      it 'returns #stats' do
+        expect(@certificate.stats).to eq 0
+      end
+
 
     end
 

@@ -21,6 +21,8 @@ That is exactly what we're going to do with this particular feature.
 My idea is that we can use the link shortening service [bit.ly](https://bitly.com) that, apart from shortening url's, also provides simple analytics.
 We are going to use a ruby wrapper around the BitLy API - found at [github.com/philnash/bitly](https://github.com/philnash/bitly).
 
+This way, we will not have write our own tracking module AND we get to display a shorter validation link on the certificate.
+
 We start with adding the gem to our `Gemfile`:
 
 ```ruby
@@ -39,7 +41,9 @@ BITLY_USERNAME=<bit.ly username>
 BITLY_API_KEY=<bit.ly api key>
 ```
 
-If you have deployed your application to Heroku, you need to set those vars on your application as well:
+You'll get those credentials if you sign up for Bit.ly, go to your profile settings (Advanced) and look under the Legacy API Key section.
+
+If you have deployed your application to Heroku, you need to save your credentials as vars on your application as well:
 
 ```shell
 $ heroku config:set BITLY_USERNAME=<bit.ly username>
@@ -145,7 +149,7 @@ end
 
 We need to retrieve stats from bit.ly in two steps.
 
-1. Identify the short url by uinge the `lookup` method
+1. Identify the resource using the `lookup` method
 2. Get the statistics by using the `global_clicks` method
 
 First we need the `Certificate` to respond to a new method that will give us the verification url. In your `certificate_spcec.rb` add the following test:
@@ -157,7 +161,7 @@ First we need the `Certificate` to respond to a new method that will give us the
 # in the main describe block:
 
 it 'returns #bitly_lookup' do
-  expect(@certificate.bitly_lookup).to eq 'https://http://localhost:9292/verify/pdf/test/thomas_ochman_2015-01-01.pdf'
+  expect(@certificate.bitly_lookup).to eq 'http://localhost:9292/verify/pdf/test/thomas_ochman_2015-01-01.pdf'
 end
 
 it 'returns #stats' do
@@ -178,7 +182,7 @@ def stats
   Bitly.use_api_version_3
   bitly = Bitly.new(ENV['BITLY_USERNAME'], ENV['BITLY_API_KEY'])
   begin
-    bitly.lookup(bitly_lookup).global_clicks
+    bitly.lookup(self.bitly_lookup).global_clicks
   rescue
     0
   end
@@ -213,5 +217,5 @@ At this point we have access to an `Certificate` instance method `#stats` that w
 ```
 
 
-
+[Step 24](step24.md)
 
