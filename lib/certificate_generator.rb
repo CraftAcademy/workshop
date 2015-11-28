@@ -2,6 +2,7 @@ require 'prawn'
 require 'rmagick'
 require 'aws-sdk'
 require 'bitly'
+require 'mail'
 
 if ENV['RACK_ENV'] != 'production'
   require 'dotenv'
@@ -21,12 +22,13 @@ module CertificateGenerator
 
   def self.generate(certificate)
     details = {name: certificate.student.full_name,
+               email: certificate.student.email,
                date: certificate.delivery.start_date.to_s,
                course_name: certificate.delivery.course.title,
                course_desc: certificate.delivery.course.description,
                verify_url: [URL, certificate.identifier].join('')}
 
-    file_name = [details[:name], details[:date]].join('_').downcase.gsub!(/\s/, '_')
+    file_name = [details[:name], details[:date], details[:course_name]].join('_').downcase.gsub!(/\s/, '_')
 
     certificate_output = "#{PATH}#{file_name}.pdf"
     image_output = "#{PATH}#{file_name}.jpg"
@@ -35,6 +37,8 @@ module CertificateGenerator
     make_rmagic_image(certificate_output, image_output)
 
     upload_to_s3(certificate_output, image_output)
+
+    send_email(details, file_name)
 
     certificate.update(certificate_key: certificate_output, image_key: image_output )
   end
@@ -78,6 +82,17 @@ module CertificateGenerator
     s3_certificate_object.upload_file(certificate_output, acl: 'public-read')
     s3_image_object = S3.bucket(ENV['S3_BUCKET']).object(image_output)
     s3_image_object.upload_file(image_output, acl: 'public-read')
+  end
+
+  def self.send_email(details, file)
+    mail = Mail.new do
+      from     "The course team <#{ENV['GMAIL_ADDRESS']}>"
+      to       "#{details[:name]} <#{details[:email]}>"
+      subject  "Course Certificate - #{details[:course_name]}"
+      body     File.read('pdf/templates/body.txt')
+      add_file filename: "#{file}.pdf", mime_type: 'application/x-pdf', content: File.read("#{PATH}#{file}.pdf")
+    end
+    mail.deliver
   end
 
   def self.get_url(url)

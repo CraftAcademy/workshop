@@ -3,7 +3,6 @@ Feature: As a course administrator,
   I want to be able display course title, course date and the
   participants name on the certificate
 
-
 Scenario: Generate certificates
   Given the delivery for the course "Basic" is set to "2015-12-01"
   And the data file for "2015-12-01" is imported
@@ -12,6 +11,7 @@ Scenario: Generate certificates
   Then 3 instances of "Certificate" should be created
   And 3 certificates should be generated
   And 3 images of certificates should be created
+  And 3 emails with certificates attached should be sent
   And I should see "Generated 3 certificates"
   And I should see "Thomas Ochman"
   And I should see "Anders Andersson"

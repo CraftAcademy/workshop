@@ -127,7 +127,7 @@ Finally, we need to do a small refactoring in `application_steps.rb`, adding the
 
 ...
 Then(/^([^"]*) certificates should be generated$/) do |count|
-  pdf_count = Dir['pdf/test/*.pdf'].length
+  pdf_count = Dir['pdf/test/**/*.pdf'].length
   expect(pdf_count).to eq count.to_i
 end
 ...

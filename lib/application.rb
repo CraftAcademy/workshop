@@ -13,7 +13,7 @@ require './lib/certificate'
 require './lib/certificate_generator'
 
 if ENV['RACK_ENV'] != 'production'
-require 'dotenv'
+  require 'dotenv'
 end
 
 class WorkshopApp < Sinatra::Base
@@ -22,6 +22,16 @@ class WorkshopApp < Sinatra::Base
   end
   include CSVParse
   include CertificateGenerator
+  Mail.defaults do
+    delivery_method :smtp, {
+                             address: 'smtp.gmail.com',
+                             port: '587',
+                             user_name: ENV['GMAIL_ADDRESS'],
+                             password: ENV['GMAIL_PASSWORD'],
+                             authentication: :plain,
+                             enable_starttls_auto: true
+                         }
+  end
 
   register Padrino::Helpers
 
@@ -31,9 +41,9 @@ class WorkshopApp < Sinatra::Base
   end
 
   ::Logger.class_eval { alias :write :'<<' }
-  access_log = ::File.join(::File.dirname(::File.expand_path(__FILE__)),'..','log','access.log')
+  access_log = ::File.join(::File.dirname(::File.expand_path(__FILE__)), '..', 'log', 'access.log')
   access_logger = ::Logger.new(access_log)
-  error_logger = ::File.new(::File.join(::File.dirname(::File.expand_path(__FILE__)),'..','log','error.log'),'a+')
+  error_logger = ::File.new(::File.join(::File.dirname(::File.expand_path(__FILE__)), '..', 'log', 'error.log'), 'a+')
   error_logger.sync = true
 
   configure do
@@ -41,7 +51,7 @@ class WorkshopApp < Sinatra::Base
   end
 
   before {
-    env['rack.errors'] =  error_logger
+    env['rack.errors'] = error_logger
   }
 
   set :protect_from_csrf, true

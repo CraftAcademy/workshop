@@ -13,6 +13,7 @@ gem 'prawn'
 gem 'rmagick'
 gem 'aws-sdk'
 gem 'bitly'
+gem 'mail'
 
 group :development, :test do
   gem 'dotenv'

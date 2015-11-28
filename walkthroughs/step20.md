@@ -118,7 +118,7 @@ module CertificateGenerator
                course_desc: certificate.delivery.course.description,
                verify_url: [URL, certificate.identifier].join('')}
 
-    file_name = [details[:name], details[:date]].join('_').downcase.gsub!(/\s/, '_')
+    file_name = [details[:name], details[:date], details[:course_name]].join('_').downcase.gsub!(/\s/, '_')
 
     certificate_output = "#{PATH}#{file_name}.pdf"
     image_output = "#{PATH}#{file_name}.jpg"

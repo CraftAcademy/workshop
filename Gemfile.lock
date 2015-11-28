@@ -234,6 +234,7 @@ DEPENDENCIES
   dm-rspec
   dotenv
   launchy
+  mail
   padrino (~> 0.13.0)
   pg
   prawn

@@ -113,3 +113,4 @@ end
 And(/^I should see ([^"]*) "([^"]*)" links$/) do |count, element|
   expect(page).to have_link(element, count: count)
 end
+
