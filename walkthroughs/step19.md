@@ -2,7 +2,13 @@
 
 Every `Certificate` we create has a unique identifier. Each generated certificate displays a url that can used to verify the authenticity of the document.
 
-In order for it to work we need to ...
+In order for it to work we need to:
+
+1. Create a route in our controller (´application.rb`)
+2. Create appropriate templates for valid & invalid certificates
+3. Query the database for a certificate using the `identifier`
+4. Display the right certificate on the `velid` page
+5. Display the `invalid` template if there is no matching certificate
 
 We start with writing a Cucumber feature. Create a new feature file:
 

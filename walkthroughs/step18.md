@@ -75,7 +75,7 @@ module CertificateGenerator
   def self.generate(certificate)
   ...
     im = Magick::Image.read(output)
-    im[0].write("assets/img/usr/#{ENV_PATH}" + [details[:name], details[:date]].join('_').downcase.gsub!(/\s/, '_') + '.jpg')
+    im[0].write("assets/img/usr/#{ENV_PATH}/" + [details[:name], details[:date]].join('_').downcase.gsub!(/\s/, '_') + '.jpg')
   end
 ```
 
