@@ -85,18 +85,6 @@ module CertificateGenerator
   end
 
   def self.send_email(details, file)
-    Mail.defaults do
-      delivery_method :smtp, {
-                               address: 'smtp.sendgrid.net',
-                               port: '587',
-                               domain: 'heroku.com',
-                               user_name: ENV['SENDGRID_USERNAME'],
-                               password: ENV['SENDGRID_PASSWORD'],
-                               authentication: :plain,
-                               enable_starttls_auto: true
-                           }
-    end
-
     mail = Mail.new do
       from     "The course team <#{ENV['SENDGRID_USERNAME']}>"
       to       "#{details[:name]} <#{details[:email]}>"
