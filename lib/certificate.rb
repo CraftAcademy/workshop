@@ -8,8 +8,8 @@ class Certificate
 
   property :id, Serial
   property :identifier, Text
-  property :certificate_key, String, required: false
-  property :image_key, String, required: false
+  property :certificate_key, Text, required: false
+  property :image_key, Text, required: false
   property :created_at, DateTime
 
   belongs_to :delivery

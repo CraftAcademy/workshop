@@ -89,10 +89,13 @@ it { is_expected.to have_property :image_key }
 # lib/certificate.rb
 
 ...
-property :certificate_key, String
-property :image_key, String
+property :certificate_key, Text
+property :image_key, Text
 ...
 ```
+
+We need to set these properties to `Text` rather then `String` due to the fact that length can exceed 50 characters.
+
 We are going to do some major refactoring of the  `CertificateGenerator`, extracting some functionality to private methods and adding a method that will handle our upload to S3:
 Update your `certificate_generator.rb` with the following code:
 ```ruby
