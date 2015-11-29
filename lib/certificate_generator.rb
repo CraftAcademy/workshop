@@ -38,9 +38,13 @@ module CertificateGenerator
 
     upload_to_s3(certificate_output, image_output)
 
+    binding.pry
+    certificate.certificate_key = certificate_output
+    certificate.image_key = image_output
+    certificate.save!
+
     send_email(details, file_name)
 
-    certificate.update(certificate_key: certificate_output, image_key: image_output )
   end
 
   private
