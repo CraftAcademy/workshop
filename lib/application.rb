@@ -136,7 +136,8 @@ class WorkshopApp < Sinatra::Base
     else
       @delivery.students.each do |student|
         cert = student.certificates.create(created_at: DateTime.now, delivery: @delivery)
-        CertificateGenerator.generate(cert)
+        keys = CertificateGenerator.generate(cert)
+        cert.update(certificate_key: keys[:certificate_key], image_key: keys[:image_key])
       end
       session[:flash] = "Generated #{@delivery.students.count} certificates"
     end

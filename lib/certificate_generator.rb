@@ -15,7 +15,7 @@ module CertificateGenerator
   Bitly.use_api_version_3
   CURRENT_ENV = ENV['RACK_ENV'] || 'development'
   PATH = "pdf/#{CURRENT_ENV}/"
-  TEMPLATE = File.absolute_path('./pdf/templates/certificate_tpl.jpg')
+  TEMPLATE = File.absolute_path('./pdf/templates/crafta1.jpg')
   URL = ENV['SERVER_URL'] || 'http://localhost:9292/verify/'
   S3 = Aws::S3::Resource.new(region: ENV['AWS_REGION'])
   BITLY = Bitly.new(ENV['BITLY_USERNAME'], ENV['BITLY_API_KEY'])
@@ -38,12 +38,12 @@ module CertificateGenerator
 
     upload_to_s3(certificate_output, image_output)
 
-    certificate.certificate_key = certificate_output
-    certificate.image_key = image_output
-    certificate.save!
+    #certificate.certificate_key = certificate_output
+    #certificate.image_key = image_output
+    #certificate.save!
 
     send_email(details, file_name)
-
+    { certificate_key: certificate_output, image_key: image_output }
   end
 
   private
@@ -63,15 +63,16 @@ module CertificateGenerator
                              skip_encoding: true) do |pdf|
       pdf.move_down 245
       pdf.font 'assets/fonts/Gotham-Bold.ttf'
-      pdf.text details[:name], size: 44, color: '009900', align: :center
+      pdf.text details[:name], size: 44, color: 'F28E24', indent_paragraphs: 100
       pdf.move_down 20
       pdf.font 'assets/fonts/Gotham-Medium.ttf'
-      pdf.text details[:course_name], indent_paragraphs: 150, size: 20
-      pdf.text details[:course_desc], indent_paragraphs: 150, size: 20
+      pdf.text details[:course_name], indent_paragraphs: 100, size: 20, color: '6F7072'
+      pdf.text details[:course_desc], indent_paragraphs: 100, size: 20, color: '6F7072'
       pdf.move_down 95
-      pdf.text "Göteborg #{details[:date]}", indent_paragraphs: 120, size: 12
+      pdf.text 'Thomas Ochman', indent_paragraphs: 100, size: 12, color: '6F7072'
+      pdf.text "Göteborg #{details[:date]}", indent_paragraphs: 100, size: 12, color: '6F7072'
       pdf.move_down 65
-      pdf.text "To verify this certificate, visit: #{get_url(details[:verify_url])}", indent_paragraphs: 100, size: 8
+      pdf.text "To verify this certificate, visit: #{get_url(details[:verify_url])}", align: :center, size: 8, color: '6F7072'
     end
   end
 
