@@ -40,7 +40,7 @@ module CertificateGenerator
 
     send_email(details, file_name)
 
-    certificate.update!(certificate_key: certificate_output, image_key: image_output )
+    certificate.update(certificate_key: certificate_output, image_key: image_output )
   end
 
   private
