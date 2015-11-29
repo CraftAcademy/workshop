@@ -39,6 +39,7 @@ describe Certificate do
       before { CertificateGenerator.generate(@certificate) }
 
       it 'can be fetched by #image_url' do
+        binding.pry
         expect(@certificate.image_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.jpg'
       end
 

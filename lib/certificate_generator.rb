@@ -38,11 +38,10 @@ module CertificateGenerator
 
     upload_to_s3(certificate_output, image_output)
 
-    #certificate.certificate_key = certificate_output
-    #certificate.image_key = image_output
-    #certificate.save!
+    if ENV['RACK_ENV'] != 'test'
+      send_email(details, file_name)
+    end
 
-    send_email(details, file_name)
     { certificate_key: certificate_output, image_key: image_output }
   end
 
@@ -54,25 +53,25 @@ module CertificateGenerator
     Prawn::Document.generate(output,
                              page_size: 'A4',
                              background: TEMPLATE,
-                             background_scale: 0.8231,
+                             background_scale: 0.2397,
                              page_layout: :landscape,
                              left_margin: 30,
                              right_margin: 40,
                              top_margin: 7,
                              bottom_margin: 0,
                              skip_encoding: true) do |pdf|
-      pdf.move_down 245
+      pdf.move_down 200
       pdf.font 'assets/fonts/Gotham-Bold.ttf'
-      pdf.text details[:name], size: 44, color: 'F28E24', indent_paragraphs: 100
-      pdf.move_down 20
+      pdf.text details[:name], size: 44, color: 'F28E24', indent_paragraphs: 55
+      pdf.move_down 100
       pdf.font 'assets/fonts/Gotham-Medium.ttf'
-      pdf.text details[:course_name], indent_paragraphs: 100, size: 20, color: '6F7072'
-      pdf.text details[:course_desc], indent_paragraphs: 100, size: 20, color: '6F7072'
-      pdf.move_down 95
-      pdf.text 'Thomas Ochman', indent_paragraphs: 100, size: 12, color: '6F7072'
-      pdf.text "Göteborg #{details[:date]}", indent_paragraphs: 100, size: 12, color: '6F7072'
-      pdf.move_down 65
-      pdf.text "To verify this certificate, visit: #{get_url(details[:verify_url])}", align: :center, size: 8, color: '6F7072'
+      pdf.text details[:course_name], indent_paragraphs: 55, size: 20, color: '6F7072'
+      pdf.text details[:course_desc], indent_paragraphs: 55, size: 20, color: '6F7072'
+      pdf.move_down 55
+      pdf.text 'Thomas Ochman', indent_paragraphs: 40, size: 12, color: '6F7072'
+      pdf.text "Göteborg #{details[:date]}", indent_paragraphs: 40, size: 12, color: '6F7072'
+      pdf.move_down 85
+      pdf.text "To verify the authenticity of this certificate, visit: #{get_url(details[:verify_url])}", align: :center, size: 8, color: '6F7072'
     end
   end
 
