@@ -212,7 +212,7 @@ At this point we have access to an `Certificate` instance method `#stats` that w
 <p>Course date: <%= @certificate.delivery.start_date %></p>
 <% if @certificate.stats != 0 %>
   <div>
-    Viewed <%= @certificate.stats; @certificate.stats == 1 ? 'time' : 'times' %>
+    Viewed <%= @certificate.stats %> <%= @certificate.stats == 1 ? 'time' : 'times' %>
   </div>
 
 <% end %>
