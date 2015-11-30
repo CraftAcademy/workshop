@@ -51,11 +51,8 @@ class WorkshopApp < Sinatra::Base
     # TODO: place Course creation code here:
     erb :'courses/index'
   end
-
   ...
-
 end
-
 ```
 
 Modify your `views/index.erb` to look like this:
@@ -125,6 +122,6 @@ That is a kind of a blocker for us. We need to create a `Course` class. So lets 
 
 Now, try to run your tests again. What does it looks like?
 
-As a last step this part I would like you to add two step definitions {really??? what defs is that???}
+**As a last step this part I would like you to add two step definitions {really??? what defs is that???}**
 
 [Step 6](step6.md)

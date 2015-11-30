@@ -1,6 +1,6 @@
 #### The development process
 
-We will be using Rspec and Cucumber to test our application.
+We will be using RSpec and Cucumber to test our application.
 During the development process we'll take an approach that mixes high level acceptance tests and low level unit tests to both drive the development process and make sure that we build a robust and well structures application.
 
 Let's start with writing some high level acceptance tests.
@@ -70,12 +70,12 @@ A feature is defined by one or more scenarios. A scenario is a sequence of steps
 
 A scenario is made up of 3 sections related to the 3 types of steps:
 
-- `Given:` This sets up preconditions, or context, for the scenario. It works much like the setup in xUnit and before blocks in RSpec.
-- `When:` This is what the feature is talking about, the action, the behaviour that we're focused on.
-- `Then:` This checks postconditions. it verifies that the right thing happen in the When stage.
+- `Given:` This sets up preconditions, or context, for the scenario.
+- `When:` This is what the feature is talking about, the action, the behavior that we're focused on.
+- `Then:` This checks postconditions. It verifies that the right thing happen in the `When` stage.
 
 There is yet another type of step you can use in a scenario path, and that is the `And` keyword. And can be used in any of the three sections.
-It serves as a nice shorthand for repeating the `Given`, `When`, or `Then`. And stands in for whatever the most recent explicitly named step was.
+It serves as a nice shorthand for repeating the `Given`, `When`, or `Then`. `And` stands in for whatever the most recent explicitly named step was.
 
 In the newly created `features` folder, please create a `course_create.feature` by returning to your terminal window and  typing in:
 
@@ -91,9 +91,9 @@ Feature: As a course administrator,
   I want to be able to create a course offering with a description and multiple delivery dates
 ```
 
-This is added mainly for your and your fellow project members reference and tells a reader what this test file is actually about - setting the scope of the tests.
+The `Feature:` description is added mainly for your and your fellow project members reference. It tells a reader what this test file is actually about - setting the scope for the scenarios.
 
-Now we will add two basic scenarios to this Feature.
+As the next step, we will add two basic scenarios:
 
 ```gherkin
 # features/course_create.feature
@@ -123,7 +123,7 @@ Let's have a look at the first one:
 2. The action I'm taking is clicking on the `All courses` link.
 3. The postcondition is the fact that I see the message "You have not created any courses"
 
-Now in your terminal window, go ahead and type `cucumber` again and watch the test framework do its job. If you have followed my instructions, you will se an output similar to this:
+Now in your terminal window, go ahead and type `cucumber` again and watch the test framework do its job. If you have followed my instructions, you will see an output similar to this:
 
 ```shell
 $ cucumber

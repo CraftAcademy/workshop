@@ -1,6 +1,6 @@
 #### Adding views
 
-The next thing we need to do is to make the `And I click "All courses" link` step pass. For now, that step is undefined. So let's define it first.
+The next thing we need to do is to make the `And I click "All courses" link` step pass. For now, that step is undefined. Let's define it first.
 
 In our `application_steps.rb` let's add:
 
@@ -23,8 +23,8 @@ Unable to find link or button "All courses" (Capybara::ElementNotFound)
 Views are the actual web pages that will be rendered in your browser. This is what the user will see.
 In order to get some views rendered by the application we, of course:
 
-1. need to create them and;
-2. tell the application to show them to us depending on what is going on.
+1. Need to create them and;
+2. Tell the application to show them to us depending on what is going on.
 
 Right now, the app is not showing any views. If you have a look in your `application.rb` you can see the following block of code:
 
@@ -35,9 +35,12 @@ end
 ```
 
 This means that the only thing that will be shown when we open the application in the browser is the text "Hello WorkshopApp!" and nothing else.
+
 We want to change that of course.
 
-In our `lib` folder, we need to create a `views` folder. In that folder, we want to create a `layouts` folder and then inside of the folder a `application.erb` file. To do so head over to your terminal, navigate to your project folder and run the following:
+In our `lib` folder, we need to create a `views` folder. In that folder, we want to create a subfolder called `layouts` and then inside of that folder a `application.erb` file. 
+
+To do all that head over to your terminal, navigate to your project folder and execute the following shell commands:
 
 ```shell
 $ cd lib
@@ -80,6 +83,6 @@ end
 
 What we did now was to remove the static text that was being showed on the web page and replace that with the template we just created. That template actually contain a link to list "All Courses".
 
-So what happens if we run cucumber again?
+What happens if we run cucumber again?
 
 [Step 5](step5.md)
