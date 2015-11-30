@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Chapter 1](walkthroughs/step1.md)
 * [Chapter 2](walkthroughs/step2.md)
 * [Chapter 3](walkthroughs/step3.md)
 * [Chapter 4](walkthroughs/step4.md)
@@ -20,6 +21,5 @@
 * [Chapter 18](walkthroughs/step18.md)
 * [Chapter 19](walkthroughs/step19.md)
 * [Chapter 20](walkthroughs/step20.md)
-* [Chapter 1](walkthroughs/step1.md)
 * Part One
 
