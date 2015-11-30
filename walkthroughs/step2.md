@@ -44,6 +44,7 @@ There will be a lot of new files created and we will go over all of them in a wh
 ```ruby
 # Gemfile
 
+gem 'capybara'
 gem 'rspec'
 ```
 
