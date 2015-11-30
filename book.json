@@ -1,0 +1,10 @@
+{
+  "title": "Learn to Code Workshop",
+  "description": "A first step toward becoming a web developer",
+  "language": "en",
+
+  "pdf": {
+    "fontSize": 10
+  }
+
+}
