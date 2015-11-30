@@ -1,20 +1,22 @@
-#### The development process
+#### Working with BDD
 
-We will be using RSpec and Cucumber to test our application.
-During the development process we'll take an approach that mixes high level acceptance tests and low level unit tests to both drive the development process and make sure that we build a robust and well structures application.
+The concept of **Behaviour Driven Development** BDD is pretty simple. You describe what you want the system to do by describing a potential users interactions with the different parts of the application. You work outside-in to implement features using the examples to validate that you're building the right thing at the right time. During this workshop you will see BDD in action and will experience, at least partially, the benefits of this method.
+
+
+The tools we will be using to test our application are **RSpec** and **Cucumber**. Those are the two so called **testing framworks** that will help us to write good code. During the development process we'll take an approach that mixes high level acceptance tests and low level unit tests to both drive the development process and make sure that we build a robust and well structured application.
+
+#### Test first
 
 Let's start with writing some high level acceptance tests.
 
-We don't have an application yet. And we don't need one at this stage. ;-)
 What we want to do at this stage is to get the user stories we have defined and take a look at them from a users perspective
 and what an actual implementation of features would look like. I short, we want to take each user story and break it down to
 scenarios that each represents a use case in the application. Sounds confusing? It is, but look at it as a form of a blue print
 that you will use when we start to actually build the app.
 
-First we need to install a testing tool. We will be using a number of tools in this project but at this point we will introduce you to `Cucumber`.
 
-Cucumber ([cucumber.io](https://cucumber.io/)) is a framework for writing and executing high level descriptions of your software's functionality.
-One of Cucumber's most compelling features is that it provides the ability to write these descriptions using plain text - even in your native language.
+
+Cucumber ([cucumber.io](https://cucumber.io/)) is a framework for writing and executing high level descriptions of your software's functionality - what we will refer to as **acceptance test** or **features**. One of Cucumber's most compelling features is that it provides the ability to write these descriptions using plain text - even in your native language.
 
 Cucumber is not installed on your system so we need to do that as a first step.
 
@@ -66,9 +68,9 @@ Alright, we have installed and initiated the first testing framework. Big step.
 
 Now let's take a moment to talk about how a Cucumber file is built and then we'll write our first of many tests.
 
-A feature is defined by one or more scenarios. A scenario is a sequence of steps through the feature that exercises one path.
+A **feature** is defined by one or more scenarios. A scenario is a sequence of steps through the feature that exercises one path.
 
-A scenario is made up of 3 sections related to the 3 types of steps:
+A **scenario** is made up of 3 sections related to the 3 types of steps:
 
 - `Given:` This sets up preconditions, or context, for the scenario.
 - `When:` This is what the feature is talking about, the action, the behavior that we're focused on.
