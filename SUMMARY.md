@@ -9,5 +9,5 @@
 * [Chapter 6](walkthroughs/step6.md)
 * [Chapter 7](walkthroughs/step7.md)
 * [Chapter 8](walkthroughs/step8.md)
-* Chapter 9
+* [Chapter 9](/walkthroughs/step9.md)
 
