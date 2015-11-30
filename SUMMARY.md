@@ -7,5 +7,6 @@
 * [Chapter 4](walkthroughs/step4.md)
 * [Chapter 5](walkthroughs/step5.md)
 * [Chapter 6](walkthroughs/step6.md)
-* [Chapter 7](/walkthroughs/step7.md)
+* [Chapter 7](walkthroughs/step7.md)
+* Chapter 8
 
