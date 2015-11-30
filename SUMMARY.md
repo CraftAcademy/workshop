@@ -18,4 +18,5 @@
 * [Chapter 15](walkthroughs/step15.md)
 * Chapter 16
 * Chapter 17
+* Chapter 18
 
