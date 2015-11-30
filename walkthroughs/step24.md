@@ -95,7 +95,11 @@ module CertificateGenerator
 
     upload_to_s3(certificate_output, image_output)
 
-    certificate.update(certificate_key: certificate_output, image_key: image_output )
+    if ENV['RACK_ENV'] != 'test'
+       send_email(details, file_name)
+    end
+
+    { certificate_key: certificate_output, image_key: image_output }
   end
 
   private

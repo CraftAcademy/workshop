@@ -73,7 +73,8 @@ get '/courses/generate/:id', auth: :user do
   else
     @delivery.students.each do |student|
       cert = student.certificates.create(created_at: DateTime.now, delivery: @delivery)
-      CertificateGenerator.generate(cert)
+      keys = CertificateGenerator.generate(cert)
+      cert.update(certificate_key: keys[:certificate_key], image_key: keys[:image_key])
     end
     session[:flash] = "Generated #{@delivery.students.count} certificates"
   end
@@ -172,6 +173,48 @@ This change is introducing several changes:
 3. On the students list, a link to the certificate is visible IF there is a certificate associated with that student.
 4. We are displaying the delivery date.
 5. We add class `'button'` to links to give it look and feel of a button.
+
+We want to be able to retrieve the files from S3 using a http request. For that we need to have access to a URL.
+
+Add the following specs to your `certificate_spec.rb`
+
+```ruby
+# spec/certificate_spec.rb
+
+
+describe 'Creating a Certificate' do
+...
+  describe 'S3' do
+    before { CertificateGenerator.generate(@certificate) }
+
+    it 'can be fetched by #image_url' do
+      expect(@certificate.image_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.jpg'
+    end
+
+    it 'can be fetched by #certificate_url' do
+      expect(@certificate.certificate_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.pdf'
+    end
+  end
+end
+
+```
+
+We know that the links to AWS are build in a specific way and we can use that to dynamically create our own urls. Add the following methods to your `certificate.rb`
+
+```ruby
+# lib/certificate.rb
+
+...
+def image_url
+  "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.image_key}"
+end
+
+def certificate_url
+  "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.certificate_key}"
+end
+
+...
+```
 
 If you run all your tests, they should pass. However, our tests are not very extensive and there are many scenarios that we have failed to write coverage for. I would like you to take a few minutes and think about what else we should be testing for in Cucumber.
 

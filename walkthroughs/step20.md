@@ -131,7 +131,7 @@ module CertificateGenerator
 
     upload_to_s3(certificate_output, image_output)
 
-    certificate.update(certificate_key: certificate_output, image_key: image_output )
+    { certificate_key: certificate_output, image_key: image_output }
   end
 
   private

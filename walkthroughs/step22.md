@@ -1,48 +1,8 @@
 #### Refactor the verification view
 
-We want to be able to retrieve the files from S3 using a http request. For that we need to have access to a URL.
+Just a quick modification of the template that is called when we verify a course certificate.
 
-Add the following specs to your `certificate_spec.rb`
-
-```ruby
-# spec/certificate_spec.rb
-
-
-describe 'Creating a Certificate' do
-...
-  describe 'S3' do
-    before { CertificateGenerator.generate(@certificate) }
-
-    it 'can be fetched by #image_url' do
-      expect(@certificate.image_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.jpg'
-    end
-
-    it 'can be fetched by #certificate_url' do
-      expect(@certificate.certificate_url).to eq 'https://certz.s3.amazonaws.com/pdf/test/thomas_ochman_2015-01-01.pdf'
-    end
-  end
-end
-
-```
-
-We know that the links to AWS are build in a specific way and we can use that to dynamically create our own urls. Add the following methods to your `certificate.rb`
-
-```ruby
-# lib/certificate.rb
-
-...
-def image_url
-  "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.image_key}"
-end
-
-def certificate_url
-  "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.certificate_key}"
-end
-
-...
-```
-
-And now, we can modify the view and display the certificate and the image:
+Now that we have access to the image as a AWS resource, we can modify the view and display the certificate and the image:
 
 
 ```html+erb
