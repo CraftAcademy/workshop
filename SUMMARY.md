@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [Chapter 1](walkthroughs/step1.md)
-* Chapter 2
+* [Chapter 2](walkthroughs/step2.md)
 
