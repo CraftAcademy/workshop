@@ -6,9 +6,9 @@ in their development process. The idea with this workshop is to showcase some of
 The application we will build is a tool to administrate and validate course certificates.
 
 #### Problem definition
-**As a education institution/company I face a growing problem with aggregating course and student information
+***As a education institution/company I face a growing problem with aggregating course and student information
 and issue appropriate course certificates. I also want to make sure that the certificates I issue are not tempered
-with by bad people that want to take credit for a course they actually did not attend.**
+with by bad people that want to take credit for a course they actually did not attend.***
 
 #### The Learning Experience
 
