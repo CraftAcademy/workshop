@@ -1,4 +1,4 @@
-##### Adding a database
+#### Adding a database
 
 The time has come for us to add a database and to start defining our objects. At this point our application will start to grow more complex.
 
@@ -6,7 +6,7 @@ We will:
 
 1. Introduce a new testing framework to test our objects - `RSpec`
 2. Introduce a database - `PostgreSQL`
-3. Introduce a Object Relation Mapping library - `DataMapper`
+3. Introduce a Object Relation Mapping (ORM) library - `DataMapper`
 
 Add the following gems to your `Gemfile`
 
