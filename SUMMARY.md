@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* Chapter 0
 * [Chapter 1](walkthroughs/step1.md)
 * [Chapter 2](walkthroughs/step2.md)
 * [Chapter 3](walkthroughs/step3.md)
@@ -26,5 +27,4 @@
 * [Chapter 23](walkthroughs/step23.md)
 * [Chapter 24](walkthroughs/step24.md)
 * [Chapter 25](walkthroughs/step25.md)
-* Chapter 0
 
