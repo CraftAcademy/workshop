@@ -1,4 +1,4 @@
-### Learn To Code Workshop
+### Learn To Code
 
 Welcome to the Learn To Code Workshop. During the 4 days we are going to spend together we will explore some of the techniques professional developers are using
 in their development process. The idea with this workshop is to showcase some of those techniques and put them in to practice.
