@@ -1,6 +1,6 @@
 #### The development process
 
-We will be using Rspec and Cucumber to test our application.
+We will be using RSpec and Cucumber to test our application.
 During the development process we'll take an approach that mixes high level acceptance tests and low level unit tests to both drive the development process and make sure that we build a robust and well structures application.
 
 Let's start with writing some high level acceptance tests.
