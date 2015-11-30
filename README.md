@@ -5,10 +5,12 @@ in their development process. The idea with this workshop is to showcase some of
 
 The application we will build is a tool to administrate and validate course certificates.
 
-##### Problem definition
+#### Problem definition
 **As a education institution/company I face a growing problem with aggregating course and student information
 and issue appropriate course certificates. I also want to make sure that the certificates I issue are not tempered
 with by bad people that want to take credit for a course they actually did not attend.**
+
+#### The Learning Experience
 
 What makes this application interesting as a learning experience is that it solves a relatively simple problem but requires implementation of several
 technologies in order to be completed.
@@ -101,6 +103,6 @@ I want to track every call to a verification url
 
 [Step 1](walkthroughs/step1.md)
 
-![Logo](/walkthroughs/extras/images/logo-with-taglne_small.png?raw=true "Craft Academy by Pragmatic Sweden AB")
+![Logo](/walkthroughs/images/logo-with-taglne_small.png?raw=true "Craft Academy by Pragmatic Sweden AB")
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Learn To Code Workshop</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Pragmatic Sweden</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
