@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* Acceptance tests
+* [Acceptance tests](/walkthroughs/step1.md)
 
