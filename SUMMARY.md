@@ -13,5 +13,6 @@
 * [Chapter 10](walkthroughs/step10.md)
 * [Chapter 11](walkthroughs/step11.md)
 * [Chapter 12](walkthroughs/step12.md)
-* [Chapter 13](/walkthroughs/step13.md)
+* [Chapter 13](walkthroughs/step13.md)
+* Chapter 14
 
