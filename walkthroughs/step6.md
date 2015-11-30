@@ -28,14 +28,14 @@ group :development, :test do
 end
 ```
 
-and add the following to that group:
+Add the following gem to that group:
 ```ruby
 # Gemfile
 
 gem 'dm-rspec'
 ```
 
-The `dm-rspec` gem extends `RSpec` with a set of matchers for DataMapper objects that will make our testing much easier.
+The `dm-rspec` gem extends `RSpec` with a set of matchers for DataMapper objects. Having access to those matchers will make our testing much easier.
 
 Also, I would like you to move all gems that we use for testing purposes to the `:development, :test` group.
 
@@ -80,6 +80,7 @@ Now, open `.rspec` file (it is located in your main project folder but it is a h
 
 ```
 --format documentation
+...
 ```
 
 Now, in your terminal, type in `rspec` and hit enter.
