@@ -123,7 +123,7 @@ Let's have a look at the first one:
 2. The action I'm taking is clicking on the `All courses` link.
 3. The postcondition is the fact that I see the message "You have not created any courses"
 
-Now in your terminal window, go ahead and type `cucumber` again and watch the test framework do its job. If you have followed my instructions, you will se an output similar to this:
+Now in your terminal window, go ahead and type `cucumber` again and watch the test framework do its job. If you have followed my instructions, you will see an output similar to this:
 
 ```shell
 $ cucumber
