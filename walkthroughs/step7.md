@@ -48,19 +48,15 @@ You need to set up `DataMapper` in your `application.rb` for the application to 
 require 'data_mapper'
 
 ...
-
 class WorkshopApp < Sinatra::Base
   ...
-
   env = ENV['RACK_ENV'] || 'development'
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/workshop_#{env}")
   DataMapper::Model.raise_on_save_failure = true
   DataMapper.finalize
   DataMapper.auto_upgrade!
-
   ...
 end
-
 ```
 
 Before we continue we need to install `PostgreSQL` on our system.
@@ -111,7 +107,7 @@ But in our class, so far, we only defined `id`. As you remember we set that data
 
 All tables needs an `id` - that is called a `primary key` and is used to identify the record when we are trying to retrieve it.
 
-So we need to add `title` and `description` to the course class. Let’s do it by adding those properties like this:
+So we need to add `title` and `description` to the course class. Let's do it by adding those properties like this:
 
 ```ruby
 # lib/course.rb
@@ -127,26 +123,35 @@ end
 
 And run our specs again. We should go all green - our specs are passing. We now have a `Course` class that can be given a `Title` and a `Description`. That is a good start.
 
-Let’s shift our attention to `application.rb` for a moment.
+Let's shift our attention to `application.rb` for a moment.
 
 Open it up and locate the part where we are handling the `post` request that will create a Course using the form we added earlier.
+
 It should look something like this:
 
 ```ruby
 # lib/application.rb
 
-  post '/courses/create' do
-    # TODO: place Course creation code here:
-    erb :'courses/index'
-  end
+...
+post '/courses/create' do
+  # TODO: place Course creation code here:
+  erb :'courses/index'
+end
+...
 ```
 
 What we need to know is that each time a form is submitted in a browser, the field values are sent off to the server in a set of key and value pairs (a `Hash`) called `params`.
 
 In this case the post request will send of something like this:
 ```ruby
-{"authenticity_token"=>"9c5220b56ab8a74e03f5ac331206ba163bb82f7cda3e1782bd8e18526caab213",
- "course"=>{"title"=>"Basic programming", "description"=>"Your first step into the world of programming"}}
+{"authenticity_token"=>
+ "9c5220b56ab8a74e03f5ac331206ba163bb82f7cda3e1782bd8e18526caab213",
+ "course"=>
+   {
+   "title"=>"Basic programming", 
+   "description"=>"Your first step into the world of programming"
+   }
+}
 ```
 
 Never mind the `authenticity_token` for now but let's focus on the `"course"=>...` part of the hash. We filled in two fields in our feature test, the `title` and the `description`, right? The params `course` key holds information about what we submitted.
@@ -159,7 +164,8 @@ Modify you post route like this:
 # lib/application.rb
 
   post '/courses/create' do
-    Course.create(title: params[:course][:title], description: params[:course][:description])
+    Course.create(title: params[:course][:title], 
+                  description: params[:course][:description])
     redirect 'courses/index'
   end
 ```
@@ -172,8 +178,8 @@ At this point Cucumber does not know where to go and look for the `Course` index
 
 ```ruby
 # features/support/paths.rb
-...
 
+...
 when /the Course index page/
   '/courses/index'
 ...
@@ -181,7 +187,9 @@ when /the Course index page/
 
 And run `cucumber`again.
 
-What?!? Another error? Will this ever end? The answer to that is basically **NO**. In test driven development you will keep on getting errors all the time. That is the nature of testing first - writing code later.
+What?!? Another error? Will this ever end? 
+
+The answer to that is basically **NO**. In test driven development you will keep on getting errors all the time. That is the nature of testing first - writing code later.
 
 What you want to make sure is that you keep on progressing in your development by small steps that manifests themselves by your testing framework changing the error message.
 
