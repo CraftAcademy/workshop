@@ -69,7 +69,7 @@ The next step is to include all necessary css and javascript files into your app
 
 Modify your `application.erb` with the code below. We will go over all of this in a while, but for now, just trust me. ;-)
 
-```html+erb
+```html
 # lib/views/layouts/application.erb
 
 <!DOCTYPE html>
