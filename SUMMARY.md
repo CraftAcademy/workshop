@@ -22,8 +22,8 @@
 * [Chapter 19](walkthroughs/step19.md)
 * [Chapter 20](walkthroughs/step20.md)
 * [Chapter 21](walkthroughs/step21.md)
-* [Chapter 22](/walkthroughs/step22.md)
-* Chapter 23
+* [Chapter 22](walkthroughs/step22.md)
+* [Chapter 23](/walkthroughs/step23.md)
 * Chapter 24
 * Chapter 25
 
