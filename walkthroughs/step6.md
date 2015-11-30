@@ -138,10 +138,8 @@ require 'dm-rspec'
 # spec/spec_helper.rb
 
 ...
-
 config.include Capybara::DSL
 config.include DataMapper::Matchers
-
 ...
 ```
 
