@@ -13,7 +13,7 @@ that you will use when we start to actually build the app.
 
 First we need to install a testing tool. We will be using a number of tools in this project but at this point we will introduce you to `Cucumber`.
 
-Cucumber (https://cucumber.io/) is a framework for writing and executing high level descriptions of your software's functionality.
+Cucumber ([cucumber.io](https://cucumber.io/)) is a framework for writing and executing high level descriptions of your software's functionality.
 One of Cucumber's most compelling features is that it provides the ability to write these descriptions using plain text - even in your native language.
 
 Cucumber is not installed on your system so we need to do that as a first step.
