@@ -132,7 +132,9 @@ Another update we need to make is again in the `certificate_generator.rb` We nee
 ...
 def self.generate(certificate)
   ...
-  send_email(details, file_name)
+  if ENV['RACK_ENV'] != 'test'
+    send_email(details, file_name)
+  end
 
   certificate.update(certificate_key: certificate_output, image_key: image_output )
 end
