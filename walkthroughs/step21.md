@@ -65,7 +65,6 @@ Let's update our controller method:
 # lib/application.rb
 
 ...
-
 get '/courses/generate/:id', auth: :user do
   @delivery = Delivery.get(params[:id])
   if !@delivery.certificates.find(delivery_id: @delivery.id).size.nil?
@@ -130,7 +129,7 @@ In that way, we do not need to create separate views for those contexts. Make su
 
 The next step will be to refactor the view:
 
-```html+erb
+```erb
 
 # lib/views/courses/deliveries/show.erb
 
@@ -161,9 +160,6 @@ The next step will be to refactor the view:
     <%= submit_tag 'Submit', class: 'button' %>
   <% end %>
 <% end %>
-
-
-
 ```
 
 This change is introducing several changes:
