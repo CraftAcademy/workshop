@@ -5,7 +5,7 @@ Just a quick modification of the template that is called when we verify a course
 Now that we have access to the image as a AWS resource, we can modify the view and display the certificate and the image:
 
 
-```html+erb
+```erb
 # lib/views/verify/valid.erb
 
 <h3 style="color: #368a55">Valid course certificate for</h3>
