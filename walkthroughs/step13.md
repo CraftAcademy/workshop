@@ -63,7 +63,7 @@ First thing to do is to retrieve the object from the database using the name pro
 
 Modify your `courses/index.erb` like this:
 
-```HTML+ERB
+```html+erb
 # lib/views/courses/index.erb
 
 <% if @courses.any? %>
@@ -98,7 +98,7 @@ end
 
 And create a view for that route:
 
-```HTML+ERB
+```erb
 # lib/views/courses/add_date.erb
 
 <% form_tag('/courses/new_date', method: 'post') do %>
@@ -196,7 +196,7 @@ If we run our features now we get an error while saving the instance of `Deliver
 
 First we need to add a hidden field with the id ocf the course we are working with:
 
-```HTML+ERB
+```ruby
 # lib/views/courses/add_date.erb
 
 <% form_tag('/courses/new_date', method: 'post') do %>
@@ -220,7 +220,7 @@ end
 
 That should do it. Now we need to display those dates on the `views/courses/index.erb`. Update it with the following code:
 
-```html+erb
+```html
 # lib/views/courses/index.erb
 
 <% if @courses.any? %>
