@@ -208,7 +208,7 @@ end
 
 At this point we have access to an `Certificate` instance method `#stats` that will return the total amount of clicks for us. We can use that on our view:
 
-```html+erb
+```erb
 # lib/views/valid.erb
 
 <h3 style="color: #368a55">Valid course certificate for</h3>
