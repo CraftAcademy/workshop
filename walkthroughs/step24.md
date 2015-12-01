@@ -38,6 +38,8 @@ In your `.env` file, add two environmental variables:
 
 ```yml
 # .env
+
+...
 BITLY_USERNAME=<bit.ly username>
 BITLY_API_KEY=<bit.ly api key>
 ```
