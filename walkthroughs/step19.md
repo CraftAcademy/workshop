@@ -98,7 +98,7 @@ $ touch lib/views/verify/invalid.erb
 
 Add the following code to these templates:
 
-```HTML+ERB
+```erb
 # lib/views/verify/valid.erb
 
 <h3 style="color: #368a55">Valid certificate for</h3>
@@ -109,7 +109,7 @@ Add the following code to these templates:
 <img src="<%= @image%>" />
 ```
 
-```HTML+ERB
+```erb
 # lib/views/verify/invalid.erb
 
 <h3 style="color: red">Invalid certificate</h3>
@@ -119,8 +119,8 @@ Add the following code to these templates:
 ```
 
 Okay, run all your features and specs. Fire up the local server using `rackup` and have a look for yourself.
-In order to get the verification url you'll need to access a generated pdf in your file system, open it and copy the link from the bottom of the page.
- Paste it in your browser and you should see the verification page.
+
+In order to get the verification url you'll need to access a generated pdf in your file system, open it and copy the link from the bottom of the page. Paste it in your browser and you should see the verification page.
 
 Try modifying the long hash and reload the page. Now, you should see a page that uses the `invalid.erb` template.
 
