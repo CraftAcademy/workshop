@@ -30,10 +30,8 @@ As early as possible in your application bootstrap process, load `.env`:
 
 require 'dotenv'
 ...
-
 class WorkshopApp < Sinatra::Base
 Dotenv.load
-
 ...
 ```
 Create a `.env` and `.env.example` file in the project root:
