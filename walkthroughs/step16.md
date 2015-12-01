@@ -29,7 +29,7 @@ Add some new step definition in your `application_steps.rb`
 # features/step_definitions/application_steps.rb
 
 And(/^the data file for "([^"]*)" is imported$/) do |date|
-  steps %(
+  steps %q(
     And I am on the Course index page
     And I click on "#{date}" for the "Basic programming" Course
     When I select the "students.csv" file
@@ -45,7 +45,7 @@ end
 
 Also, add the `Generate certificates` link to the `deliveries/show.erb` template:
 
-```HTML+ERB
+```erb
 # lib/views/courses/deliveries/show.erb
 
 ...
@@ -167,10 +167,9 @@ has n, :certificates
 ```
 
 
-We are going to add a mechanism to generate a unique identifier for each certificate using a callback that will be invoked when the Certificate is created.
-We also want to make sure that the certificate has access to all the relevant information that we are going to use while creating the pdf.
+We are going to add a mechanism to generate a unique identifier for each certificate using a callback that will be invoked when the Certificate is created. We also want to make sure that the certificate has access to all the relevant information that we are going to use while creating the pdf.
 
-I the `certificate_spec.rb` add the following test:
+In the `certificate_spec.rb` add the following test:
 
 ```ruby
 # spec/certificate_spec.rb
@@ -201,6 +200,7 @@ describe 'Creating a Certificate' do
   end
 end
 ```
+And make the following additions to your `Certificate` class:
 
 ```ruby
 # lib/certificate.rb
@@ -229,7 +229,7 @@ DataMapper.auto_migrate!
 ```
 
 Now we need to add a module that will handle the pdf creation for us. We will be using a gem called `Prawn`.
-[Prawn](https://github.com/prawnpdf/prawn) is a fast, tiny, and nimble PDF generator for Ruby.
+[Prawn](https://github.com/prawnpdf/prawn) is a PDF document generator for Ruby.
 
 Let's start by adding it to our `Gemfile` and install it using `bundle install`
 
