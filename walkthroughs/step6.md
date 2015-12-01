@@ -1,4 +1,4 @@
-##### Adding a database
+#### Adding a database
 
 The time has come for us to add a database and to start defining our objects. At this point our application will start to grow more complex.
 
@@ -6,7 +6,7 @@ We will:
 
 1. Introduce a new testing framework to test our objects - `RSpec`
 2. Introduce a database - `PostgreSQL`
-3. Introduce a Object Relation Mapping library - `DataMapper`
+3. Introduce a Object Relation Mapping (ORM) library - `DataMapper`
 
 Add the following gems to your `Gemfile`
 
@@ -28,14 +28,14 @@ group :development, :test do
 end
 ```
 
-and add the following to that group:
+Add the following gem to that group:
 ```ruby
 # Gemfile
 
 gem 'dm-rspec'
 ```
 
-The `dm-rspec` gem extends `RSpec` with a set of matchers for DataMapper objects that will make our testing much easier.
+The `dm-rspec` gem extends `RSpec` with a set of matchers for DataMapper objects. Having access to those matchers will make our testing much easier.
 
 Also, I would like you to move all gems that we use for testing purposes to the `:development, :test` group.
 
@@ -80,6 +80,7 @@ Now, open `.rspec` file (it is located in your main project folder but it is a h
 
 ```
 --format documentation
+...
 ```
 
 Now, in your terminal, type in `rspec` and hit enter.
@@ -137,10 +138,8 @@ require 'dm-rspec'
 # spec/spec_helper.rb
 
 ...
-
 config.include Capybara::DSL
 config.include DataMapper::Matchers
-
 ...
 ```
 
