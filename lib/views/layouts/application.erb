@@ -72,7 +72,7 @@
       </p>
 
       <p class="copywrite">Made with <i class="fi-heart" style="color: red; font-size: 18px;"></i>
-        at <%= link_to 'Craft Academy', 'http://www.craftacademy.se' %></p>
+        at <%= link_to 'Craft Academy', 'http://craftacademy.se' %></p>
     </div>
   </div>
 </footer>
@@ -81,24 +81,24 @@
 <script src="/js/vendor/jquery.js"></script>
 <script src="/js/foundation.min.js"></script>
 <script>
+
   function fixFooter() {
-    footer=$(".footer");
-    height=footer.height();
-    paddingTop=parseInt(footer.css('padding-top'),10);//zero if is undefined
-    paddingBottom=parseInt(footer.css('padding-bottom'),10);//zero if is undefined
-    totalHeight=(height+paddingTop+paddingBottom);
-    footerPosition=footer.position();
-    windowHeight=$(window).height();
-    height=(windowHeight - footerPosition.top)-totalHeight;
-    if ( height > 0 ) {
+    var footer = $(".footer");
+    height = footer.height();
+    paddingTop = parseInt(footer.css('padding-top'), 10);//zero if is undefined
+    paddingBottom = parseInt(footer.css('padding-bottom'), 10);//zero if is undefined
+    totalHeight = (height + paddingTop + paddingBottom);
+    footerPosition = footer.position();
+    windowHeight = $(window).height();
+    height = (windowHeight - footerPosition.top) - totalHeight;
+    if (height > 0) {
       footer.css({
         'margin-top': (height) + 'px'
       });
     }
   }
 
-  $(document).ready(function () {
-    fixFooter();//at page load
+  function hideFlash() {
     var flash = $('#flash-container');
     if (flash.length > 0) {
       window.setTimeout(function () {
@@ -107,14 +107,19 @@
         });
       }, 5000);
     }
+  }
+
+  $(document).foundation();
+
+  $(document).ready(function () {
+    fixFooter();//at page load
+    hideFlash()
   });
 
-  $(window).resize(function() {
+  $(window).resize(function () {
     fixFooter();//at page resize
   });
 </script>
-<script>
-  $(document).foundation();
-</script>
+
 </body>
 </html>
