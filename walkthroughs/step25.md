@@ -22,7 +22,7 @@ Let's start with modifying the `certificate_generation.feature` by adding the fo
 Run that scenario by pointing cucumber to the line of code where it starts:
 
 ```shell
-$ $ cucumber features/certificate_generation.feature:7
+$ cucumber features/certificate_generation.feature:7
 ```
 
 We want to install a gem that helps us to send emails from the application. As a first step we will do the simplest implementation we possibly can.
@@ -56,7 +56,7 @@ end
 
 And, of course, you need to update your `.env` file with those variables:
 
-```
+```yml
 # .env
 
 ...
