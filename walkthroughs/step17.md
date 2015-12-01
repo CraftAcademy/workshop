@@ -1,6 +1,10 @@
 #### The certificate layout
 
-1. `cd` in to the `pdf` folder and download the certificate layout file from the `workshop-assets` repository.
+We will do some refactoring of the certificate layout. We will use a background and move place the text in the right place to make it look good. 
+
+Let's start with getting the image we'll use as the document background. 
+
+`cd` in to the `pdf` folder and download the certificate layout file from the `workshop-assets` repository.
 Again, we are going to use `subversion`:
 
 ```shell
