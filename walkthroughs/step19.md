@@ -106,7 +106,7 @@ Add the following code to these templates:
 <p><%= @certificate.delivery.course.title %></p>
 <p><%= @certificate.delivery.start_date %></p>
 
-<img src="<%= @image%>" />
+<img src="<%= @image %>" />
 ```
 
 ```erb
