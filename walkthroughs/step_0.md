@@ -1,21 +1,21 @@
 #### User stories
 
-This User story format that we'll be using for describing out application focuses us on three important questions:
-
-- Who's using the system?
-- What are they doing?
-- Why do they care?
-
-#### User story format
+##### The format
 
 ```
   As a <role>
   So that/In order to <business value>
   I want to <feature>
 ```
-##### User stories examples
-These are some initial user stories that we will be working with. In a real project we would spend a few hours to a week defining user stories and breaking them down to features and scenarios.
-For the purpose of ths exercise, we will add user stories along the way as we progress.
+
+The above user story format is the one we will be using to describe the application. It is centered around three important questions:
+
+- Who's using the system?
+- What are they doing?
+- Why do they care?
+
+##### Examples
+These are some initial user stories that we will be working with. In a real project we would spend a couple of hours to a week defining user stories and breaking them down to features and scenarios. For the purpose of this exercise, we will add user stories along the way as we progress.
 
 ```
 As a course administrator,
