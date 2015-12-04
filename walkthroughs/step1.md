@@ -1,22 +1,19 @@
 #### Working with BDD
 
-The concept of **Behaviour Driven Development** BDD is pretty simple. You describe what you want the system to do by describing a potential users interactions with the different parts of the application. You work outside-in to implement features using the examples to validate that you're building the right thing at the right time. During this workshop you will see BDD in action and will experience, at least partially, the benefits of this method.
+The concept of **Behaviour Driven Development** (BDD) is pretty simple. You describe what you want the system to do by describing potential users interactions with the different parts of the application. You work outside-in to implement features using the examples to validate that you're building the right thing at the right time. During this workshop you will see BDD in action and will experience, at least partially, the benefits of this method.
 
 
-The tools we will be using to test our application are **RSpec** and **Cucumber**. Those are the two so called **testing framworks** that will help us to write good code. During the development process we'll take an approach that mixes high level acceptance tests and low level unit tests to both drive the development process and make sure that we build a robust and well structured application.
+The tools we will be using to test our application are **RSpec** and **Cucumber**. Those are the two so called **testing frameworks** that will help us to write good code. During the development process, we'll take an approach that combines high level acceptance tests and low level unit tests to both drive the development process and make sure that we build a robust and well structured application.
 
 #### Test first
 
 Let's start with writing some high level acceptance tests.
 
-What we want to do at this stage is to get the user stories we have defined and take a look at them from a users perspective
-and what an actual implementation of features would look like. I short, we want to take each user story and break it down to
-scenarios that each represents a use case in the application. Sounds confusing? It is, but look at it as a form of a blue print
-that you will use when we start to actually build the app.
+What we want to do at this stage is to get the user stories we have defined and look at them from a user's perspective. Also, what an actual implementation of features would look like. In short, we want to take each user story and break it down to scenarios that each represents a use case in the application. Sounds confusing? It is, but look at it as a form of a blue print that you will use when we start to actually build the app.
 
 
 
-Cucumber ([cucumber.io](https://cucumber.io/)) is a framework for writing and executing high level descriptions of your software's functionality - what we will refer to as **acceptance test** or **features**. One of Cucumber's most compelling features is that it provides the ability to write these descriptions using plain text - even in your native language.
+Cucumber ([cucumber.io](https://cucumber.io/)) is a testing framework used to describe high level functionality of your application. We will refer to them as **acceptance test** or **features**. One of Cucumber's most compelling features is that, it allows you to write these descriptions in plain text. Even in your native language.
 
 Cucumber is not installed on your system so we need to do that as a first step.
 
