@@ -20,7 +20,7 @@
 * [Rendering certificates](walkthroughs/step16.md)
 * [The certificate layout](walkthroughs/step17.md)
 * [Generating images of certificates](walkthroughs/step18.md)
-* [Chapter 19](walkthroughs/step19.md)
+* [The verification interface](walkthroughs/step19.md)
 * [Chapter 20](walkthroughs/step20.md)
 * [Chapter 21](walkthroughs/step21.md)
 * [Chapter 22](walkthroughs/step22.md)
