@@ -11,7 +11,7 @@
 * [Adding a Course](walkthroughs/step7.md)
 * [Adding a User](walkthroughs/step8.md)
 * [Authenticating a User](walkthroughs/step9.md)
-* [Chapter 10](walkthroughs/step10.md)
+* [Logging in](walkthroughs/step10.md)
 * [Chapter 11](walkthroughs/step11.md)
 * [Chapter 12](walkthroughs/step12.md)
 * [Chapter 13](walkthroughs/step13.md)
