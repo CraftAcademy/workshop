@@ -26,6 +26,6 @@
 * [Refactoring the verification view](walkthroughs/step22.md)
 * [Deployment](walkthroughs/step23.md)
 * [Verification stats](walkthroughs/step24.md)
-* [Chapter 25](walkthroughs/step25.md)
+* [Distributing the certificates](walkthroughs/step25.md)
 * [Moving forward](walkthroughs/moving_forward.md)
 
