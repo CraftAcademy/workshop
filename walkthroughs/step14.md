@@ -1,4 +1,4 @@
-#### The look and feel
+### The look and feel
 
 Up until now we have been developing our application using tests - features and specs. Now is the time to start a browser and have a look at the application.
 Brace yourself - you might be surprised. ;-)
