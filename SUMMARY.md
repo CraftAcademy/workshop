@@ -18,7 +18,7 @@
 * [The look and feel](walkthroughs/step14.md)
 * [Adding Students](walkthroughs/step15.md)
 * [Rendering certificates](walkthroughs/step16.md)
-* [Chapter 17](walkthroughs/step17.md)
+* [The certificate layout](walkthroughs/step17.md)
 * [Chapter 18](walkthroughs/step18.md)
 * [Chapter 19](walkthroughs/step19.md)
 * [Chapter 20](walkthroughs/step20.md)
