@@ -1,4 +1,4 @@
-#### Setting up an application
+### Setting up an application
 
 Let's go ahead and create an application. We will be using Sinatra as a framework for our application. That means that we will be using Ruby as a
 programming language. You can read more about [Sinatra here](http://www.sinatrarb.com/)
