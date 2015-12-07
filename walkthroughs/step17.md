@@ -1,4 +1,4 @@
-#### The certificate layout
+### The certificate layout
 
 We will do some refactoring of the certificate layout. We will use a background and move place the text in the right place to make it look good. 
 
