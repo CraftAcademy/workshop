@@ -1,4 +1,4 @@
-#### Distributing the certificates
+### Distributing the certificates
 
 ```
 As a course administrator,
