@@ -1,4 +1,4 @@
-#### Restricting access
+### Restricting access
 
 Now that we have the most important `User` features in place, we want to allow the logged in user to perform certain actions and disallow visitors (non logged in users) from accessing certain routes.
 
