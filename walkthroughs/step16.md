@@ -1,4 +1,4 @@
-#### Rendering certificates
+### Rendering certificates
 
 Moving on to actually generating some certificates.
 
