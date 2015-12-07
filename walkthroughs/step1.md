@@ -1,4 +1,4 @@
-#### Working with BDD
+### Working with BDD
 
 The concept of **Behaviour Driven Development** BDD is pretty simple. You describe what you want the system to do by describing a potential users interactions with the different parts of the application. You work outside-in to implement features using the examples to validate that you're building the right thing at the right time. During this workshop you will see BDD in action and will experience, at least partially, the benefits of this method.
 
