@@ -1,4 +1,4 @@
-#### Authenticating a User
+### Authenticating a User
 
 The problem with the way we have created the `User` information in the database is that we are saving the password in plain text. **That is a big no no!**
 
