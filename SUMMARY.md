@@ -17,7 +17,7 @@
 * [Adding relationships](walkthroughs/step13.md)
 * [The look and feel](walkthroughs/step14.md)
 * [Adding Students](walkthroughs/step15.md)
-* [Chapter 16](walkthroughs/step16.md)
+* [Rendering certificates](walkthroughs/step16.md)
 * [Chapter 17](walkthroughs/step17.md)
 * [Chapter 18](walkthroughs/step18.md)
 * [Chapter 19](walkthroughs/step19.md)
