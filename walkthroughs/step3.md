@@ -1,4 +1,4 @@
-#### Focus on the feature
+### Focus on the feature
 
 Let's have a look on the next step in our scenario:
 
