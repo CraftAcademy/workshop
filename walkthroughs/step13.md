@@ -1,4 +1,4 @@
-#### Adding relationships
+### Adding relationships
 
 Have a look at one of our initial User stories:
 
