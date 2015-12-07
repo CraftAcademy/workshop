@@ -10,8 +10,7 @@ I want to track every call to a verification url
 
 That is the feature we will be working on right now.
 
-Before we start developing this feature I would like to take a moment and talk about one of the principles that guide me in my work - to write new code only if I have to.
-Every new line of code I write is code that needs to be tested, potentially debugged, understood and definitely supported.
+Before we start developing this feature I would like to take a moment and talk about one of the principles that guide me in my work - to write new code only if I have to. Every new line of code I write is code that needs to be tested, potentially debugged, understood and definitely supported.
 It's painful for most software developers to acknowledge this, because we love code so much, but **the best code is no code at all**!
 
 So if we don't need to write any code but still implement a feature and solve a problem - then that must be a good thing, right?
