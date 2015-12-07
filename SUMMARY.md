@@ -25,7 +25,7 @@
 * [Refactoring the workflow](walkthroughs/step21.md)
 * [Refactoring the verification view](walkthroughs/step22.md)
 * [Deployment](walkthroughs/step23.md)
-* [Chapter 24](walkthroughs/step24.md)
+* [Verification stats](walkthroughs/step24.md)
 * [Chapter 25](walkthroughs/step25.md)
 * [Moving forward](walkthroughs/moving_forward.md)
 
