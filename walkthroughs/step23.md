@@ -1,4 +1,4 @@
-#### Deploy your application
+### Deployment
 
 In this step we will:
 
