@@ -1,4 +1,4 @@
-### Refactoring of the workflow
+### Refactoring the workflow
 
 We are going to add some scenarios to `certificate_generation.feature`
 
