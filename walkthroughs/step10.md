@@ -1,4 +1,4 @@
-#### Logging in
+### Logging in
 
 Now that we have signed up to the application, we want to be able to actually log in.
 
