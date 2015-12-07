@@ -3,7 +3,7 @@
 In this step we will:
 
 1. Set up an account on [Heroku](http://heroku.com)
-2. Download heroku command line tools
+2. Download Heroku command line tools
 3. Create a new application
 4. Deploy the application
 5. See the app go live on the internet
