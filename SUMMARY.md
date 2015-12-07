@@ -6,7 +6,7 @@
 * [Setting up](walkthroughs/step2.md)
 * [Focus on the feature](walkthroughs/step3.md)
 * [Adding views](walkthroughs/step4.md)
-* [Chapter 5](walkthroughs/step5.md)
+* [Complex views](walkthroughs/step5.md)
 * [Chapter 6](walkthroughs/step6.md)
 * [Chapter 7](walkthroughs/step7.md)
 * [Chapter 8](walkthroughs/step8.md)
