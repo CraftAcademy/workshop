@@ -1,4 +1,4 @@
-#### Logging out
+### Logging out
 
 At the moment we can create a user and we can allow her/him to log in. We also need to give her/him a chance to log out, right? Then of course we should have a profile page and a feature to allow the user to update his credentials and so on. That is outside of the scope of this exercise but you will be given plenty of opportunities to add these features yourself once you have mastered the Sinatra framework and ruby.
 
