@@ -1,6 +1,6 @@
 ### Learn To Code
 
-Welcome to the Learn To Code Workshop. For the upcoming 4 days we'll spend together, will explore some techniques used by professional developers during their development process. The idea with this workshop is to showcase some of those techniques and put them in to practice.
+Welcome to the Learn To Code Workshop. For the upcoming 4 days we will spend together, we will explore some techniques used by professional developers during their development process. The idea with this workshop is to showcase some of those techniques and put them in to practice.
 
 The application we will build is a tool to administrate and verify course certificates.
 
