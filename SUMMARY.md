@@ -12,7 +12,7 @@
 * [Adding a User](walkthroughs/step8.md)
 * [Authenticating a User](walkthroughs/step9.md)
 * [Logging in](walkthroughs/step10.md)
-* [Chapter 11](walkthroughs/step11.md)
+* [Logging out](walkthroughs/step11.md)
 * [Chapter 12](walkthroughs/step12.md)
 * [Chapter 13](walkthroughs/step13.md)
 * [Chapter 14](walkthroughs/step14.md)
