@@ -1,4 +1,4 @@
-#### Generating images of certificates
+### Generating images of certificates
 
 We also want to generate images of certificates so that we can display them on the verification page.
 
