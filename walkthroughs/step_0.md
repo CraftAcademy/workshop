@@ -1,4 +1,4 @@
-#### User stories
+### User stories
 
 This User story format that we'll be using for describing out application focuses us on three important questions:
 
