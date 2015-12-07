@@ -1,4 +1,4 @@
-#### Storage: AWS
+### Storage: AWS
 
 We are going to use Amazon Web Services for storing the generated certificates and images.
 
