@@ -23,7 +23,7 @@
 * [The verification interface](walkthroughs/step19.md)
 * [Storage in the cloud](walkthroughs/step20.md)
 * [Refactoring the workflow](walkthroughs/step21.md)
-* [Chapter 22](walkthroughs/step22.md)
+* [Refactoring of the verification view](walkthroughs/step22.md)
 * [Chapter 23](walkthroughs/step23.md)
 * [Chapter 24](walkthroughs/step24.md)
 * [Chapter 25](walkthroughs/step25.md)
