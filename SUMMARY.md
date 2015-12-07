@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [User stories](walkthroughs/step_0.md)
-* [Chapter 1](walkthroughs/step1.md)
+* [Working with BDD](walkthroughs/step1.md)
 * [Chapter 2](walkthroughs/step2.md)
 * [Chapter 3](walkthroughs/step3.md)
 * [Chapter 4](walkthroughs/step4.md)
