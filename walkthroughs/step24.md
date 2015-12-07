@@ -1,4 +1,4 @@
-#### Verification stats
+### Verification stats
 
 One of the initial user stories that we defined was:
 
