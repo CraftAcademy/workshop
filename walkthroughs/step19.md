@@ -1,4 +1,4 @@
-#### The verification interface
+### The verification interface
 
 Every `Certificate` we create has a unique identifier. Each generated certificate displays a url that can used to verify the authenticity of the document.
 
