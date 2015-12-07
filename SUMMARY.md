@@ -14,7 +14,7 @@
 * [Logging in](walkthroughs/step10.md)
 * [Logging out](walkthroughs/step11.md)
 * [Restricting access](walkthroughs/step12.md)
-* [Chapter 13](walkthroughs/step13.md)
+* [Adding relationships](walkthroughs/step13.md)
 * [Chapter 14](walkthroughs/step14.md)
 * [Chapter 15](walkthroughs/step15.md)
 * [Chapter 16](walkthroughs/step16.md)
