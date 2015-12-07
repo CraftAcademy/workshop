@@ -5,7 +5,7 @@
 * [Working with BDD](walkthroughs/step1.md)
 * [Setting up](walkthroughs/step2.md)
 * [Focus on the feature](walkthroughs/step3.md)
-* [Chapter 4](walkthroughs/step4.md)
+* [Adding views](walkthroughs/step4.md)
 * [Chapter 5](walkthroughs/step5.md)
 * [Chapter 6](walkthroughs/step6.md)
 * [Chapter 7](walkthroughs/step7.md)
