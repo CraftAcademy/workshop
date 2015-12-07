@@ -19,7 +19,7 @@
 * [Adding Students](walkthroughs/step15.md)
 * [Rendering certificates](walkthroughs/step16.md)
 * [The certificate layout](walkthroughs/step17.md)
-* [Chapter 18](walkthroughs/step18.md)
+* [Generating images of certificates](walkthroughs/step18.md)
 * [Chapter 19](walkthroughs/step19.md)
 * [Chapter 20](walkthroughs/step20.md)
 * [Chapter 21](walkthroughs/step21.md)
