@@ -28,5 +28,5 @@
 * [Verification stats](walkthroughs/step24.md)
 * [Distributing the certificates](walkthroughs/step25.md)
 * [Moving forward](walkthroughs/moving_forward.md)
-* Setup
+* [Setup](walkthroughs/setup.md)
 
