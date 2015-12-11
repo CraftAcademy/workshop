@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Setup](walkthroughs/setup.md)
 * [User stories](walkthroughs/step_0.md)
 * [Working with BDD](walkthroughs/step1.md)
 * [Setting up](walkthroughs/step2.md)
@@ -28,5 +29,4 @@
 * [Verification stats](walkthroughs/step24.md)
 * [Distributing the certificates](walkthroughs/step25.md)
 * [Moving forward](walkthroughs/moving_forward.md)
-* [Setup](walkthroughs/setup.md)
 
