@@ -29,9 +29,23 @@ We will be moving in a rather fast phase but we will take good time to explain e
 
 Tests? Yes! We will be practicing *Behavior Driven Development* with a mix of *Unit tests*. This is to ensure that our application meets the requirements (more on that later).
 
+### Open Source
+This publication contains the course materials we ask all our future students to go through. You are free to use it for your personal learning needs even if you are not attending our workshop, we encourage that. 
+
+**It is however not allowed to use this material in a commercial context without our written consent. It is not okay and it is against the very meaning of open source.** 
+
+If you have any questions, feel free to contact us at info@craftacademy.se
 
 
+**Thomas Ochman**<br>
+Gothenburg, December 2015<br>
+www.craftacademy.se
 
-![Logo](https://github.com/CraftAcademy/craft-assets/blob/gh-pages/images/logo/logo-with-tagline_small.png?raw=true "Craft Academy by Pragmatic Sweden AB")
+**Disclaimer: This is very much a Work In Progress (WIP) and we will be pushing content regularly so please use the online version if you can or make sure you download/update the pdf, mobi or epub versions regurarly.**
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Learn To Code Workshop</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Pragmatic Sweden</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+ 
+
+![Logo](http://assets.craftacademy.se/images/logo/logo-with-tagline_small.png "Craft Academy by Pragmatic Sweden AB")
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Craft Academy Bootcamp</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Pragmatic Sweden</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
