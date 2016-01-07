@@ -5,7 +5,7 @@ Welcome to the Learn To Code Workshop. For the upcoming 4 days we will spend tog
 The application we will build is a tool to administrate, issue and verify course certificates.
 
 #### Problem definition
-*** As an education institution/company, I face a growing problem with aggregating course and student's information, and issue appropriate course certificates. I also want to make sure that certificates I issue are not tampered with by bad people, that want to take credit for a course they actually did not attend. ***
+***As an education institution/company, I face a growing problem with aggregating course and student's information, and issue appropriate course certificates. I also want to make sure that certificates I issue are not tampered with by bad people, that want to take credit for a course they actually did not attend.***
 
 #### The Learning Experience
 
