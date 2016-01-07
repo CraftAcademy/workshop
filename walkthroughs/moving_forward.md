@@ -11,11 +11,11 @@ There is plenty of refactoring that can be done and a lot of features that can b
     You can add a profile page for the user and give him an opportunity to change his credentials
 - #### Students
     A student could be given a profile page as well with info about all the courses he has attended but also a feature to set privacy settings - perhaps he does not want to share all his certificates with the world. Or allow just certain users to view his course certificates?
-- #### ...
-    [More to come..]
+- #### Course description
+    Allow for course descriptions to be more verbose. Perhaps add sections for prerequisites and learning objectives? 
 
 
-### Refoctoring
+### Re-factoring
 The code and tests can be improved in a number of ways
 - #### S3 upload
     The Amazon upload can be extracted to a module for reuse if you should choose to allow Users to have avatars or add an Course image to the description. 
