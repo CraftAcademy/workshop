@@ -3,8 +3,7 @@
 Let's go ahead and create an application. We will be using Sinatra as a framework for our application. That means that we will be using Ruby as a
 programming language. You can read more about [Sinatra here](http://www.sinatrarb.com/)
 
-There are several ways to create a new Sinatra application but we will make use of a
-script that creates an app for us AND configures it (at least partially) for use with Cucumber and another testing framework called RSpec.
+There are several ways to create a new Sinatra application but we will make use of a script that creates an app for us AND configures it (at least partially) for use with Cucumber and another testing framework called RSpec.
 
 Open your `Gemfile` and add the following lines:
 
