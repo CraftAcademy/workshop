@@ -32,7 +32,11 @@ Tests? Yes! We will be practicing *Behavior Driven Development* with a mix of *U
 ### Open Source
 This publication contains the course materials we ask all our future students to go through. You are free to use it for your personal learning needs even if you are not attending our workshop, we encourage that. 
 
-**It is however not allowed to use this material in a commercial context without our written consent. It is not okay and it is against the very meaning of open source.** 
+**It is however not allowed to use this material in a commercial context without our written consent. It is not okay and it is against the very meaning of open source.**
+
+We hope that you will enjoy this material and that the learning experience will be valuable to you. We continuously develop this step-by-step guide to improve it so please give us feedback by dropping us an email or opening a ticket on the GH repository [CraftAcedemy/workshop](https://github.com/CraftAcademy/workshop). 
+
+** Also, please have a look at other [publications](https://www.gitbook.com/@craftacademy) from us and visit our site at [craftacademy.se](http://craftacademy.se). **
 
 If you have any questions, feel free to contact us at info@craftacademy.se
 
