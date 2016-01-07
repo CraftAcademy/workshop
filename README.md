@@ -36,7 +36,7 @@ This publication contains the course materials we ask all our future students to
 
 We hope that you will enjoy this material and that the learning experience will be valuable to you. We continuously develop this step-by-step guide to improve it so please give us feedback by dropping us an email or opening a ticket on the GH repository [CraftAcedemy/workshop](https://github.com/CraftAcademy/workshop). 
 
-** Also, please have a look at other [publications](https://www.gitbook.com/@craftacademy) from us and visit our site at [craftacademy.se](http://craftacademy.se). **
+**Also, please have a look at other [publications](https://www.gitbook.com/@craftacademy) from us and visit our site at [craftacademy.se](http://craftacademy.se).**
 
 If you have any questions, feel free to contact us at info@craftacademy.se
 
