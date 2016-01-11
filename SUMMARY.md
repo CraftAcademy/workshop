@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Setup](walkthroughs/setup.md)
-   * OSX
+   * [OSX](walkthroughs/osx.md)
 * [User stories](walkthroughs/step_0.md)
 * [Working with BDD](walkthroughs/step1.md)
 * [Setting up](walkthroughs/step2.md)
