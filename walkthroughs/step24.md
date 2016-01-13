@@ -227,8 +227,6 @@ At this point we have access to an `Certificate` instance method `#stats` that w
 ```
 
 With this changes we are getting the click count on the valid certificate show page (`valid.erb`). We have successfully set up a link shortening service, displayed the link on the generated certificate and
-we are accessing the analytics functionality of Bit.ly. Not bad for an hours work, right?
+we are accessing the analytic functionality of Bit.ly. Not bad for an hours work, right?
 
-
-[Step 25](step25.md)
 
