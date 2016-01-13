@@ -214,8 +214,5 @@ end
 
 If you run all your tests, they should pass. However, our tests are not very extensive and there are many scenarios that we have failed to write coverage for. I would like you to take a few minutes and think about what else we should be testing for in Cucumber.
 
-[Step 22](step22.md)
-
-
 
 
