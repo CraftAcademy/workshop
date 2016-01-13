@@ -83,4 +83,3 @@ Running `cucumber` now should show all tests passing.
 
 The next step is to create a verification page.
 
-[Step 19](step19.md)
