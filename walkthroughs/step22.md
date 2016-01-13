@@ -15,5 +15,3 @@ Now that we have access to the image as a AWS resource, we can modify the view a
 
 <img src="<%= @certificate.image_url %>" />
 ```
-
-[Step 23](step23.md)
