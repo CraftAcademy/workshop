@@ -209,9 +209,7 @@ Make sure to run all your features and specs. The testing suite will take longer
 
 We are actually hitting the AWS cloud storage in our tests (that is in principle a no, no!). There is much room for improvement of the way we set up our tests, but we will not focus on refactoring our test at this point. The important take away for you is that testing play a vital supportive role in your development process and needs to be done in a smart way so it not becomes an obstacle.
 
-Anyway, we have now implemented a cloud storage solution in our application. That is huge!
+Anyway, we have now implemented a cloud storage solution in our application. **That is huge!**
 
-
-[Step 21](step21.md)
 
 
