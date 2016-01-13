@@ -4,7 +4,7 @@ Now that we have the most important `User` features in place, we want to allow t
 
 Before we move on and implement some basic authorization methods we want to take a step back and get rid of some code that we no longer need.
 
-It's time to do some refactoring of the initial scenarios we wrote and delete obsolete code.
+It's time to do some re-factoring of the initial scenarios we wrote and delete obsolete code.
 
 ```
 # features/course_create.feature
@@ -155,4 +155,3 @@ From now on, you can restrict every path like this if you want it to be accessib
 
 Run your tests now and see them pass!
 
-[Step 13](step13.md)
