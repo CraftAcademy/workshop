@@ -318,4 +318,3 @@ Run all your specs and features. You should see a lot of green on your screen. T
 Next, we will be creating the actual certificates. Exciting?
 
 
-[Step 16](step16.md)
