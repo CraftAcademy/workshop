@@ -6,7 +6,7 @@ Before we move on and implement some basic authorization methods we want to take
 
 It's time to do some re-factoring of the initial scenarios we wrote and delete obsolete code.
 
-```
+```gherkin
 # features/course_create.feature
 
 # delete:
