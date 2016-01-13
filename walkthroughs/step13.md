@@ -245,4 +245,4 @@ That should do it. Now we need to display those dates on the `views/courses/inde
 If you run your features now, all scenarios should go green. As a sanity check, do run all your specs as well. Just to make sure.
 
 
-[Step 14](step14.md)
+
