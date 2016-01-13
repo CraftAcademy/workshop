@@ -139,4 +139,3 @@ end
 
 When you run your test now, the generated pdf's will be saved in the `pdf/test` folder. Your actual certificates will be saved in the `pdf/development` or the `pdf/production` folders, depending on what environment your server is running on.
 
-[Step 18](step18.md)
