@@ -125,5 +125,3 @@ In order to get the verification url you'll need to access a generated pdf in yo
 Try modifying the long hash and reload the page. Now, you should see a page that uses the `invalid.erb` template.
 
 Personally, I think we've come pretty far!
-
-[Step 20](step20.md)
