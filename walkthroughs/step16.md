@@ -353,5 +353,3 @@ describe 'Creating a Certificate' do
 
 That pretty much concludes this part. In the next step we will make the certificate look a little better with a custom background, fonts and colors.
 
-
-[Step 17](step17.md)
