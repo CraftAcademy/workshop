@@ -70,4 +70,4 @@ but to be honest, we would need to add a few more features to `User` before we c
  meaning that two users could register with the same email address. Is that okay? Think about that for a moment. Can you come up with some other functionality that could prove useful or even mission critical?
 
 
-[Step 12](step12.md)
+
