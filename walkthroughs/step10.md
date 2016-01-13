@@ -234,4 +234,4 @@ We only want to show the `Log in` link if there is no user logged in, right? Upd
 
 If you run `cucumber` now, all your steps should go green. Time to set up the log out feature.
 
-[Step 11](step11.md)
+
