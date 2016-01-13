@@ -152,4 +152,3 @@ So, now you are all set. Head over to your browser window and type in `https://m
 $ heroku open
 ```
 
-[Step 24](step24.md)
