@@ -169,4 +169,3 @@ Run `cucumber` and watch it pass. The scenario we just added is called the sad p
 
 Alright, now we have the users password safely encrypted and saved in our database. The next step is to add a method to authenticate the user when he tries to log in to the application.
 
-[Step 10](step10.md)
