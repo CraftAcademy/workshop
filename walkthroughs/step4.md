@@ -85,4 +85,3 @@ What we did now was to remove the static text that was being showed on the web p
 
 What happens if we run cucumber again?
 
-[Step 5](step5.md)
