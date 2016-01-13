@@ -87,5 +87,3 @@ Before we move to the next step we need to re-arrange a few things:
 
 
 Great! That's all for now. Let's move to the next step where we'll get a few more steps in our scenarios to pass.
-
-[Step 3](step3.md)
