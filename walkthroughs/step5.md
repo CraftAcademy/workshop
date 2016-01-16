@@ -122,5 +122,11 @@ That is a kind of a blocker for us. We need to create a `Course` class. So lets 
 
 Now, try to run your tests again. What does it looks like?
 
+```ruby
+Then(/^a new "([^"]*)" should be created$/) do |model|
+  expect(Object.const_get(model).count).to eq 1
+end
+```
+
 **As a last step this part I would like you to add two step definitions {really??? what defs is that???}**
 
