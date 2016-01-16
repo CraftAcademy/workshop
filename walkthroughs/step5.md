@@ -85,7 +85,7 @@ In the `index.erb` let's add a link to create a new course:
 
 And in the `create.erb` let's add a form to create a course:
 
-```HTML+ERB
+```html
 # lib/views/courses/create.erb
 
 <% form_for :course, '/courses/create', id: 'create' do |f|  %>
