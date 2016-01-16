@@ -46,7 +46,6 @@ Your `Gemfile` should look something like this:
 
 source 'https://rubygems.org'
 
-gem 'cucumber'
   gem 'sinatra'
   gem 'padrino', '~> 0.13.0'
   gem 'data_mapper'
@@ -54,6 +53,7 @@ gem 'cucumber'
   gem 'pg'
 
 group :development, :test do
+  gem 'cucumber'
   gem 'rspec'
   gem 'capybara'
   gem 'capybara-webkit'
