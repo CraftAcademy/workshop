@@ -57,7 +57,7 @@ end
 
 Modify your `views/index.erb` to look like this:
 
-```HTML+ERB
+```html
 # lib/views/index.erb
 
 <h1>Workshop App</h1>
