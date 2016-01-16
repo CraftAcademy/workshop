@@ -75,7 +75,7 @@ $ touch views/courses/create.erb
 
 In the `index.erb` let's add a link to create a new course:
 
-```HTML+ERB
+```html
 # lib/views/courses/index.erb
 
 <h1>You have not created any courses</h1>
