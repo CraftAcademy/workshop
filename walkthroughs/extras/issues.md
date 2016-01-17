@@ -56,7 +56,7 @@ ruby lib/application.rb  -p $PORT -o $IP
 
 RVM installation. 
 
-Installing RVM on C9 is straight forward untill we get to sourcing the RVM init file. 
+Installing RVM on C9 is straight forward until we get to sourcing the RVM init file. 
 
 ```shell
 $ source ~/.rvm/scripts/rvm
