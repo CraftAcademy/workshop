@@ -104,7 +104,7 @@ The error on `I should not see "Create course"` step is easy. Let’s fix that f
 
 Open up your `courses/index.erb` file and simply condition the display of the "Create course" link:
 
-```HTML+ERB
+```html
 # lib/views/courses/index.erb
 ...
 <% if current_user %>
