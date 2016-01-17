@@ -54,6 +54,25 @@ In order to run your application run the following command in the terminal:
 ruby lib/application.rb  -p $PORT -o $IP
 ```
 
+RVM installation. 
+
+Installing RVM on C9 is straight forward untill we get to sourcing the RVM init file. 
+
+```shell
+$ source ~/.rvm/scripts/rvm
+Error: /proc must be mounted
+  To mount /proc at boot you need an /etc/fstab line like:
+      proc   /proc   proc    defaults
+  In the meantime, run "mount proc /proc -t proc"
+```
+
+But when we run this we get
+```shell
+$ mount proc /proc -t proc
+mount: only root can do that
+```
+
+
 
 ###### Squashing commits
 There are several methods you can use to
