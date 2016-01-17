@@ -252,7 +252,7 @@ First, in your `application.rb`, inside your class, add the following setting:
 
 Then, in your `application.erb` (the layout template), add this code that will display the message:
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb
 
 <% if session[:flash] %>
