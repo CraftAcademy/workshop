@@ -50,7 +50,7 @@ Add the `/users/logout` route to `application.rb`
 
 Update your `application.erb` by adding the Log in link:
 
-```html+erb
+```html
 # lib/views/layouts/application.erb`
 
 <% if current_user %>
