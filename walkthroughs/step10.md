@@ -53,7 +53,7 @@ Run `cucumber` (`cucumber features/user_maintenance.feature`)
 
 Update your `application.erb` by adding the `Log in` link:
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb`
 
 ...
