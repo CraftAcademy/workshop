@@ -58,6 +58,12 @@ RVM installation.
 
 Installing RVM on C9 is straight forward until we get to sourcing the RVM init file. 
 
+Is switching to `su` a solution?
+
+```
+$ sudo su
+```
+
 ```shell
 $ source ~/.rvm/scripts/rvm
 Error: /proc must be mounted
