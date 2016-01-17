@@ -43,7 +43,11 @@ DataMapper setup in `application.rb`:
 
 ```
 
+##### ImageMagick
 
+```shell
+$ sudo apt-get install imagick
+```
 
 
 ###### Run on Cloud9
