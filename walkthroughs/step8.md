@@ -59,7 +59,7 @@ Scenario: Log out from the application
 Let’s add some steps to the `Create an account` scenario:
 
 ```gherkin
-# feature/user_maintenance.feature
+# features/user_maintenance.feature
 
 ...
 Scenario: Create an account
