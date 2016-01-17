@@ -44,9 +44,9 @@ DataMapper setup in `application.rb`:
 ```
 
 ##### ImageMagick
-
+If you have problems with installing `rmagick` you need to run this
 ```shell
-$ sudo apt-get install imagick
+$ sudo apt-get install imagemagick libmagickwand-dev
 ```
 
 
