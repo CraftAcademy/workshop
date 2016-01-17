@@ -85,7 +85,7 @@ Unable to find link or button "Register" (Capybara::ElementNotFound)
 
 Let’s add that link to the `application.erb` (it is located in the `lib/views/layouts` folder, remember?)
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb
 
 <%= link_to 'Register', '/users/register' %>
