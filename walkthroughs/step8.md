@@ -83,7 +83,7 @@ We are failing on the second step:
 Unable to find link or button "Register" (Capybara::ElementNotFound)
 ```
 
-Let’s add that link to the `application.erb` (it is located in the `lib/views/layouts` folder, remember?)
+Let's add that link to the `application.erb` (it is located in the `lib/views/layouts` folder, remember?)
 
 ```html
 # lib/views/layouts/application.erb
@@ -107,7 +107,7 @@ Then I should be on Registration page                    # features/step_definit
   features/user_maintenance.feature:8:in `Then I should be on Registration page'
 ```
 
-In order to fixe this, open up the `features/support/paths.rb` file and add the route to users registration page:
+In order to fix this, open up the `features/support/paths.rb` file and add the route to users registration page:
 
 ```ruby
 # features/support/paths.rb
