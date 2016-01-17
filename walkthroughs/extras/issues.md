@@ -22,13 +22,28 @@ If you have touble installing the `do-postgres` gem try to run this command and 
 sudo apt-get install postgresql-9.3 postgresql-server-dev-9.3 libpq-dev
 ```
 
+START THE POSTGRESQL SERVICE
+```shell
+sudo service postgresql start
+```
+
+
+
+Create a password for the `postgres` user
+```shell
+sudo sudo -u postgres psql
+postgres-# \password postgres
+Enter new password: postgres
+```
+
 DataMapper setup in `application.rb`:
 
 ```ruby
-
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/workshop_#{env}")
 
 ```
+
+
 
 
 ###### Run on Cloud9
