@@ -92,7 +92,7 @@ Reset the current branch to the commit just before the last 5:
 $ git reset --hard HEAD~5
 ```
 
-HEAD@{1} is where the branch was just before the previous command.
+`HEAD@{1}` is where the branch was just before the previous command.
 
 This command sets the state of the index to be as it would just after a merge from that commit:
 
