@@ -39,8 +39,8 @@ In your `.env` file, add two environmental variables:
 # .env
 
 ...
-BITLY_USERNAME=<bit.ly username>
-BITLY_API_KEY=<bit.ly api key>
+BITLY_USERNAME = < bit.ly username >
+BITLY_API_KEY= < bit.ly api key >
 ```
 
 You'll get those credentials if you sign up for Bit.ly, go to your profile settings (Advanced) and look under the Legacy API Key section.
@@ -48,11 +48,11 @@ You'll get those credentials if you sign up for Bit.ly, go to your profile setti
 If you have deployed your application to Heroku, you need to save your credentials as vars on your application as well:
 
 ```shell
-$ heroku config:set BITLY_USERNAME=<bit.ly username>
-$ heroku config:set BITLY_API_KEY=<bit.ly api key>
+$ heroku config:set BITLY_USERNAME=< bit.ly username >
+$ heroku config:set BITLY_API_KEY=< bit.ly api key >
 
 # On your deployed app add:
-$ heroku config:set SERVER_URL=<your heroku url WITH an extra '/verify/' at the end <- Important!>
+$ heroku config:set SERVER_URL=< your heroku url WITH an extra '/verify/' at the end <- Important! >
 ```
 Add the following code to your `certificate_generator.rb`:
 
@@ -226,7 +226,9 @@ At this point we have access to an `Certificate` instance method `#stats` that w
 </div>
 ```
 
-With this changes we are getting the click count on the valid certificate show page (`valid.erb`). We have successfully set up a link shortening service, displayed the link on the generated certificate and we are accessing the analytic functionality of Bit.ly. 
+With this changes we are getting the click count on the valid certificate show page (`valid.erb`). 
+
+We have successfully set up a link shortening service, displayed the link on the generated certificate and we are accessing the analytic functionality of Bit.ly. 
 
 **Not bad for an hours work, right?**
 
