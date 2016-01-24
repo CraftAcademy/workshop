@@ -7,8 +7,8 @@ In order for it to work we need to:
 1. Create a route in our controller (`application.rb`)
 2. Create appropriate templates for valid & invalid certificates
 3. Query the database for a certificate using the `identifier`
-4. Display the right certificate on the `valid` page
-5. Display the `invalid` template if there is no matching certificate
+4. Display the right certificate using the `valid.erb` template
+5. Display the `invalid.erb` template if there is no matching certificate
 
 We start with writing a Cucumber feature. Create a new feature file:
 
