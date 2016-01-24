@@ -164,7 +164,7 @@ The next step will be to re-factor the view:
 
 This change is introducing several changes:
 
-1. `Generate certificates` will only be visible if a) there is a `current_user` AND no certificates has been generated (`!@delivery.certificates.any?`).
+1. `Generate certificates` link will only be visible if a) there is a `current_user` AND no certificates has been generated (`!@delivery.certificates.any?`).
 2. The upload data file interface (the form) is visible only if there is a `current_user` present and there are no students associated to the delivery.
 3. On the students list, a link to the certificate is visible IF there is a certificate associated with that student.
 4. We are displaying the delivery date.
