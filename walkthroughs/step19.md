@@ -4,7 +4,7 @@ Every `Certificate` we create has a unique identifier and displays a url that ca
 
 In order for it to work we need to:
 
-1. Create a route in our controller (´application.rb`)
+1. Create a route in our controller (`application.rb`)
 2. Create appropriate templates for valid & invalid certificates
 3. Query the database for a certificate using the `identifier`
 4. Display the right certificate on the `velid` page
