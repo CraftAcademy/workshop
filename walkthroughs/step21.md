@@ -127,7 +127,7 @@ In that way, we do not need to create separate views for those contexts. Make su
 
 ```
 
-The next step will be to refactor the view:
+The next step will be to re-factor the view:
 
 ```erb
 
