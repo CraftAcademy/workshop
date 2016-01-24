@@ -1,4 +1,4 @@
-### Refactoring th verification view
+### Re-factoring th verification view
 
 Just a quick modification of the template that is called when we verify a course certificate.
 
