@@ -45,7 +45,7 @@ The `dotenv` gem can couse some problems for us when we deploy to Heroku. We nee
 
 ...
 if ENV['RACK_ENV'] != 'production'
-require 'dotenv'
+  require 'dotenv'
 end
 
 class WorkshopApp < Sinatra::Base
