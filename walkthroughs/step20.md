@@ -94,7 +94,7 @@ property :image_key, Text
 
 We need to set these properties to `Text` rather then `String` due to the fact that length can exceed 50 characters.
 
-We are going to do some major refactoring of the  `CertificateGenerator`, extracting some functionality to private methods and adding a method that will handle our upload to S3.
+We are going to do some major re-factoring of the  `CertificateGenerator`, extracting some functionality to private methods and adding a method that will handle our upload to S3.
 
 Update your `certificate_generator.rb` with the following code:
 ```ruby
@@ -207,7 +207,7 @@ end
 
 Make sure to run all your features and specs. The testing suite will take longer to execute then it used to.
 
-We are actually hitting the AWS cloud storage in our tests (that is in principle a no, no!). There is much room for improvement of the way we set up our tests, but we will not focus on refactoring our test at this point. The important take away for you is that testing play a vital supportive role in your development process and needs to be done in a smart way so it not becomes an obstacle.
+We are actually hitting the AWS cloud storage in our tests (that is in principle a no, no!). There is much room for improvement of the way we set up our tests, but we will not focus on re-factoring our test at this point. The important take away for you is that testing play a vital supportive role in your development process and needs to be done in a smart way so it not becomes an obstacle.
 
 Anyway, we have now implemented a cloud storage solution in our application. **That is huge!**
 
