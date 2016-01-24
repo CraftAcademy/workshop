@@ -3,7 +3,7 @@
 We are going to use Amazon Web Services for storing the generated certificates and images.
 
 ##### Set up AWS account
-
+You may choose to set up your own AWS account or you can get credentials from the coach. If you choose to set up your own account make sure to take all the necessary security precautions in order to avoid having your account compromised. It can be a very costly experience.
 [Instructions on how to set up AWS account with some screen shots?]
 
 
