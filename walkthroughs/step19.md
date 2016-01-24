@@ -26,15 +26,10 @@ Feature: As a certificate reviewer,
   I want to be able to access a web page showing me the certificate information
   by clicking the verification URL
 
-Feature: As a certificate reviewer,
-  In order to asses the authenticity of a certificate
-  I want to be able to access a web page showing me the certificate information
-  by clicking the verification URL
-
-  Scenario: Verify certificate with a valid URL
-    Given valid certificates exists
-    And I visit the url for a certificate
-    Then I should be on the valid certificate page
+Scenario: Verify certificate with a valid URL
+  Given valid certificates exists
+  And I visit the url for a certificate
+  Then I should be on the valid certificate page
 ```
 
 Add the following step definitions to your `application_steps.rb`:
