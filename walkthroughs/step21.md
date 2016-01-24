@@ -2,7 +2,7 @@
 
 We are going to add some scenarios to `certificate_generation.feature`
 
-First a small refactoring:
+First a small re-factoring:
 
 ```gherkin
 # features/certificate_generation.feature
@@ -57,7 +57,7 @@ In order to get the `Certificate` model to validate, we want to slightly change 
     CertificateGenerator.generate(self)
   end
 ```
-Annd add that command to our controller. Along with some other changes.
+And add that command to our controller. Along with some other changes.
 
 Let's update our controller method:
 
