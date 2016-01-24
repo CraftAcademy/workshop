@@ -60,8 +60,8 @@ And, of course, you need to update your `.env` file with those variables:
 # .env
 
 ...
-GMAIL_ADDRESS=<your gmail email address>
-GMAIL_PASSWORD=<your gmail password>
+GMAIL_ADDRESS=< your gmail email address >
+GMAIL_PASSWORD=< your gmail password >
 ```
 **I can not stress this enough - MAKE SURE THAT `.env` IS OUTSIDE YOUR VERSION CONTROL**
 
