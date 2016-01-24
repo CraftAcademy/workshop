@@ -15,7 +15,7 @@ module CertificateGenerator
   Bitly.use_api_version_3
   CURRENT_ENV = ENV['RACK_ENV'] || 'development'
   PATH = "pdf/#{CURRENT_ENV}/"
-  TEMPLATE = File.absolute_path('./pdf/templates/crafta1.jpg')
+  TEMPLATE = File.absolute_path('./pdf/templates/diplom.jpg')
   URL = ENV['SERVER_URL'] || 'http://localhost:9292/verify/'
   S3 = Aws::S3::Resource.new(region: ENV['AWS_REGION'])
   BITLY = Bitly.new(ENV['BITLY_USERNAME'], ENV['BITLY_API_KEY'])
@@ -49,29 +49,27 @@ module CertificateGenerator
 
   def self.make_prawn_document(details, output)
     File.delete(output) if File.exist?(output)
-
     Prawn::Document.generate(output,
                              page_size: 'A4',
                              background: TEMPLATE,
-                             background_scale: 0.2397,
+                             background_scale: 1,
                              page_layout: :landscape,
-                             left_margin: 30,
-                             right_margin: 40,
-                             top_margin: 7,
+                             left_margin: 0,
+                             right_margin: 0,
+                             top_margin: 0,
                              bottom_margin: 0,
                              skip_encoding: true) do |pdf|
-      pdf.move_down 200
+      pdf.move_down 220
       pdf.font 'assets/fonts/Gotham-Bold.ttf'
-      pdf.text details[:name], size: 44, color: 'F28E24', indent_paragraphs: 55
-      pdf.move_down 100
+      pdf.text details[:name], size: 44, color: '009900', indent_paragraphs: 120
+      pdf.move_down 75
       pdf.font 'assets/fonts/Gotham-Medium.ttf'
-      pdf.text details[:course_name], indent_paragraphs: 55, size: 20, color: '6F7072'
-      pdf.text details[:course_desc], indent_paragraphs: 55, size: 20, color: '6F7072'
-      pdf.move_down 55
-      pdf.text 'Thomas Ochman', indent_paragraphs: 40, size: 12, color: '6F7072'
-      pdf.text "Göteborg #{details[:date]}", indent_paragraphs: 40, size: 12, color: '6F7072'
-      pdf.move_down 85
-      pdf.text "To verify the authenticity of this certificate, visit: #{get_url(details[:verify_url])}", align: :center, size: 8, color: '6F7072'
+      pdf.text details[:course_name], indent_paragraphs: 120, size: 20
+      pdf.text details[:course_desc], indent_paragraphs: 120, size: 20
+      pdf.move_down 95
+      pdf.text "Göteborg #{details[:date]}", indent_paragraphs: 120, size: 12
+      pdf.move_down 65
+      pdf.text "To verify the authenticity of this Course certificate, please visit: #{get_url(details[:verify_url])}", align: :center, size: 8
     end
   end
 
