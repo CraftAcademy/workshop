@@ -58,9 +58,9 @@ In order to run your application run the following command in the terminal:
 ruby lib/application.rb  -p $PORT -o $IP
 ```
 
-RVM installation. 
+RVM installation.
 
-Installing RVM on C9 is straight forward until we get to sourcing the RVM init file. 
+Installing RVM on C9 is straight forward until we get to sourcing the RVM init file.
 
 Is switching to `su` a solution?
 
@@ -112,4 +112,40 @@ Or give the new commit a custom message
 $ git commit -m "your message"
 ```
 
+### Undocumented issues
+At the end of the second iteration we ran into some issues on Heroku due to the fact that the `pdf/production` was not version controlled. That folder is used to temporarily store the generated pdf's and jpg's. We need to add a `.keep` file to that folder. There was also some other minor issues that I had to push out to the students. All of this should be added to the documentation in under the right chapters.
 
+Make the following changes:
+
+```ruby
+# features/support/database_cleaner.rb
+
+# remove
+FileUtils.rm_rf Dir['assets/img/usr/test/**/*.jpg']
+
+# add
+FileUtils.rm_rf Dir['pdf/test/**/*.jpg']
+
+```
+
+```shell
+$ touch pdf/production/.keep
+```
+
+```
+# .gitignore
+
+.env
+pdf/test/*
+.DS_Store
+
+```
+
+When you are done, make sure to add new files and commit your changes.
+
+```shell
+$ git add .
+$ git commit -am "fix for missing folder on heroku"
+$ git push origin master
+$ git push heroku master
+```
