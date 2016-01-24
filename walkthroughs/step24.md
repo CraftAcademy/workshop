@@ -1,4 +1,4 @@
-#### Verification stats
+### Verification stats
 
 One of the initial user stories that we defined was:
 
@@ -10,8 +10,7 @@ I want to track every call to a verification url
 
 That is the feature we will be working on right now.
 
-Before we start developing this feature I would like to take a moment and talk about one of the principles that guide me in my work - to write new code only if I have to.
-Every new line of code I write is code that needs to be tested, potentially debugged, understood and definitely supported.
+Before we start developing this feature I would like to take a moment and talk about one of the principles that guide me in my work - to write new code only if I have to. Every new line of code I write is code that needs to be tested, potentially debugged, understood and definitely supported.
 It's painful for most software developers to acknowledge this, because we love code so much, but **the best code is no code at all**!
 
 So if we don't need to write any code but still implement a feature and solve a problem - then that must be a good thing, right?
@@ -38,8 +37,10 @@ In your `.env` file, add two environmental variables:
 
 ```yml
 # .env
-BITLY_USERNAME=<bit.ly username>
-BITLY_API_KEY=<bit.ly api key>
+
+...
+BITLY_USERNAME = < bit.ly username >
+BITLY_API_KEY= < bit.ly api key >
 ```
 
 You'll get those credentials if you sign up for Bit.ly, go to your profile settings (Advanced) and look under the Legacy API Key section.
@@ -47,11 +48,11 @@ You'll get those credentials if you sign up for Bit.ly, go to your profile setti
 If you have deployed your application to Heroku, you need to save your credentials as vars on your application as well:
 
 ```shell
-$ heroku config:set BITLY_USERNAME=<bit.ly username>
-$ heroku config:set BITLY_API_KEY=<bit.ly api key>
+$ heroku config:set BITLY_USERNAME=< bit.ly username >
+$ heroku config:set BITLY_API_KEY=< bit.ly api key >
 
 # On your deployed app add:
-$ heroku config:set SERVER_URL=<your heroku url WITH an extra '/verify/' at the end <- Important!>
+$ heroku config:set SERVER_URL=< your heroku url WITH an extra '/verify/' at the end <- Important! >
 ```
 Add the following code to your `certificate_generator.rb`:
 
@@ -206,7 +207,7 @@ end
 
 At this point we have access to an `Certificate` instance method `#stats` that will return the total amount of clicks for us. We can use that on our view:
 
-```html+erb
+```erb
 # lib/views/valid.erb
 
 <h3 style="color: #368a55">Valid course certificate for</h3>
@@ -225,9 +226,10 @@ At this point we have access to an `Certificate` instance method `#stats` that w
 </div>
 ```
 
-With this changes we are getting the click count on the valid certificate show page (`valid.erb`). We have successfully set up a link shortening service, displayed the link on the generated certificate and
-we are accessing the analytics functionality of Bit.ly. Not bad for an hours work, right?
+With this changes we are getting the click count on the valid certificate show page (`valid.erb`). 
 
+We have successfully set up a link shortening service, displayed the link on the generated certificate and we are accessing the analytic functionality of Bit.ly. 
 
-[Step 25](step25.md)
+**Not bad for an hours work, right?**
+
 

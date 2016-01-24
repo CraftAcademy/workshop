@@ -1,8 +1,8 @@
-#### Refactoring the workflow
+### Refactoring the workflow
 
 We are going to add some scenarios to `certificate_generation.feature`
 
-First a small refactoring:
+First a small re-factoring:
 
 ```gherkin
 # features/certificate_generation.feature
@@ -57,7 +57,7 @@ In order to get the `Certificate` model to validate, we want to slightly change 
     CertificateGenerator.generate(self)
   end
 ```
-Annd add that command to our controller. Along with some other changes.
+And add that command to our controller. Along with some other changes.
 
 Let's update our controller method:
 
@@ -65,7 +65,6 @@ Let's update our controller method:
 # lib/application.rb
 
 ...
-
 get '/courses/generate/:id', auth: :user do
   @delivery = Delivery.get(params[:id])
   if !@delivery.certificates.find(delivery_id: @delivery.id).size.nil?
@@ -128,9 +127,9 @@ In that way, we do not need to create separate views for those contexts. Make su
 
 ```
 
-The next step will be to refactor the view:
+The next step will be to re-factor the view:
 
-```html+erb
+```erb
 
 # lib/views/courses/deliveries/show.erb
 
@@ -161,14 +160,11 @@ The next step will be to refactor the view:
     <%= submit_tag 'Submit', class: 'button' %>
   <% end %>
 <% end %>
-
-
-
 ```
 
 This change is introducing several changes:
 
-1. `Generate certificates` will only be visible if a) there is a `current_user` AND no certificates has been generated (`!@delivery.certificates.any?`).
+1. `Generate certificates` link will only be visible if a) there is a `current_user` AND no certificates has been generated (`!@delivery.certificates.any?`).
 2. The upload data file interface (the form) is visible only if there is a `current_user` present and there are no students associated to the delivery.
 3. On the students list, a link to the certificate is visible IF there is a certificate associated with that student.
 4. We are displaying the delivery date.
@@ -217,9 +213,6 @@ end
 ```
 
 If you run all your tests, they should pass. However, our tests are not very extensive and there are many scenarios that we have failed to write coverage for. I would like you to take a few minutes and think about what else we should be testing for in Cucumber.
-
-[Step 22](step22.md)
-
 
 
 

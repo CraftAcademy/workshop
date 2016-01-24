@@ -46,7 +46,6 @@ Your `Gemfile` should look something like this:
 
 source 'https://rubygems.org'
 
-gem 'cucumber'
   gem 'sinatra'
   gem 'padrino', '~> 0.13.0'
   gem 'data_mapper'
@@ -54,6 +53,7 @@ gem 'cucumber'
   gem 'pg'
 
 group :development, :test do
+  gem 'cucumber'
   gem 'rspec'
   gem 'capybara'
   gem 'capybara-webkit'
@@ -159,5 +159,3 @@ Okay, this means that you have successfully added and set up `RSpec` as a testin
 A database is an organized collection of related data, typically stored on disk, and accessible by possibly many concurrent users. Databases are often separated into application areas. For example, one database may contain Product information data; another may contain sales data; another may contain accounting data; and so on.
 
 More on [databases](https://en.wikipedia.org/wiki/Database) and [Relational Databases](https://en.wikipedia.org/wiki/Relational_database)
-
-[Step 7](step7.md)

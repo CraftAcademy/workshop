@@ -59,7 +59,7 @@ Scenario: Log out from the application
 Let’s add some steps to the `Create an account` scenario:
 
 ```gherkin
-# feature/user_maintenance.feature
+# features/user_maintenance.feature
 
 ...
 Scenario: Create an account
@@ -83,9 +83,9 @@ We are failing on the second step:
 Unable to find link or button "Register" (Capybara::ElementNotFound)
 ```
 
-Let’s add that link to the `application.erb` (it is located in the `lib/views/layouts` folder, remember?)
+Let's add that link to the `application.erb` (it is located in the `lib/views/layouts` folder, remember?)
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb
 
 <%= link_to 'Register', '/users/register' %>
@@ -107,7 +107,7 @@ Then I should be on Registration page                    # features/step_definit
   features/user_maintenance.feature:8:in `Then I should be on Registration page'
 ```
 
-In order to fixe this, open up the `features/support/paths.rb` file and add the route to users registration page:
+In order to fix this, open up the `features/support/paths.rb` file and add the route to users registration page:
 
 ```ruby
 # features/support/paths.rb
@@ -252,7 +252,7 @@ First, in your `application.rb`, inside your class, add the following setting:
 
 Then, in your `application.erb` (the layout template), add this code that will display the message:
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb
 
 <% if session[:flash] %>
@@ -278,4 +278,4 @@ And, finally, in your main controller, on the post route, add:
 
 That should do it for the user, right? Well, not quite... :wink:
 
-[Step 9](step9.md)
+

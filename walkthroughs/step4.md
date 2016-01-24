@@ -50,7 +50,7 @@ $ touch views/layouts/application.erb
 
 For now, the only code we want to place in that file is:
 
-```HTML+ERB
+```erb
 # lib/views/layouts/application.erb
 
 <%= yield %>
@@ -66,7 +66,7 @@ $ touch views/index.erb
 
 Add the following code to that file:
 
-```HTML+ERB
+```erb
 <h1>Workshop App</h1>
 <a href="/courses">All courses</a>
 ```
@@ -85,4 +85,3 @@ What we did now was to remove the static text that was being showed on the web p
 
 What happens if we run cucumber again?
 
-[Step 5](step5.md)

@@ -1,4 +1,4 @@
-#### The look and feel
+### The look and feel
 
 Up until now we have been developing our application using tests - features and specs. Now is the time to start a browser and have a look at the application.
 Brace yourself - you might be surprised. ;-)
@@ -154,25 +154,27 @@ Modify your `application.erb` with the code below. We will go over all of this i
 
 <script src="/js/vendor/jquery.js"></script>
 <script src="/js/foundation.min.js"></script>
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/foundation.min.js"></script>
 <script>
+
   function fixFooter() {
-    footer=$(".footer");
-    height=footer.height();
-    paddingTop=parseInt(footer.css('padding-top'),10);
-    paddingBottom=parseInt(footer.css('padding-bottom'),10);
-    totalHeight=(height+paddingTop+paddingBottom);
-    footerPosition=footer.position();
-    windowHeight=$(window).height();
-    height=(windowHeight - footerPosition.top)-totalHeight;
-    if ( height > 0 ) {
+    var footer = $(".footer");
+    height = footer.height();
+    paddingTop = parseInt(footer.css('padding-top'), 10);//zero if is undefined
+    paddingBottom = parseInt(footer.css('padding-bottom'), 10);//zero if is undefined
+    totalHeight = (height + paddingTop + paddingBottom);
+    footerPosition = footer.position();
+    windowHeight = $(window).height();
+    height = (windowHeight - footerPosition.top) - totalHeight;
+    if (height > 0) {
       footer.css({
         'margin-top': (height) + 'px'
       });
     }
   }
 
-  $(document).ready(function () {
-    fixFooter();
+  function hideFlash() {
     var flash = $('#flash-container');
     if (flash.length > 0) {
       window.setTimeout(function () {
@@ -181,14 +183,18 @@ Modify your `application.erb` with the code below. We will go over all of this i
         });
       }, 5000);
     }
+  }
+
+  $(document).foundation();
+
+  $(document).ready(function () {
+    fixFooter();//at page load
+    hideFlash()
   });
 
-  $(window).resize(function() {
-    fixFooter();
+  $(window).resize(function () {
+    fixFooter();//at page resize
   });
-</script>
-<script>
-  $(document).foundation();
 </script>
 </body>
 </html>
@@ -198,4 +204,4 @@ It seems like a lot, and rightly so. Before we start going over what each and ev
 
 Go to your browser and reload `http://localhost:9292` Looks a little better now, right?
 
-[Step 15](step15.md)
+

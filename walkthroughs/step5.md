@@ -57,7 +57,7 @@ end
 
 Modify your `views/index.erb` to look like this:
 
-```HTML+ERB
+```html
 # lib/views/index.erb
 
 <h1>Workshop App</h1>
@@ -75,7 +75,7 @@ $ touch views/courses/create.erb
 
 In the `index.erb` let's add a link to create a new course:
 
-```HTML+ERB
+```html
 # lib/views/courses/index.erb
 
 <h1>You have not created any courses</h1>
@@ -85,7 +85,7 @@ In the `index.erb` let's add a link to create a new course:
 
 And in the `create.erb` let's add a form to create a course:
 
-```HTML+ERB
+```html
 # lib/views/courses/create.erb
 
 <% form_for :course, '/courses/create', id: 'create' do |f|  %>
@@ -122,6 +122,11 @@ That is a kind of a blocker for us. We need to create a `Course` class. So lets 
 
 Now, try to run your tests again. What does it looks like?
 
+```ruby
+Then(/^a new "([^"]*)" should be created$/) do |model|
+  expect(Object.const_get(model).count).to eq 1
+end
+```
+
 **As a last step this part I would like you to add two step definitions {really??? what defs is that???}**
 
-[Step 6](step6.md)

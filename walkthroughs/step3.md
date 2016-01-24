@@ -1,4 +1,4 @@
-#### Focus on the feature
+### Focus on the feature
 
 Let's have a look on the next step in our scenario:
 
@@ -70,5 +70,3 @@ First we are calling on the `log_in_admin` method and on the next line we are se
 Run `cucumber` again. That step should go green for you. We have not actually created a feature that allows for logging in and out, but for the time being, we have fooled the application to think that an administrator is actually logged in.
 
 We will get back to this sooner rather than later and code an actual solution.
-
-[Step 4](step4.md)

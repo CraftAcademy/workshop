@@ -1,10 +1,9 @@
-#### Setting up an application
+### Setting up an application
 
 Let's go ahead and create an application. We will be using Sinatra as a framework for our application. That means that we will be using Ruby as a
 programming language. You can read more about [Sinatra here](http://www.sinatrarb.com/)
 
-There are several ways to create a new Sinatra application but we will make use of a
-script that creates an app for us AND configures it (at least partially) for use with Cucumber and another testing framework called RSpec.
+There are several ways to create a new Sinatra application but we will make use of a script that creates an app for us AND configures it (at least partially) for use with Cucumber and another testing framework called RSpec.
 
 Open your `Gemfile` and add the following lines:
 
@@ -88,5 +87,3 @@ Before we move to the next step we need to re-arrange a few things:
 
 
 Great! That's all for now. Let's move to the next step where we'll get a few more steps in our scenarios to pass.
-
-[Step 3](step3.md)

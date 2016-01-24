@@ -267,7 +267,7 @@ If it is empty, we want to display a message telling the user: `You have not cre
 
 So, in order to do that we are going to use some ruby in the `course/index.erb` view to condition what is being shown to the user:
 
-```HTML+ERB
+```html
 # courses/index.erb
 
 <% if @courses.any? %>
@@ -295,4 +295,3 @@ Pretty neat, right?
 So if you run `cucumber` again, all the steps in our first two scenarios should pass. Congratulations. You just finished your first feature!
 
 
-[Step 8](step8.md)

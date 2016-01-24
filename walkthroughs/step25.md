@@ -1,4 +1,4 @@
-#### Distributing the certificates
+### Distributing the certificates
 
 ```
 As a course administrator,
@@ -22,7 +22,7 @@ Let's start with modifying the `certificate_generation.feature` by adding the fo
 Run that scenario by pointing cucumber to the line of code where it starts:
 
 ```shell
-$ $ cucumber features/certificate_generation.feature:7
+$ cucumber features/certificate_generation.feature:7
 ```
 
 We want to install a gem that helps us to send emails from the application. As a first step we will do the simplest implementation we possibly can.
@@ -56,12 +56,12 @@ end
 
 And, of course, you need to update your `.env` file with those variables:
 
-```
+```yml
 # .env
 
 ...
-GMAIL_ADDRESS=<your gmail email address>
-GMAIL_PASSWORD=<your gmail password>
+GMAIL_ADDRESS=< your gmail email address >
+GMAIL_PASSWORD=< your gmail password >
 ```
 **I can not stress this enough - MAKE SURE THAT `.env` IS OUTSIDE YOUR VERSION CONTROL**
 
@@ -132,9 +132,11 @@ Another update we need to make is again in the `certificate_generator.rb` We nee
 ...
 def self.generate(certificate)
   ...
-  send_email(details, file_name)
+  if ENV['RACK_ENV'] != 'test'
+    send_email(details, file_name)
+  end
 
-  certificate.update(certificate_key: certificate_output, image_key: image_output )
+  { certificate_key: certificate_output, image_key: image_output }
 end
 ...
 ```

@@ -1,4 +1,4 @@
-#### Adding Students
+### Adding Students
 
 Students will be added as a separate class by uploading a datafile. Each student can be assigned to multiple Deliveries and thus be issued several Certificates.
 
@@ -55,7 +55,7 @@ when /^(.*) show page$/i
 ```
 And lastly update your `course/index.erb` file as follows:
 
-```html+erb
+```erb
 # lib/views/courses/index.erb
 
 <!-- # replace  -->
@@ -82,11 +82,11 @@ end
 ...
 ```
 
-In that route we are pointing to an `erb` template that is still missing (you'll se that when you run `cucumber`, right?)
+In that route we are pointing to an `erb` template that is still missing (you'll see that when you run `cucumber`, right?)
 
 We need to create a new folder and a new `erb` file. Can you figure out how?
 
-```HTML+ERB
+```erb
 # lib/views/courses/deliveries/show.erb
 
 <h2><%= @delivery.course.title %></h2>
@@ -299,7 +299,7 @@ has n, :students, through: Resource
 
 Finally, add the following code to the `show.erb` template:
 
-```HTML+ERB
+```erb
 # lib/views/courses/deliveries/show.erb
 
 ...
@@ -318,4 +318,3 @@ Run all your specs and features. You should see a lot of green on your screen. T
 Next, we will be creating the actual certificates. Exciting?
 
 
-[Step 16](step16.md)

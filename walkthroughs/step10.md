@@ -1,4 +1,4 @@
-#### Logging in
+### Logging in
 
 Now that we have signed up to the application, we want to be able to actually log in.
 
@@ -53,7 +53,7 @@ Run `cucumber` (`cucumber features/user_maintenance.feature`)
 
 Update your `application.erb` by adding the `Log in` link:
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb`
 
 ...
@@ -89,7 +89,7 @@ end
 
 Create a `login.erb` file in the `views/users` folder:
 
-```HTML+ERB
+```html
 # lib/views/users/login.erb
 
 <% form_tag('/users/session', method: 'post') do %>
@@ -105,7 +105,7 @@ Create a `login.erb` file in the `views/users` folder:
 
 Shifting our attention to the `User` model. We need to add a `authenticate` method to `User`.
 
-Let’s start by writing some specs.
+Let's start by writing some specs.
 
 ```ruby
 # spec/user_spec.rb
@@ -220,7 +220,7 @@ Also, in the same file, we need to add some methods to be able to access the cur
 
 We only want to show the `Log in` link if there is no user logged in, right? Update your `application.erb` by adding a condition for the display of the Log in link:
 
-```HTML+ERB
+```html
 # lib/views/layouts/application.erb`
 
 <% if current_user %>
@@ -234,4 +234,4 @@ We only want to show the `Log in` link if there is no user logged in, right? Upd
 
 If you run `cucumber` now, all your steps should go green. Time to set up the log out feature.
 
-[Step 11](step11.md)
+

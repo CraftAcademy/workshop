@@ -1,4 +1,4 @@
-#### Logging out
+### Logging out
 
 At the moment we can create a user and we can allow her/him to log in. We also need to give her/him a chance to log out, right? Then of course we should have a profile page and a feature to allow the user to update his credentials and so on. That is outside of the scope of this exercise but you will be given plenty of opportunities to add these features yourself once you have mastered the Sinatra framework and ruby.
 
@@ -50,7 +50,7 @@ Add the `/users/logout` route to `application.rb`
 
 Update your `application.erb` by adding the Log in link:
 
-```html+erb
+```html
 # lib/views/layouts/application.erb`
 
 <% if current_user %>
@@ -70,4 +70,4 @@ but to be honest, we would need to add a few more features to `User` before we c
  meaning that two users could register with the same email address. Is that okay? Think about that for a moment. Can you come up with some other functionality that could prove useful or even mission critical?
 
 
-[Step 12](step12.md)
+

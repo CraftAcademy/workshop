@@ -1,4 +1,4 @@
-#### Generating images of certificates
+### Generating images of certificates
 
 We also want to generate images of certificates so that we can display them on the verification page.
 
@@ -83,4 +83,3 @@ Running `cucumber` now should show all tests passing.
 
 The next step is to create a verification page.
 
-[Step 19](step19.md)

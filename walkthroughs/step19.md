@@ -1,14 +1,14 @@
-#### The verification interface
+### The verification interface
 
-Every `Certificate` we create has a unique identifier. Each generated certificate displays a url that can used to verify the authenticity of the document.
+Every `Certificate` we create has a unique identifier and displays a url that can be used to verify the authenticity of the document.
 
 In order for it to work we need to:
 
-1. Create a route in our controller (´application.rb`)
+1. Create a route in our controller (`application.rb`)
 2. Create appropriate templates for valid & invalid certificates
 3. Query the database for a certificate using the `identifier`
-4. Display the right certificate on the `velid` page
-5. Display the `invalid` template if there is no matching certificate
+4. Display the right certificate using the `valid.erb` template
+5. Display the `invalid.erb` template if there is no matching certificate
 
 We start with writing a Cucumber feature. Create a new feature file:
 
@@ -26,15 +26,10 @@ Feature: As a certificate reviewer,
   I want to be able to access a web page showing me the certificate information
   by clicking the verification URL
 
-Feature: As a certificate reviewer,
-  In order to asses the authenticity of a certificate
-  I want to be able to access a web page showing me the certificate information
-  by clicking the verification URL
-
-  Scenario: Verify certificate with a valid URL
-    Given valid certificates exists
-    And I visit the url for a certificate
-    Then I should be on the valid certificate page
+Scenario: Verify certificate with a valid URL
+  Given valid certificates exists
+  And I visit the url for a certificate
+  Then I should be on the valid certificate page
 ```
 
 Add the following step definitions to your `application_steps.rb`:
@@ -98,7 +93,7 @@ $ touch lib/views/verify/invalid.erb
 
 Add the following code to these templates:
 
-```HTML+ERB
+```erb
 # lib/views/verify/valid.erb
 
 <h3 style="color: #368a55">Valid certificate for</h3>
@@ -106,10 +101,10 @@ Add the following code to these templates:
 <p><%= @certificate.delivery.course.title %></p>
 <p><%= @certificate.delivery.start_date %></p>
 
-<img src="<%= @image%>" />
+<img src="<%= @image %>" />
 ```
 
-```HTML+ERB
+```erb
 # lib/views/verify/invalid.erb
 
 <h3 style="color: red">Invalid certificate</h3>
@@ -119,11 +114,9 @@ Add the following code to these templates:
 ```
 
 Okay, run all your features and specs. Fire up the local server using `rackup` and have a look for yourself.
-In order to get the verification url you'll need to access a generated pdf in your file system, open it and copy the link from the bottom of the page.
- Paste it in your browser and you should see the verification page.
+
+In order to get the verification url you'll need to access a generated pdf in your file system, open it and copy the link from the bottom of the page. Paste it in your browser and you should see the verification page.
 
 Try modifying the long hash and reload the page. Now, you should see a page that uses the `invalid.erb` template.
 
 Personally, I think we've come pretty far!
-
-[Step 20](step20.md)

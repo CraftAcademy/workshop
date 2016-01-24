@@ -1,9 +1,9 @@
-#### Deploy your application
+### Deployment
 
 In this step we will:
 
 1. Set up an account on [Heroku](http://heroku.com)
-2. Download heroku command line tools
+2. Download Heroku command line tools
 3. Create a new application
 4. Deploy the application
 5. See the app go live on the internet
@@ -45,7 +45,7 @@ The `dotenv` gem can couse some problems for us when we deploy to Heroku. We nee
 
 ...
 if ENV['RACK_ENV'] != 'production'
-require 'dotenv'
+  require 'dotenv'
 end
 
 class WorkshopApp < Sinatra::Base
@@ -152,4 +152,3 @@ So, now you are all set. Head over to your browser window and type in `https://m
 $ heroku open
 ```
 
-[Step 24](step24.md)

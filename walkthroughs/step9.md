@@ -1,4 +1,4 @@
-#### Authenticating a User
+### Authenticating a User
 
 The problem with the way we have created the `User` information in the database is that we are saving the password in plain text. **That is a big no no!**
 
@@ -169,4 +169,3 @@ Run `cucumber` and watch it pass. The scenario we just added is called the sad p
 
 Alright, now we have the users password safely encrypted and saved in our database. The next step is to add a method to authenticate the user when he tries to log in to the application.
 
-[Step 10](step10.md)
