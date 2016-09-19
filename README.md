@@ -25,7 +25,7 @@ We are going to use:
 - A CSS framework (Foundation) to style the front-end
 - And more...
 
-We will be moving in a rather fast phase but we will take good time to explain everything we do. The most important thing is that you follow us as we move forward. The best way to start to learn to code is.. to code! Even if you don't understand everything, we'd like you to do your best to actually go through the steps in this guide. There's no bigger joy than to see code you've written pass all the tests and come to life in your browser.
+We will be moving in a rather fast pace but we will take good time to explain everything we do. The most important thing is that you follow us as we move forward. The best way to start to learn to code is.. to code! Even if you don't understand everything, we'd like you to do your best to actually go through the steps in this guide. There's no bigger joy than to see code you've written pass all the tests and come to life in your browser.
 
 Tests? Yes! We will be practicing *Behavior Driven Development* with a mix of *Unit tests*. This is to ensure that our application meets the requirements (more on that later).
 
